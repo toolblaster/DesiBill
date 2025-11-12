@@ -179,6 +179,25 @@
                     
                     <div class="border-t border-gray-700 my-6"></div>
 
+                    <!-- Signature Upload -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                        <div>
+                            <label for="signature-upload" class="flex items-center gap-2 text-sm font-medium text-gray-300 mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                </svg>
+                                Your Signature (Optional)
+                            </label>
+                            <input type="file" id="signature-upload" accept="image/*" class="w-full text-sm text-gray-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#E50914] file:text-white hover:file:bg-red-700 cursor-pointer" aria-label="Upload your signature">
+                            <button type="button" id="remove-signature" class="hidden text-sm text-red-500 hover:text-red-400 mt-2">Remove Signature</button>
+                        </div>
+                        <div class="flex justify-center md:justify-end">
+                            <img id="signature-preview" src="" alt="Your Signature" class="hidden max-h-16 p-1 bg-white rounded-md object-contain">
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-700 my-6"></div>
+
                     <!-- FROM Section -->
                     <div class="space-y-4">
                         <h3 class="text-base font-semibold text-white flex items-center gap-2">
@@ -190,17 +209,21 @@
                             </svg>
                             FROM (Your Details)
                         </h3>
-                        <!-- REPLACED GRID WITH space-y-4 FOR A SINGLE COLUMN LAYOUT -->
-                        <div class="space-y-4">
+                        <!-- UPDATED to a 2-column grid for Name/Contact, and full-width for GSTIN/Address -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="your-name" class="block text-sm font-medium text-gray-300 mb-1.5">Your Business Name</label>
                                 <input type="text" id="your-name" placeholder="e.g., Rohan Designs" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Your Business Name">
                             </div>
                             <div>
+                                <label for="your-contact" class="block text-sm font-medium text-gray-300 mb-1.5">Your Contact (Email/Phone)</label>
+                                <input type="text" id="your-contact" placeholder="your@email.com or 98XXXXXX00" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Your Contact Email or Phone">
+                            </div>
+                            <div class="md:col-span-2">
                                 <label for="your-gstin" class="block text-sm font-medium text-gray-300 mb-1.5">Your GSTIN (Optional)</label>
                                 <input type="text" id="your-gstin" placeholder="22AAAAA0000A1Z5" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Your GSTIN">
                             </div>
-                            <div>
+                            <div class="md:col-span-2">
                                 <label for="your-address" class="block text-sm font-medium text-gray-300 mb-1.5">Your Address (Optional)</label>
                                 <textarea id="your-address" rows="2" placeholder="123, Main Street, Mumbai, 400001" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500 resize-none" aria-label="Your Business Address"></textarea>
                             </div>
@@ -217,17 +240,21 @@
                           </svg>
                           TO (Client's Details)
                         </h3>
-                        <!-- REPLACED GRID WITH space-y-4 FOR A SINGLE COLUMN LAYOUT -->
-                        <div class="space-y-4">
+                        <!-- UPDATED to a 2-column grid for Name/Contact, and full-width for GSTIN/Address -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="client-name" class="block text-sm font-medium text-gray-300 mb-1.5">Client's Business Name</label>
                                 <input type="text" id="client-name" placeholder="e.g., Priya's Cafe" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Client's Business Name">
                             </div>
                             <div>
+                                <label for="client-contact" class="block text-sm font-medium text-gray-300 mb-1.5">Client's Contact (Email/Phone)</label>
+                                <input type="text" id="client-contact" placeholder="client@email.com or 98XXXXXX00" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Client's Contact Email or Phone">
+                            </div>
+                            <div class="md:col-span-2">
                                 <label for="client-gstin" class="block text-sm font-medium text-gray-300 mb-1.5">Client's GSTIN (Optional)</label>
                                 <input type="text" id="client-gstin" placeholder="27BBBBB1111B1Z9" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Client's GSTIN">
                             </div>
-                            <div>
+                            <div class="md:col-span-2">
                                 <label for="client-address" class="block text-sm font-medium text-gray-300 mb-1.5">Client's Address (Optional)</label>
                                 <textarea id="client-address" rows="2" placeholder="456, B wing, Pune, 411001" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500 resize-none" aria-label="Client's Business Address"></textarea>
                             </div>
@@ -286,18 +313,37 @@
                             </select>
                         </div>
                         <div class="col-span-1">
-                            <label for="gst-rate" class="block text-sm font-medium text-gray-300 mb-1.5">GST Rate</label>
-                            <select id="gst-rate" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="GST Rate">
-                                <option value="0">No GST</option>
+                            <label for="tax-rate" class="block text-sm font-medium text-gray-300 mb-1.5">Tax Rate</label>
+                            <select id="tax-rate" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Tax Rate">
+                                <option value="0">No Tax</option>
                                 <option value="0.05">GST @ 5%</option>
                                 <option value="0.12">GST @ 12%</option>
                                 <option value="0.18">GST @ 18%</option>
+                                <option value="0.06">SST @ 6%</option>
+                                <option value="0.11">PPN @ 11%</option>
+                                <option value="0.20">VAT @ 20%</option>
                             </select>
                         </div>
                     </div>
 
+                    <div class="border-t border-gray-700 my-6"></div>
+
+                    <!-- Notes Section -->
+                    <div class="space-y-4">
+                        <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                            </svg>
+                            Notes / Terms (Optional)
+                        </h3>
+                        <div>
+                            <label for="invoice-notes" class="block text-sm font-medium text-gray-300 mb-1.5">Add any notes, terms, or bank details.</label>
+                            <textarea id="invoice-notes" rows="3" placeholder="e.g., Payment due within 15 days.&#10;Bank: HDFC Bank, A/C: 123456789" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500 resize-none" aria-label="Invoice Notes"></textarea>
+                        </div>
+                    </div>
+
                     <!-- Total & GST - Spaced Out -->
-                     <div class="border-t border-gray-700 pt-6 mt-4">
+                     <div class="border-t border-gray-700 pt-6 mt-6">
                         <div class="flex justify-end items-center mb-1.5">
                             <span class="text-gray-400 text-sm">Subtotal:</span>
                             <span class="text-white text-base font-bold ml-4">
@@ -305,7 +351,7 @@
                             </span>
                         </div>
                          <div id="gst-row" class="hidden flex justify-end items-center mb-2">
-                            <span id="gst-label" class="text-gray-400 text-sm">GST (18%):</span>
+                            <span id="gst-label" class="text-gray-400 text-sm">Tax:</span>
                             <span class="text-white text-base font-bold ml-4">
                                 <span class="currency-symbol">₹</span><span id="gst-amount">0.00</span>
                             </span>
@@ -366,15 +412,15 @@
                         <p class="text-gray-400 text-sm">Bill your international clients in their currency (USD, GBP, AUD, CAD) while keeping your books simple.</p>
                     </div>
                     
-                    <!-- Feature Card 3: Instant PDF Download -->
+                    <!-- Feature Card 3: Easy Sharing -->
                     <div class="soft-shadow-card p-5 rounded-xl">
                         <div class="flex items-center justify-center h-10 w-10 rounded-lg bg-red-900/50 mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#E50914]">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-white mb-1.5">Instant PDF Download</h3>
-                        <p class="text-gray-400 text-sm">Download your invoices as a professional PDF file, ready to be sent to your client instantly.</p>
+                        <h3 class="text-lg font-semibold text-white mb-1.5">Easy Sharing</h3>
+                        <p class="text-gray-400 text-sm">Download your PDF, or prepare it to send via Email or share directly on WhatsApp with your client.</p>
                     </div>
                     
                     <!-- Feature Card 4: Custom Branding -->
@@ -525,7 +571,7 @@
     <script>
         // document.addEventListener('DOMContentLoaded', () => { // <-- REMOVED THIS LINE
             const currencySelect = document.getElementById('currency');
-            const gstRateSelect = document.getElementById('gst-rate');
+            const taxRateSelect = document.getElementById('tax-rate');
             const itemsContainer = document.getElementById('invoice-items-container');
             const addItemBtn = document.getElementById('add-item-btn');
             const itemLimitMsg = document.getElementById('item-limit-msg');
@@ -547,7 +593,12 @@
             const logoPreview = document.getElementById('logo-preview');
             const removeLogoBtn = document.getElementById('remove-logo');
 
+            const signatureUpload = document.getElementById('signature-upload');
+            const signaturePreview = document.getElementById('signature-preview');
+            const removeSignatureBtn = document.getElementById('remove-signature');
+
             const logoStorageKey = 'billBharatLogo';
+            const signatureStorageKey = 'billBharatSignature';
             let itemCount = 1;
             const maxItems = 5;
 
@@ -563,7 +614,7 @@
             function updateTotals() {
                 const currency = currencySelect.value;
                 const symbol = currencySymbols[currency];
-                const gstRate = parseFloat(gstRateSelect.value) || 0;
+                const taxRate = parseFloat(taxRateSelect.value) || 0;
                 
                 let totalSubtotal = 0;
                 const itemRows = itemsContainer.querySelectorAll('.item-row');
@@ -577,20 +628,22 @@
                     totalSubtotal += qty * price;
                 });
 
-                const gst = totalSubtotal * gstRate;
-                const total = totalSubtotal + gst;
+                const taxAmount = totalSubtotal * taxRate;
+                const total = totalSubtotal + taxAmount;
 
                 // Update UI
                 subtotalEl.innerText = totalSubtotal.toFixed(2);
-                gstAmountEl.innerText = gst.toFixed(2);
+                gstAmountEl.innerText = taxAmount.toFixed(2);
                 totalAmountEl.innerText = total.toFixed(2);
                 
                 currencySymbolEls.forEach(el => {
                     el.innerText = symbol;
                 });
 
-                if (gstRate > 0) {
-                    gstLabelEl.innerText = `GST (${(gstRate * 100).toFixed(0)}%):`;
+                if (taxRate > 0) {
+                    const selectedOption = taxRateSelect.options[taxRateSelect.selectedIndex];
+                    const taxLabel = selectedOption.text.replace(' @', ''); // "GST @ 5%" becomes "GST 5%"
+                    gstLabelEl.innerText = `${taxLabel}:`;
                     gstRowEl.classList.remove('hidden');
                 } else {
                     gstRowEl.classList.add('hidden');
@@ -692,10 +745,43 @@
                 removeLogoBtn.classList.add('hidden');
                 logoUpload.value = ''; // Clear file input
             });
+            
+            // --- Signature Logic ---
+            function loadSignature() {
+                const base64Signature = localStorage.getItem(signatureStorageKey);
+                if (base64Signature) {
+                    signaturePreview.src = base64Signature;
+                    signaturePreview.classList.remove('hidden');
+                    removeSignatureBtn.classList.remove('hidden');
+                }
+            }
+
+            signatureUpload.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const base64Signature = event.target.result;
+                        localStorage.setItem(signatureStorageKey, base64Signature);
+                        signaturePreview.src = base64Signature;
+                        signaturePreview.classList.remove('hidden');
+                        removeSignatureBtn.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            removeSignatureBtn.addEventListener('click', () => {
+                localStorage.removeItem(signatureStorageKey);
+                signaturePreview.src = '';
+                signaturePreview.classList.add('hidden');
+                removeSignatureBtn.classList.add('hidden');
+                signatureUpload.value = ''; // Clear file input
+            });
 
             // --- Initial Setup ---
-            // Listen for changes on currency and GST rate
-            [currencySelect, gstRateSelect].forEach(el => {
+            // Listen for changes on currency and tax rate
+            [currencySelect, taxRateSelect].forEach(el => {
                 el.addEventListener('input', updateTotals);
             });
             
@@ -710,6 +796,7 @@
             addItemBtn.addEventListener('click', createItemRow);
             
             loadLogo(); // Load logo from localStorage on page load
+            loadSignature(); // Load signature from localStorage
             updateTotals(); // Initial calculation
             checkAddItemButtonState(); // Check button state on load
             
@@ -720,6 +807,7 @@
 
                 // 1. Gather form data
                 const logoBase64 = localStorage.getItem('billBharatLogo');
+                const signatureBase64 = localStorage.getItem(signatureStorageKey); // Added
                 const yourName = document.getElementById('your-name').value || "Your Business";
                 const yourAddress = document.getElementById('your-address').value;
                 const yourGstin = document.getElementById('your-gstin').value;
@@ -728,13 +816,18 @@
                 const clientAddress = document.getElementById('client-address').value;
                 const clientGstin = document.getElementById('client-gstin').value;
                 
+                const yourContact = document.getElementById('your-contact').value; // Added
+                const clientContact = document.getElementById('client-contact').value; // Added
+                
                 const currency = document.getElementById('currency').value;
                 const currencySymbol = currencySymbols[currency] || '₹';
-                const gstRate = parseFloat(document.getElementById('gst-rate').value) || 0;
+                const taxRate = parseFloat(document.getElementById('tax-rate').value) || 0;
 
                 const subtotal = parseFloat(document.getElementById('subtotal-amount').innerText) || 0;
-                const gstAmount = parseFloat(document.getElementById('gst-amount').innerText) || 0;
+                const taxAmount = parseFloat(document.getElementById('gst-amount').innerText) || 0;
                 const total = parseFloat(document.getElementById('total-amount').innerText) || 0;
+                
+                const invoiceNotes = document.getElementById('invoice-notes').value; // Added
 
                 const date = new Date().toLocaleDateString('en-IN');
                 const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
@@ -791,6 +884,41 @@
                         <td class="right"><strong>${currencySymbol} ${total.toFixed(2)}</strong></td>
                     </tr>
                 `;
+                
+                if (taxRate > 0) {
+                    const taxLabelEl = document.getElementById('gst-label');
+                    const taxLabel = taxLabelEl ? taxLabelEl.innerText.replace(':', '') : 'Tax';
+                    totalsHtml = `
+                        <tr>
+                            <td colspan="2"></td>
+                            <td class="right"><strong>Subtotal</strong></td>
+                            <td class="right">${currencySymbol} ${subtotal.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td class="right">${taxLabel}</td>
+                            <td class="right">${currencySymbol} ${taxAmount.toFixed(2)}</td>
+                        </tr>
+                        <tr class="total">
+                            <td colspan="2"></td>
+                            <td class="right"><strong>TOTAL</strong></td>
+                            <td class="right"><strong>${currencySymbol} ${total.toFixed(2)}</strong></td>
+                        </tr>
+                    `;
+                } else {
+                     totalsHtml = `
+                        <tr>
+                            <td colspan="2"></td>
+                            <td class="right"><strong>Subtotal</strong></td>
+                            <td class="right">${currencySymbol} ${subtotal.toFixed(2)}</td>
+                        </tr>
+                        <tr class="total">
+                            <td colspan="2"></td>
+                            <td class="right"><strong>TOTAL</strong></td>
+                            <td class="right"><strong>${currencySymbol} ${total.toFixed(2)}</strong></td>
+                        </tr>
+                    `;
+                }
 
                 // 4. Construct Full Invoice HTML
                 const invoiceHtml = `
@@ -820,6 +948,12 @@
                             .totals table { width: 50%; float: right; }
                             .totals table td { border: none; padding: 5px 10px; }
                             .totals table tr.total td { font-size: 18px; border-top: 2px solid #333; }
+                            .notes { margin-top: 30px; padding-top: 10px; border-top: 1px solid #eee; font-size: 12px; color: #555; }
+                            .notes h3 { margin: 0 0 5px 0; font-size: 14px; color: #333; }
+                            .notes p { margin: 0; line-height: 1.5; white-space: pre-line; }
+                            .signature { text-align: right; margin-top: 40px; }
+                            .signature img { max-height: 50px; object-fit: contain; }
+                            .signature p { margin-top: 5px; font-size: 12px; color: #555; border-top: 1px solid #ccc; padding-top: 5px; display: inline-block; }
                             .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #777; }
                             @media print {
                                 body { background-color: #fff; }
@@ -834,6 +968,7 @@
                                 <div class="header-left">
                                     ${logoBase64 ? `<img src="${logoBase64}" alt="Business Logo">` : ''}
                                     <h2>${yourName}</h2>
+                                    ${yourContact ? `<p><strong>Contact:</strong> ${yourContact}</p>` : ''}
                                     <p>${yourAddress.replace(/\n/g, '<br>')}</p>
                                     ${yourGstin ? `<p><strong>GSTIN:</strong> ${yourGstin}</p>` : ''}
                                 </div>
@@ -847,6 +982,7 @@
                                 <div>
                                     <h3>BILL TO:</h3>
                                     <p><strong>${clientName}</strong></p>
+                                    ${clientContact ? `<p><strong>Contact:</strong> ${clientContact}</p>` : ''}
                                     <p>${clientAddress.replace(/\n/g, '<br>')}</p>
                                     ${clientGstin ? `<p><strong>GSTIN:</strong> ${clientGstin}</p>` : ''}
                                 </div>
@@ -872,6 +1008,21 @@
                                 </table>
                             </div>
                             <div style="clear: both;"></div>
+                            
+                            ${invoiceNotes ? `
+                                <div class="notes">
+                                    <h3>Notes / Terms:</h3>
+                                    <p>${invoiceNotes.replace(/\n/g, '<br>')}</p>
+                                </div>
+                            ` : ''}
+
+                            ${signatureBase64 ? `
+                                <div class="signature">
+                                    <img src="${signatureBase64}" alt="Signature">
+                                    <p>Authorized Signature</p>
+                                </div>
+                            ` : ''}
+
                             <div class="footer">
                                 <p>Thank you for your business!</p>
                                 <p>Generated by BillBharat - India's Free Billing Tool</p>
