@@ -10,17 +10,17 @@
     <!-- Meta Description (SEO) - Max 160 chars -->
     <meta name="description" content="India's 100% free billing software for small business owners, shopkeepers, and freelancers. Create GST-compliant invoices and manage bills instantly.">
     
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- NEW: Font Awesome CDN for logo icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Custom CSS for Gradients, Shadows, and Fonts -->
     <style>
-        /* Import cursive font */
+        /* Import cursive font for logo */
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-
+        
         /* Set the base theme as requested */
         body {
             background-color: #0B0B0B;
@@ -34,8 +34,8 @@
         .font-sans {
             font-family: 'Inter', sans-serif;
         }
-
-        /* Cursive font for logo */
+        
+        /* NEW: Cursive font class for logo */
         .font-cursive {
             font-family: 'Dancing Script', cursive;
         }
@@ -93,7 +93,10 @@
              box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
         }
         
-        /* Removed .compact-input and .item-row > div styles */
+        /* NEW: Style for the drawing canvas */
+        #signature-canvas {
+            touch-action: none; /* Prevent page scroll while drawing on mobile */
+        }
         
     </style>
 </head>
@@ -102,10 +105,10 @@
     <!-- Header / Navigation -->
     <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#0B0B0B]/80 border-b border-gray-800">
         <nav class="container mx-auto max-w-6xl px-4 h-16 flex justify-between items-center">
-            <!-- Logo -->
+            <!-- Logo - UPDATED -->
             <a href="#" class="text-2xl font-bold text-white flex items-baseline">
-                <!-- NEW: Font Awesome Icon -->
-                <i class="fa-solid fa-receipt h-7 w-7 text-[#E50914] mr-1.5"></i>
+                <!-- NEW: Font Awesome Icon - UPDATED: Reduced margin -->
+                <i class="fa-solid fa-receipt h-7 w-7 text-[#E50914] mr-1"></i>
                 Desi<span class="text-[#E50914] font-cursive text-3xl font-bold">Bill</span>
             </a>
             
@@ -159,9 +162,9 @@
         </section>
 
         <!-- Invoice Generator Tool Section - Compacted -->
+        <!-- UPDATED: Widened container -->
         <section id="invoice-tool" class="py-16 md:py-20 bg-[#111]">
-            <!-- UPDATED: Widened container -->
-            <div class="container mx-auto max-w-4xl px-4">
+            <div class="container mx-auto max-w-4xl px-4"> <!-- max-w-3xl to max-w-4xl -->
                 <div class="text-center max-w-2xl mx-auto mb-8">
                     <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">
                         Generate Your Free Invoice
@@ -171,7 +174,8 @@
                     </p>
                 </div>
 
-                <!-- Simple Invoice Form - UPDATED: Compacted vertical spacing -->
+                <!-- Simple Invoice Form - SPACED OUT UI -->
+                <!-- UPDATED: More compact vertical spacing (space-y-4) -->
                 <form id="invoice-generator-form" class="soft-shadow-card p-6 rounded-xl space-y-4">
                     
                     <!-- Logo Upload -->
@@ -190,32 +194,27 @@
                             <img id="logo-preview" src="" alt="Your Logo" class="hidden max-h-16 p-1 bg-white rounded-md object-contain">
                         </div>
                     </div>
-
-                    <!-- FIX: Removed erroneous Signature Upload section -->
-
-                    <!-- MOVED: Signature Upload section removed from here -->
                     
-                    <!-- UPDATED: Compacted margin -->
-                    <div class="border-t border-gray-700 my-4"></div>
+                    <!-- REMOVED Duplicate Signature Upload -->
 
-                    <!-- FROM and TO Section Wrapper -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+                    <!-- UPDATED: FROM and TO sections side-by-side -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        
                         <!-- FROM Section -->
-                        <div class="space-y-4 bg-gradient-to-br from-gray-800/50 to-gray-900/30 p-5 rounded-xl border border-gray-700">
+                        <!-- UPDATED: Added gradient background and border -->
+                        <div class="space-y-4 bg-gradient-to-br from-gray-800/50 to-gray-800/20 p-5 rounded-xl border border-gray-700">
                             <h3 class="text-base font-semibold text-white flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gray-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662v.513A1.62 1.62 0 0 0 5.12 14.122v4.774c0 .53.43.96.96.96h11.84a.96.96 0 0 0 .96-.96v-4.774a1.62 1.62 0 0 0-.6-1.109v-.513Z" />
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75h.008v.008H12v-.008Z" />
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 15.75h.008v.008H7.5v-.008Z" />
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 15.75h.008v.008H16.5v-.008Z" />
                                 </svg>
-                                <!-- FIX: Removed broken signature block from here -->
                                 FROM (Your Details)
                             </h3>
                             <!-- UPDATED to a 2-column grid for Name/Contact, and full-width for GSTIN/Address -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="sm:col-span-2">
                                     <label for="your-name" class="block text-sm font-medium text-gray-300 mb-1.5">Your Business Name</label>
                                     <input type="text" id="your-name" placeholder="e.g., Rohan Designs" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Your Business Name">
                                 </div>
@@ -223,20 +222,20 @@
                                     <label for="your-contact" class="block text-sm font-medium text-gray-300 mb-1.5">Your Contact</label>
                                     <input type="text" id="your-contact" placeholder="your@email.com or 98XXXXXX00" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Your Contact Email or Phone">
                                 </div>
-                                <div class="md:col-span-2">
+                                <div>
                                     <label for="your-gstin" class="block text-sm font-medium text-gray-300 mb-1.5">Your GSTIN (Optional)</label>
                                     <input type="text" id="your-gstin" placeholder="22AAAAA0000A1Z5" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Your GSTIN">
                                 </div>
-                                <div class="md:col-span-2">
+                                <div class="sm:col-span-2">
                                     <label for="your-address" class="block text-sm font-medium text-gray-300 mb-1.5">Your Address (Optional)</label>
                                     <textarea id="your-address" rows="2" placeholder="123, Main Street, Mumbai, 400001" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500 resize-none" aria-label="Your Business Address"></textarea>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- FIX: Moved TO Section here -->
                         <!-- TO Section -->
-                        <div class="space-y-4 bg-gradient-to-br from-red-900/30 to-gray-900/30 p-5 rounded-xl border border-red-800/50">
+                        <!-- UPDATED: Added gradient background and border -->
+                        <div class="space-y-4 bg-gradient-to-br from-red-900/30 to-red-900/10 p-5 rounded-xl border border-red-800/50">
                             <h3 class="text-base font-semibold text-white flex items-center gap-2">
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -244,8 +243,8 @@
                               TO (Client's Details)
                             </h3>
                             <!-- UPDATED to a 2-column grid for Name/Contact, and full-width for GSTIN/Address -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="sm:col-span-2">
                                     <label for="client-name" class="block text-sm font-medium text-gray-300 mb-1.5">Client's Business Name</label>
                                     <input type="text" id="client-name" placeholder="e.g., Priya's Cafe" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Client's Business Name">
                                 </div>
@@ -253,25 +252,20 @@
                                     <label for="client-contact" class="block text-sm font-medium text-gray-300 mb-1.5">Client's Contact</label>
                                     <input type="text" id="client-contact" placeholder="client@email.com or 98XXXXXX00" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Client's Contact Email or Phone">
                                 </div>
-                                <div class="md:col-span-2">
+                                <div>
                                     <label for="client-gstin" class="block text-sm font-medium text-gray-300 mb-1.5">Client's GSTIN (Optional)</label>
                                     <input type="text" id="client-gstin" placeholder="27BBBBB1111B1Z9" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500" aria-label="Client's GSTIN">
                                 </div>
-                                <div class="md:col-span-2">
+                                <div class="sm:col-span-2">
                                     <label for="client-address" class="block text-sm font-medium text-gray-300 mb-1.5">Client's Address (Optional)</label>
                                     <textarea id="client-address" rows="2" placeholder="456, B wing, Pune, 411001" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-sm focus:border-red-500 focus:ring-red-500 resize-none" aria-label="Client's Business Address"></textarea>
                                 </div>
                             </div>
                         </div>
-
-                    </div> <!-- End of FROM/TO Grid -->
-                    
-                    <!-- FIX: Removed duplicated/old sections and dividers -->
-
-                    <!-- UPDATED: Compacted margin -->
-                    <div class="border-t border-gray-700 my-4"></div>
+                    </div>
 
                     <!-- Item Details -->
+                    <!-- UPDATED: Added gradient background and border -->
                     <div class="pt-2 bg-gradient-to-br from-gray-900/50 to-gray-900/20 p-5 rounded-xl border border-gray-700">
                         <h3 class="text-base font-semibold text-white flex items-center gap-2 mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
@@ -282,7 +276,7 @@
                         <!-- Container for dynamic items -->
                         <div id="invoice-items-container" class="space-y-4">
                             <!-- Item Row 1 (Template) -->
-                            <div class="item-row p-4 border border-gray-700 rounded-lg">
+                            <div class="item-row p-4 border border-gray-700 rounded-lg bg-black/20">
                                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                                     <div class="md:col-span-2">
                                         <label for="item-desc-1" class="block text-sm font-medium text-gray-300 mb-1.5">Description</label>
@@ -309,6 +303,7 @@
                     </div>
                     
                     <!-- Currency & GST Rate Selection -->
+                    <!-- UPDATED: Added gradient background and border -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 bg-gradient-to-br from-gray-900/50 to-gray-900/20 p-5 rounded-xl border border-gray-700">
                         <div class="col-span-1">
                             <label for="currency" class="block text-sm font-medium text-gray-300 mb-1.5">Currency</label>
@@ -333,10 +328,9 @@
                             </select>
                         </div>
                     </div>
-                    <!-- UPDATED: Compacted margin -->
-                    <div class="border-t border-gray-700 my-4"></div>
 
                     <!-- Notes Section -->
+                    <!-- UPDATED: Added gradient background and border -->
                     <div class="space-y-4 bg-gradient-to-br from-gray-900/50 to-gray-900/20 p-5 rounded-xl border border-gray-700">
                         <h3 class="text-base font-semibold text-white flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
@@ -350,32 +344,53 @@
                         </div>
                     </div>
 
-                    <!-- NEW: Signature Upload section moved here -->
-                    <!-- UPDATED: Compacted margin -->
-                    <div class="border-t border-gray-700 my-4"></div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-gradient-to-br from-gray-900/50 to-gray-900/20 p-5 rounded-xl border border-gray-700">
+                    <!-- UPDATED: Signature Section with Tabs -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start bg-gradient-to-br from-gray-900/50 to-gray-900/20 p-5 rounded-xl border border-gray-700">
+                        
+                        <!-- Left Column: Controls -->
                         <div>
-                            <label for="signature-upload" class="flex items-center gap-2 text-sm font-medium text-gray-300 mb-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
-                                </svg>
-                                Your Signature (Optional)
-                            </label>
-                            <input type="file" id="signature-upload" accept="image/*" class="w-full text-sm text-gray-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#E50914] file:text-white hover:file:bg-red-700 cursor-pointer" aria-label="Upload your signature">
-                            <!-- NEW HELPER TEXT -->
-                            <p class="text-xs text-gray-500 mt-1.5">Tip: For best results, use a wide image (e.g., 300px wide by 80px tall). Max 1MB.</p>
-                            <button type="button" id="remove-signature" class="hidden text-sm text-red-500 hover:text-red-400 mt-2">Remove Signature</button>
+                            <!-- Tab Buttons -->
+                            <div class="flex mb-3 border-b border-gray-700">
+                                <button type="button" id="sig-tab-upload" class="sig-tab-btn flex items-center gap-2 py-2 px-3 text-sm font-medium border-b-2 border-red-500 text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
+                                    Upload
+                                </button>
+                                <button type="button" id="sig-tab-draw" class="sig-tab-btn flex items-center gap-2 py-2 px-3 text-sm font-medium border-b-2 border-transparent text-gray-400 hover:text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" /></svg>
+                                    Draw
+                                </button>
+                            </div>
+
+                            <!-- Upload Panel -->
+                            <div id="upload-panel">
+                                <label for="signature-upload" class="flex items-center gap-2 text-sm font-medium text-gray-300 mb-1">
+                                    Your Signature (Optional)
+                                </label>
+                                <input type="file" id="signature-upload" accept="image/*" class="w-full text-sm text-gray-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#E50914] file:text-white hover:file:bg-red-700 cursor-pointer" aria-label="Upload your signature">
+                                <!-- UPDATED: Added helper text -->
+                                <p class="text-xs text-gray-500 mt-1.5">Tip: For best results, use a wide image (e.g., 300px wide by 80px tall). Max 1MB.</p>
+                                <button type="button" id="remove-signature" class="hidden text-sm text-red-500 hover:text-red-400 mt-2">Remove Signature</button>
+                            </div>
+
+                            <!-- Draw Panel (hidden by default) -->
+                            <div id="draw-panel" class="hidden">
+                                <label class="block text-sm font-medium text-gray-300 mb-1.5">Draw your signature in the box:</label>
+                                <canvas id="signature-canvas" class="bg-white rounded-md border border-gray-300 cursor-crosshair w-full" width="400" height="150"></canvas>
+                                <button type="button" id="clear-signature" class="btn-secondary text-sm text-white py-1.5 px-3 rounded-lg font-medium mt-2">
+                                    Clear
+                                </button>
+                            </div>
                         </div>
+
+                        <!-- Right Column: Preview -->
                         <div class="flex justify-center md:justify-end">
                             <img id="signature-preview" src="" alt="Your Signature" class="hidden max-h-16 p-1 bg-white rounded-md object-contain">
                         </div>
                     </div>
 
-
                     <!-- Total & GST - Spaced Out -->
-                     <!-- UPDATED: Compacted margin -->
-                     <div class="border-t border-gray-700 pt-4 mt-4">
+                    <!-- UPDATED: Compacted margin -->
+                     <div class="border-t border-gray-700 pt-6 mt-4">
                         <div class="flex justify-end items-center mb-1.5">
                             <span class="text-gray-400 text-sm">Subtotal:</span>
                             <span class="text-white text-base font-bold ml-4">
@@ -520,10 +535,10 @@
                         </div>
                     </div>
                     
-                    <!-- Testimonial Card 2 -->
+                    <!-- Testimonial Card 2 - UPDATED -->
                     <div class="soft-shadow-card p-5 rounded-xl flex flex-col justify-between">
                         <blockquote class="text-base text-gray-300 italic mb-4">
-                            "As a small shopkeeper, managing GST was a headache. DesiBill is so simple. I finally have a proper record of my sales."
+                            "As a small shopkeeper, managing GST was a headache. **DesiBill** is so simple. I finally have a proper record of my sales."
                         </blockquote>
                         <div class="flex items-center mt-3">
                             <img src="https://placehold.co/40x40/E50914/FFFFFF?text=S" alt="Suresh Patel" class="w-10 h-10 rounded-full object-cover mr-3 border-2 border-red-500">
@@ -537,7 +552,7 @@
                     <!-- Testimonial Card 3 -->
                     <div class="soft-shadow-card p-5 rounded-xl flex flex-col justify-between">
                         <blockquote class="text-base text-gray-300 italic mb-4">
-                            "I tried other 'free' tools, but they all had limits. DesiBill is truly free forever. Our small agency runs on it."
+                            "I tried other 'free' tools, but they all had limits. **DesiBill** is truly free forever. Our small agency runs on it."
                         </blockquote>
                         <div class="flex items-center mt-3">
                             <img src="https://placehold.co/40x40/E50914/FFFFFF?text=A" alt="Ankit S." class="w-10 h-10 rounded-full object-cover mr-3 border-2 border-red-500">
@@ -586,6 +601,7 @@
             
             <!-- Copyright -->
             <p class="text-center text-gray-500 text-xs">
+                <!-- UPDATED -->
                 © 2025 DesiBill. All rights reserved.
             </p>
             <p class="text-center text-gray-500 text-xs mt-1">
@@ -595,11 +611,7 @@
         </div>
     </footer>
 
-    <!-- jsPDF Libraries for PDF Generation -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf-autotable.min.js"></script> -->
-
-            <!-- JavaScript for Interactivity AND PDF Generation -->
+    <!-- JavaScript for Interactivity AND PDF Generation -->
     <script>
         // document.addEventListener('DOMContentLoaded', () => { // <-- REMOVED THIS LINE
             const currencySelect = document.getElementById('currency');
@@ -629,8 +641,19 @@
             const signaturePreview = document.getElementById('signature-preview');
             const removeSignatureBtn = document.getElementById('remove-signature');
 
+            // NEW: Signature tabs and panels
+            const sigTabUpload = document.getElementById('sig-tab-upload');
+            const sigTabDraw = document.getElementById('sig-tab-draw');
+            const uploadPanel = document.getElementById('upload-panel');
+            const drawPanel = document.getElementById('draw-panel');
+            const sigCanvas = document.getElementById('signature-canvas');
+            const sigClearBtn = document.getElementById('clear-signature');
+            const sigContext = sigCanvas.getContext('2d');
+
             const logoStorageKey = 'billBharatLogo'; // Kept old key to preserve user's logo
             const signatureStorageKey = 'billBharatSignature'; // Kept old key
+            let sigMode = 'upload'; // NEW: Track current mode
+            let isDrawing = false; // NEW
             let itemCount = 1;
             const maxItems = 5;
 
@@ -780,11 +803,17 @@
             
             // --- Signature Logic ---
             function loadSignature() {
+                // This function now only loads the *uploaded* signature
+                if (sigMode !== 'upload') return; // Only run if in upload mode
                 const base64Signature = localStorage.getItem(signatureStorageKey);
                 if (base64Signature) {
                     signaturePreview.src = base64Signature;
                     signaturePreview.classList.remove('hidden');
                     removeSignatureBtn.classList.remove('hidden');
+                } else {
+                    signaturePreview.src = '';
+                    signaturePreview.classList.add('hidden');
+                    removeSignatureBtn.classList.add('hidden');
                 }
             }
 
@@ -803,12 +832,137 @@
                 }
             });
 
+            // UPDATED: Remove button logic works for both modes
             removeSignatureBtn.addEventListener('click', () => {
-                localStorage.removeItem(signatureStorageKey);
+                if (sigMode === 'upload') {
+                    localStorage.removeItem(signatureStorageKey);
+                    signaturePreview.src = ''; // <-- FIX: Was logoPreview.src in original file
+                    signaturePreview.classList.add('hidden');
+                    removeSignatureBtn.classList.add('hidden');
+                    signatureUpload.value = ''; // Clear file input
+                } else if (sigMode === 'draw') {
+                    sigClearBtn.click(); // Trigger the canvas clear logic
+                }
+            });
+
+            // --- NEW: Signature Tab and Canvas Logic ---
+            sigTabUpload.addEventListener('click', () => {
+                sigMode = 'upload';
+                uploadPanel.classList.remove('hidden');
+                drawPanel.classList.add('hidden');
+                // Style active tab
+                sigTabUpload.classList.add('border-red-500', 'text-white');
+                sigTabUpload.classList.remove('border-transparent', 'text-gray-400');
+                // Style inactive tab
+                sigTabDraw.classList.add('border-transparent', 'text-gray-400');
+                sigTabDraw.classList.remove('border-red-500', 'text-white');
+                loadSignature(); // Reload uploaded signature into preview
+            });
+
+            sigTabDraw.addEventListener('click', () => {
+                sigMode = 'draw';
+                uploadPanel.classList.add('hidden');
+                drawPanel.classList.remove('hidden');
+                // Style active tab
+                sigTabDraw.classList.add('border-red-500', 'text-white');
+                sigTabDraw.classList.remove('border-transparent', 'text-gray-400');
+                // Style inactive tab
+                sigTabUpload.classList.add('border-transparent', 'text-gray-400');
+                sigTabUpload.classList.remove('border-red-500', 'text-white');
+                
+                // Check if there's a drawn signature to show
+                if (!isCanvasBlank(sigCanvas)) {
+                     signaturePreview.src = sigCanvas.toDataURL();
+                     signaturePreview.classList.remove('hidden');
+                     removeSignatureBtn.classList.remove('hidden');
+                } else {
+                     signaturePreview.src = '';
+                     signaturePreview.classList.add('hidden');
+                     removeSignatureBtn.classList.add('hidden');
+                }
+            });
+
+            // --- NEW: Canvas drawing logic ---
+            sigContext.strokeStyle = '#000000';
+            sigContext.lineWidth = 2;
+            sigContext.lineCap = 'round';
+            sigContext.lineJoin = 'round';
+
+            function getMousePos(canvas, evt) {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                
+                let clientX, clientY;
+                if (evt.touches) { // Touch event
+                    clientX = evt.touches[0].clientX;
+                    clientY = evt.touches[0].clientY;
+                } else { // Mouse event
+                    clientX = evt.clientX;
+                    clientY = evt.clientY;
+                }
+                return {
+                    x: (clientX - rect.left) * scaleX,
+                    y: (clientY - rect.top) * scaleY
+                };
+            }
+
+            function startDrawing(e) {
+                e.preventDefault(); // prevent scrolling
+                isDrawing = true;
+                const pos = getMousePos(sigCanvas, e);
+                sigContext.beginPath();
+                sigContext.moveTo(pos.x, pos.y);
+            }
+
+            function draw(e) {
+                if (!isDrawing) return;
+                e.preventDefault();
+                const pos = getMousePos(sigCanvas, e);
+                sigContext.lineTo(pos.x, pos.y);
+                sigContext.stroke();
+            }
+
+            function stopDrawing(e) {
+                if (!isDrawing) return;
+                isDrawing = false;
+                sigContext.closePath();
+                
+                // Update preview only if it's not a mouseout event
+                if (e.type !== 'mouseout') {
+                    const dataUrl = sigCanvas.toDataURL();
+                    signaturePreview.src = dataUrl;
+                    signaturePreview.classList.remove('hidden');
+                    removeSignatureBtn.classList.remove('hidden');
+                }
+            }
+            
+            function isCanvasBlank(canvas) {
+                // Check if canvas is empty
+                const blank = document.createElement('canvas');
+                blank.width = canvas.width;
+                blank.height = canvas.height;
+                return canvas.toDataURL() === blank.toDataURL();
+            }
+
+            // Mouse events
+            sigCanvas.addEventListener('mousedown', startDrawing);
+            sigCanvas.addEventListener('mousemove', draw);
+            // FIXED: Corrected typo 'stopDraweing' to 'stopDrawing'
+            sigCanvas.addEventListener('mouseup', stopDrawing);
+            sigCanvas.addEventListener('mouseout', stopDrawing); // Stop if mouse leaves canvas
+
+            // Touch events
+            sigCanvas.addEventListener('touchstart', startDrawing);
+            sigCanvas.addEventListener('touchmove', draw);
+            sigCanvas.addEventListener('touchend', stopDrawing);
+
+            // Clear button
+            sigClearBtn.addEventListener('click', () => {
+                sigContext.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
                 signaturePreview.src = '';
                 signaturePreview.classList.add('hidden');
                 removeSignatureBtn.classList.add('hidden');
-                signatureUpload.value = ''; // Clear file input
             });
 
             // --- Initial Setup ---
@@ -839,7 +993,15 @@
 
                 // 1. Gather form data
                 const logoBase64 = localStorage.getItem(logoStorageKey); // Use the same key
-                const signatureBase64 = localStorage.getItem(signatureStorageKey); // Added
+                
+                // UPDATED: Get signature based on sigMode
+                let signatureBase64 = null;
+                if (sigMode === 'upload') {
+                    signatureBase64 = localStorage.getItem(signatureStorageKey);
+                } else if (sigMode === 'draw' && !isCanvasBlank(sigCanvas)) {
+                    signatureBase64 = sigCanvas.toDataURL(); // Get drawn signature
+                }
+
                 const yourName = document.getElementById('your-name').value || "Your Business";
                 const yourAddress = document.getElementById('your-address').value;
                 const yourGstin = document.getElementById('your-gstin').value;
@@ -890,7 +1052,7 @@
                 }
 
                 // 3. Build Totals Rows HTML
-                let totalsHtml = ``;
+                let totalsHtml = '';
                 
                 if (taxRate > 0) {
                     const taxLabelEl = document.getElementById('gst-label');
@@ -936,15 +1098,31 @@
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                         <title>Invoice ${invoiceNumber}</title>
                         <style>
+                            /* NEW: Import Cursive Font */
+                            @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+                        
                             body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f8f8; color: #333; }
-                            .container { width: 800px; margin: 20px auto; background-color: #fff; border: 1px solid #ddd; padding: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+                            
+                            /* UPDATED: Added position relative and z-index */
+                            .container { 
+                                width: 800px; 
+                                margin: 20px auto; 
+                                background-color: #fff; 
+                                border: 1px solid #ddd; 
+                                padding: 40px; 
+                                box-shadow: 0 0 10px rgba(0,0,0,0.05);
+                                position: relative; /* For stacking context */
+                                z-index: 2; /* Ensure content is above watermark */
+                            }
                             .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
                             .header-left { max-width: 50%; }
+                            .header-left h2 { font-size: 20px; margin-bottom: 5px; }
+                            .header-left img { max-width: 180px; max-height: 70px; object-fit: contain; margin-bottom: 10px; } /* Logo size */
                             .header-right { text-align: right; }
                             .header-right h1 { margin: 0 0 5px 0; color: #E50914; font-size: 28px; }
                             /* MODIFIED: Removed flex layout from .details and width from .details div */
-                            .details { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
-                            .details div { /* No width property needed, defaults to block */ }
+                            .details { display: flex; justify-content: space-between; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
+                            .details div { width: 48%; /* Give them space */ }
                             .details h3 { margin: 0 0 5px 0; font-size: 14px; color: #555; }
                             .details p { margin: 0; line-height: 1.6; white-space: pre-line; }
                             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
@@ -962,18 +1140,46 @@
                             .signature img { max-height: 50px; object-fit: contain; }
                             .signature p { margin-top: 5px; font-size: 12px; color: #555; border-top: 1px solid #ccc; padding-top: 5px; display: inline-block; }
                             .footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #777; }
+                            
+                            /* NEW: Watermark styles */
+                            .watermark {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%) rotate(-45deg);
+                                font-size: 100px;
+                                font-weight: bold;
+                                color: rgba(229, 9, 20, 0.05); /* Very faint red */
+                                white-space: nowrap;
+                                z-index: 1; /* Behind the content */
+                                user-select: none;
+                            }
+                            .watermark .cursive {
+                                font-family: 'Dancing Script', cursive;
+                                font-size: 120px; /* Make cursive part slightly larger */
+                            }
+                            
                             @media print {
                                 body { background-color: #fff; }
                                 .container { width: 100%; margin: 0; padding: 0; border: none; box-shadow: none; }
                                 .no-print { display: none; }
+                                .watermark {
+                                    /* Slightly more visible for print */
+                                    color: rgba(229, 9, 20, 0.07);
+                                }
                             }
                         </style>
                     </head>
                     <body>
+                        <!-- NEW: Watermark HTML -->
+                        <div class="watermark">
+                            Desi<span class="cursive">Bill</span>
+                        </div>
+                        
                         <div class="container">
                             <div class="header">
                                 <div class="header-left">
-                                    ${logoBase64 ? `<img src="${logoBase64}" alt="Business Logo" style="max-height: 60px; margin-bottom: 10px;">` : ''}
+                                    ${logoBase64 ? `<img src="${logoBase64}" alt="Business Logo">` : ''}
                                     <h2>${yourName}</h2>
                                     ${yourContact ? `<p><strong>Contact:</strong> ${yourContact}</p>` : ''}
                                     <p>${yourAddress.replace(/\n/g, '<br>')}</p>
@@ -985,7 +1191,6 @@
                                     <p><strong>Date:</strong> ${date}</p>
                                 </div>
                             </div>
-                            <!-- FIX: Removed stray div -->
                             <div class="details">
                                 <div>
                                     <h3>BILL TO:</h3>
@@ -995,7 +1200,6 @@
                                     ${clientGstin ? `<p><strong>GSTIN:</strong> ${clientGstin}</p>` : ''}
                                 </div>
                             </div>
-                            <!-- FIX: Removed stray HTML block and div -->
                             <table>
                                 <thead>
                                     <tr>
@@ -1024,7 +1228,6 @@
                                     <p>${invoiceNotes.replace(/\n/g, '<br>')}</p>
                                 </div>
                             ` : ''}
-                            <!-- FIX: Removed stray div -->
 
                             ${signatureBase64 ? `
                                 <div class="signature">
@@ -1032,10 +1235,10 @@
                                     <p>Authorized Signature</p>
                                 </div>
                             ` : ''}
-                            <!-- FIX: Removed stray div -->
 
                             <div class="footer">
                                 <p>Thank you for your business!</p>
+                                <!-- UPDATED -->
                                 <p>Generated by DesiBill - India's Free Billing Tool</p>
                             </div>
                         </div>
