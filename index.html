@@ -1670,8 +1670,6 @@
                                     border: 1px solid #eee;
                                     border-radius: 8px;
                                     padding: 15px;
-                                    /* UPDATED: Aligh all text to right */
-                                    text-align: right; 
                                 }
                                 .party-box h3 {
                                     font-size: 13px;
@@ -1680,6 +1678,12 @@
                                     margin-top: 0;
                                     margin-bottom: 10px;
                                     text-transform: uppercase;
+                                    /* UPDATED: Align title to left */
+                                    text-align: left; 
+                                }
+                                .party-box-content {
+                                    /* UPDATED: Align content to left */
+                                    text-align: left;
                                 }
                                 .party-box p {
                                     font-size: 14px;
@@ -1894,22 +1898,26 @@
                                     <!-- UPDATED: FROM Box -->
                                     <div class="party-box">
                                         <h3>FROM:</h3>
-                                        <p class="party-name">${yourName}</p>
-                                        <p>
-                                            ${yourContact ? `${yourContact}<br>` : ''}
-                                            ${yourAddress.replace(/\n/g, '<br>')}
-                                            ${yourGstin ? `<br><strong>GSTIN:</strong> ${yourGstin}` : ''}
-                                        </p>
+                                        <div class="party-box-content">
+                                            <p class="party-name">${yourName}</p>
+                                            <p>
+                                                ${yourContact ? `${yourContact}<br>` : ''}
+                                                ${yourAddress.replace(/\n/g, '<br>')}
+                                                ${yourGstin ? `<br><strong>GSTIN:</strong> ${yourGstin}` : ''}
+                                            </p>
+                                        </div>
                                     </div>
                                     <!-- UPDATED: TO Box -->
                                     <div class="party-box">
                                         <h3>BILL TO:</h3>
-                                        <p class="party-name">${clientName}</p>
-                                        <p>
-                                            ${clientContact ? `${clientContact}<br>` : ''}
-                                            ${clientAddress.replace(/\n/g, '<br>')}
-                                            ${clientGstin ? `<br><strong>GSTIN:</strong> ${clientGstin}` : ''}
-                                        </p>
+                                        <div class="party-box-content">
+                                            <p class="party-name">${clientName}</p>
+                                            <p>
+                                                ${clientContact ? `${clientContact}<br>` : ''}
+                                                ${clientAddress.replace(/\n/g, '<br>')}
+                                                ${clientGstin ? `<br><strong>GSTIN:</strong> ${clientGstin}` : ''}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
