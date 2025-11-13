@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Meta Title (SEO) - Max 60 chars -->
-    <title>DesiBill: Free GST Billing & Invoice Tool for Indian SMBs</title>
+    <!-- Meta Title (SEO) - UPDATED: Kept under 60 chars for Google Ads -->
+    <title>DesiBill: Free GST Billing & Invoice Tool for Indian Business</title>
     
     <!-- Meta Description (SEO) - Max 160 chars -->
     <meta name="description" content="India's 100% free billing software for small business owners, shopkeepers, and freelancers. Create GST-compliant invoices and manage bills instantly.">
+    
+    <!-- NEW: Meta Keywords for SEO -->
+    <meta name="keywords" content="free billing software india, free gst invoice generator, online billing tool, desibill, gst billing software for small business, free invoice maker, shopkeeper billing app, freelancer invoice tool india">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -99,6 +102,56 @@
         }
         
     </style>
+    
+    <!-- NEW: Schema Markup for SEO (Organization, Software, Breadcrumbs) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "DesiBill",
+          "url": "https://desibill.example.com/",
+          "logo": "https://desibill.example.com/logo.png",
+          "description": "Free GST billing and invoice tool for Indian businesses."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "DesiBill",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          },
+          "description": "India's 100% free billing software for small business owners, shopkeepers, and freelancers. Create GST-compliant invoices and manage bills instantly.",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://desibill.example.com/"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://desibill.example.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Free Invoice Tool",
+              "item": "https://desibill.example.com/#invoice-tool"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
 </head>
 <body class="font-sans antialiased">
 
@@ -117,6 +170,8 @@
                 <a href="#features" class="text-gray-300 hover:text-white transition-colors text-sm">Features</a>
                 <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors text-sm">Testimonials</a>
                 <a href="#invoice-tool" class="text-gray-300 hover:text-white transition-colors text-sm">Billing Tool</a>
+                <!-- Google Ads Optimization: Recommend making Contact link more prominent for trust -->
+                <!-- <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-sm">Contact Us</a> -->
             </div>
             
             <!-- CTA (Desktop) -->
@@ -150,7 +205,8 @@
                 </h1>
                 
                 <p class="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-                    Perfect for **shopkeepers, electricians, carpenters, and small vendors**. Create GST invoices and download PDFs — all free forever.
+                    <!-- UPDATED: Changed Markdown ** to HTML <strong> for correctness -->
+                    Perfect for <strong>shopkeepers, electricians, carpenters, and small vendors</strong>. Create GST invoices and download PDFs — all free forever.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
@@ -421,6 +477,64 @@
             </div>
         </section>
 
+        <!-- NEW: Schema Markup for FAQ (from Features section) -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can I make GST invoices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! You can generate professional, GST-compliant invoices with CGST/SGST/IGST calculations in seconds using DesiBill."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you support international currencies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, DesiBill supports multi-currency billing. You can bill international clients in USD, GBP, AUD, and CAD."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I share my invoice?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can download your invoice as a PDF, which you can then send via Email or share directly on WhatsApp with your client."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I add my business logo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our tool allows you to add your own business logo and signature to your invoices to look professional and build client trust."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this billing tool really free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! DesiBill is 100% free forever. There are no monthly limits and no restricted features. Just free, simple billing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this work on mobile phones?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. DesiBill is mobile-friendly, so you can send an invoice from your phone, shop, or home computer. It works perfectly on all devices."
+              }
+            }
+          ]
+        }
+        </script>
+
         <!-- Features Section - Compacted -->
         <section id="features" class="py-16 md:py-20 bg-[#0B0B0B]">
             <div class="container mx-auto max-w-6xl px-4">
@@ -538,7 +652,7 @@
                     <!-- Testimonial Card 2 - UPDATED -->
                     <div class="soft-shadow-card p-5 rounded-xl flex flex-col justify-between">
                         <blockquote class="text-base text-gray-300 italic mb-4">
-                            "As a small shopkeeper, managing GST was a headache. **DesiBill** is so simple. I finally have a proper record of my sales."
+                            "As a small shopkeeper, managing GST was a headache. <strong>DesiBill</strong> is so simple. I finally have a proper record of my sales."
                         </blockquote>
                         <div class="flex items-center mt-3">
                             <img src="https://placehold.co/40x40/E50914/FFFFFF?text=S" alt="Suresh Patel" class="w-10 h-10 rounded-full object-cover mr-3 border-2 border-red-500">
@@ -552,7 +666,7 @@
                     <!-- Testimonial Card 3 -->
                     <div class="soft-shadow-card p-5 rounded-xl flex flex-col justify-between">
                         <blockquote class="text-base text-gray-300 italic mb-4">
-                            "I tried other 'free' tools, but they all had limits. **DesiBill** is truly free forever. Our small agency runs on it."
+                            "I tried other 'free' tools, but they all had limits. <strong>DesiBill</strong> is truly free forever. Our small agency runs on it."
                         </blockquote>
                         <div class="flex items-center mt-3">
                             <img src="https://placehold.co/40x40/E50914/FFFFFF?text=A" alt="Ankit S." class="w-10 h-10 rounded-full object-cover mr-3 border-2 border-red-500">
@@ -594,9 +708,15 @@
             
             <!-- Footer Links -->
             <div class="flex justify-center items-center space-x-4 mb-4">
-                 <a href="#" class="text-gray-400 hover:text-white transition-colors text-xs">Privacy Policy</a>
-                 <a href="#" class="text-gray-400 hover:text-white transition-colors text-xs">Terms of Service</a>
-                 <a href="#" class="text-gray-400 hover:text-white transition-colors text-xs">Contact Us</a>
+                 <!-- 
+                    Google Ads Optimization: 
+                    These links MUST lead to real pages. 
+                    Using href="#" can cause ad disapproval. 
+                    Create and link to actual Privacy and Terms pages.
+                 -->
+                 <a href="/privacy.html" class="text-gray-400 hover:text-white transition-colors text-xs">Privacy Policy</a>
+                 <a href="/terms.html" class="text-gray-400 hover:text-white transition-colors text-xs">Terms of Service</a>
+                 <a href="/contact.html" class="text-gray-400 hover:text-white transition-colors text-xs">Contact Us</a>
             </div>
             
             <!-- Copyright -->
