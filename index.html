@@ -4,167 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Meta Title (SEO) - UPDATED: Kept under 60 chars for Google Ads -->
     <title>DesiBill: Free GST Billing & Invoice Tool for Indian Business</title>
     
-    <!-- Meta Description (SEO) - Max 160 chars -->
     <meta name="description" content="India's 100% free billing software for small business owners, shopkeepers, and freelancers. Create GST-compliant invoices and manage bills instantly.">
     
-    <!-- NEW: Meta Keywords for SEO -->
     <meta name="keywords" content="free billing software india, free gst invoice generator, online billing tool, desibill, gst billing software for small business, free invoice maker, shopkeeper billing app, freelancer invoice tool india">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- NEW: Font Awesome CDN for logo icon -->
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Custom CSS for Gradients, Shadows, and Fonts -->
-    <style>
-        /* Import cursive font for logo */
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-        
-        /* Set the base theme as requested */
-        body {
-            background-color: #0B0B0B;
-            color: #E0E0E0;
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    <!-- Linked CSS File -->
+    <link rel="stylesheet" href="css/style.css">
 
-        /* Use Inter font (Tailwind's default sans-serif) */
-        .font-sans {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* NEW: Cursive font class for logo */
-        .font-cursive {
-            font-family: 'Dancing Script', cursive;
-        }
-
-        /* Hero background with subtle red gradients */
-        .hero-bg {
-            background-color: #0B0B0B;
-            background-image: radial-gradient(at 80% 10%, hsla(356, 92%, 47%, 0.15) 0px, transparent 50%),
-                              radial-gradient(at 20% 90%, hsla(356, 92%, 47%, 0.1) 0px, transparent 50%);
-        }
-
-        /* The primary CTA button with gradient and glow shadow */
-        .btn-primary {
-            background-image: linear-gradient(to right, #E50914 0%, #F40C1A 100%);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4); /* Glow effect on hover */
-        }
-        
-        /* Secondary button style */
-        .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Soft shadow cards for features/testimonials */
-        .soft-shadow-card {
-            background-color: #1A1A1A; /* Slightly lighter than pure black */
-            border: 1px solid #2a2a2a;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .soft-shadow-card:hover {
-            border-color: #E50914;
-            transform: translateY(-2px); /* Smaller lift for compact feel */
-        }
-        
-        /* High-contrast focus rings for accessibility */
-        :focus-visible {
-            outline: 2px solid #E50914;
-            outline-offset: 2px;
-        }
-        .btn-primary:focus-visible, .btn-secondary:focus-visible {
-             box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
-        }
-        
-        /* NEW: Styles for Step Indicator */
-        .step-indicator {
-            background-color: transparent;
-            border: none;
-            padding: 8px 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            flex: 0 1 auto; /* Don't grow, just take space needed */
-        }
-        .step-indicator-dot {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 2px solid #444;
-            color: #999;
-            font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            background-color: #1A1A1A;
-        }
-        .step-indicator-label {
-            display: block;
-            font-size: 10px;
-            font-weight: 500;
-            color: #999;
-            transition: all 0.3s ease;
-            margin-top: 6px;
-            text-transform: uppercase;
-        }
-        .step-indicator-line {
-            height: 2px;
-            background-color: #444;
-            flex: 1 1 0%;
-            margin-top: 14px; /* Align with middle of dots */
-            transform: translateY(-50%);
-        }
-
-        /* Active state for indicator */
-        .step-indicator.active-step-indicator .step-indicator-dot {
-            border-color: #E50914;
-            background-color: #E50914;
-            color: #fff;
-        }
-        .step-indicator.active-step-indicator .step-indicator-label {
-            color: #fff;
-        }
-        
-        /* Hide inactive steps */
-        .form-step.hidden {
-            display: none;
-        }
-        
-        /* NEW: Style for the drawing canvas */
-        #signature-canvas {
-            touch-action: none; /* Prevent page scroll while drawing on mobile */
-        }
-
-        /* NEW: Styles for Invoice Preview Modal */
-        /* We use Tailwind classes inline, but 'hidden' is managed by JS */
-        /* The modal base class will be: */
-        /* fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-sm p-4 */
-        
-    </style>
-    
-    <!-- NEW: Schema Markup for SEO (Organization, Software, Breadcrumbs) -->
+    <!-- Schema Markup for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -212,6 +67,9 @@
       ]
     }
     </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
 
 </head>
 <body class="font-sans antialiased">
@@ -219,20 +77,16 @@
     <!-- Header / Navigation -->
     <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#0B0B0B]/80 border-b border-gray-800">
         <nav class="container mx-auto max-w-6xl px-4 h-16 flex justify-between items-center relative">
-            <!-- Logo - UPDATED -->
+            <!-- Logo -->
             <a href="#" class="text-2xl font-bold text-white flex items-baseline">
-                <!-- NEW: Font Awesome Icon - UPDATED: Reduced margin -->
                 <i class="fa-solid fa-receipt h-7 w-7 text-[#E50914] mr-1"></i>
                 Desi<span class="text-[#E50914] font-cursive text-3xl font-bold">Bill</span>
             </a>
             
             <!-- Nav Links (Desktop) -->
-            <!-- UPDATED: Href for features link -->
             <div class="hidden md:flex items-center space-x-4">
                 <a href="#seo-content" class="text-gray-300 hover:text-white transition-colors text-sm">Features</a>
                 <a href="#invoice-tool" class="text-gray-300 hover:text-white transition-colors text-sm">Billing Tool</a>
-                <!-- Google Ads Optimization: Recommend making Contact link more prominent for trust -->
-                <!-- <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-sm">Contact Us</a> -->
             </div>
             
             <!-- CTA (Desktop) -->
@@ -242,22 +96,19 @@
                 </a>
             </div>
             
-            <!-- Mobile Menu Button - UPDATED -->
+            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Open menu" aria-expanded="false">
-                <!-- Hamburger Icon -->
                 <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
-                <!-- Close Icon (Hidden by default) -->
                 <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </button>
 
-            <!-- NEW: Mobile Menu -->
+            <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-[#111] border-b border-gray-800 shadow-lg">
                 <div class="flex flex-col space-y-2 p-4">
-                    <!-- UPDATED: Href for features link -->
                     <a href="#seo-content" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Features</a>
                     <a href="#invoice-tool" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Billing Tool</a>
                     <a href="#invoice-tool" class="btn-primary text-white text-center py-2.5 px-4 rounded-lg font-bold text-base mt-2">
@@ -271,21 +122,18 @@
     <!-- Main Content -->
     <main>
 
-        <!-- Hero Section - Compacted -->
-        <!-- UPDATED: Made hero section more vertically compact -->
-        <section class="hero-bg pt-6 pb-8 md:pt-10 md:pb-12"> <!-- UPDATED PADDING -->
+        <!-- Hero Section -->
+        <section class="hero-bg pt-6 pb-8 md:pt-10 md:pb-12">
             <div class="container mx-auto max-w-6xl px-4 text-center">
                 <span class="inline-block text-red-500 font-semibold tracking-wide uppercase mb-3 text-sm">
                     Bharat’s Free Billing Partner
                 </span>
                 
-                <!-- UPDATED: h1 font size to 46px -->
                 <h1 class="text-3xl md:text-[46px] font-extrabold text-white mb-4 leading-tight">
                     Simple, Free & Fast Billing Tool for Indian Businesses
                 </h1>
                 
                 <p class="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-                    <!-- UPDATED: Changed Markdown ** to HTML <strong> for correctness -->
                     Perfect for <strong>shopkeepers, electricians, carpenters, and small vendors</strong>. Create GST invoices and download PDFs — all free forever.
                 </p>
                 
@@ -297,11 +145,10 @@
             </div>
         </section>
 
-        <!-- Invoice Generator Tool Section - Compacted -->
-        <!-- UPDATED: Widened container -->
-        <section id="invoice-tool" class="py-12 md:py-16 bg-[#111] hero-bg"> <!-- UPDATED PADDING -->
-            <div class="container mx-auto max-w-4xl px-4"> <!-- max-w-3xl to max-w-4xl -->
-                <div class="text-center max-w-2xl mx-auto mb-6"> <!-- UPDATED MARGIN -->
+        <!-- Invoice Generator Tool Section -->
+        <section id="invoice-tool" class="py-12 md:py-16 bg-[#111] hero-bg">
+            <div class="container mx-auto max-w-4xl px-4">
+                <div class="text-center max-w-2xl mx-auto mb-6">
                     <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">
                         Generate Your Free Invoice
                     </h2>
@@ -310,13 +157,11 @@
                     </p>
                 </div>
 
-                <!-- Simple Invoice Form - SPACED OUT UI -->
-                <!-- UPDATED: More compact vertical spacing (space-y-4) -->
-                <!-- UPDATED: Mobile-first padding -->
+                <!-- Invoice Form -->
                 <form id="invoice-generator-form" class="soft-shadow-card p-4 rounded-xl space-y-3">
                     
-                    <!-- NEW: Step Indicator -->
-                    <div class="flex items-start justify-between mb-4"> <!-- UPDATED MARGIN -->
+                    <!-- Step Indicator -->
+                    <div class="flex items-start justify-between mb-4">
                         <div class="flex-1 text-center">
                             <button type="button" data-step="1" class="step-indicator active-step-indicator w-full">
                                 <span class="step-indicator-dot">1</span>
@@ -339,126 +184,110 @@
                         </div>
                     </div>
 
-                    <!-- NEW: Step Container -->
+                    <!-- Steps Container -->
                     <div id="steps-container">
 
-                        <!-- NEW: Step 1: Details -->
+                        <!-- Step 1: Details -->
                         <div id="step-1" class="form-step" data-step-id="1">
-                            <!-- UPDATED: FROM and TO sections side-by-side -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                
                                 <!-- FROM Section -->
-                                <!-- UPDATED: Added gradient background and darker border -->
-                                <div class="space-y-2 bg-gradient-to-br from-red-900/20 to-red-900/10 p-3 rounded-xl border border-gray-900"> <!-- UPDATED SPACE & PADDING -->
+                                <div class="space-y-2 bg-gradient-to-br from-red-900/20 to-red-900/10 p-3 rounded-xl border border-gray-900">
                                     <h3 class="text-base font-semibold text-white flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
                                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                                         </svg>
                                         FROM (Your Details)
                                     </h3>
-                                    <!-- UPDATED to a 2-column grid for Name/Contact, and full-width for GSTIN/Address -->
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"> <!-- UPDATED GAP -->
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                         <div class="sm:col-span-2">
-                                            <label for="your-name" class="block text-xs font-medium text-gray-300 mb-1">Your Business Name</label> <!-- UPDATED MARGIN -->
+                                            <label for="your-name" class="block text-xs font-medium text-gray-300 mb-1">Your Business Name</label>
                                             <input type="text" id="your-name" placeholder="e.g., Rohan Designs" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Your Business Name">
                                         </div>
                                         <div>
-                                            <label for="your-contact" class="block text-xs font-medium text-gray-300 mb-1">Your Contact</label> <!-- UPDATED MARGIN -->
+                                            <label for="your-contact" class="block text-xs font-medium text-gray-300 mb-1">Your Contact</label>
                                             <input type="text" id="your-contact" placeholder="e.g., 98XXXXXX89" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Your Contact Email or Phone">
                                         </div>
                                         <div>
-                                            <label for="your-gstin" class="block text-xs font-medium text-gray-300 mb-1">Your GSTIN (Optional)</label> <!-- UPDATED MARGIN -->
+                                            <label for="your-gstin" class="block text-xs font-medium text-gray-300 mb-1">Your GSTIN (Optional)</label>
                                             <input type="text" id="your-gstin" placeholder="22AAAAA0000A1Z5" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Your GSTIN">
                                         </div>
                                         <div class="sm:col-span-2">
-                                            <label for="your-address" class="block text-xs font-medium text-gray-300 mb-1">Your Address (Optional)</label> <!-- UPDATED MARGIN -->
+                                            <label for="your-address" class="block text-xs font-medium text-gray-300 mb-1">Your Address (Optional)</label>
                                             <textarea id="your-address" rows="2" placeholder="123, Main Street, Mumbai, 400001" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 resize-none placeholder:text-gray-500" aria-label="Your Business Address"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <!-- TO Section -->
-                                <!-- UPDATED: Added gradient background and darker border -->
-                                <div class="space-y-2 bg-gradient-to-br from-red-900/30 to-red-900/10 p-3 rounded-xl border border-red-900"> <!-- UPDATED SPACE & PADDING -->
+                                <div class="space-y-2 bg-gradient-to-br from-red-900/30 to-red-900/10 p-3 rounded-xl border border-red-900">
                                     <h3 class="text-base font-semibold text-white flex items-center gap-2">
                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                                       </svg>
                                       TO (Client's Details)
                                     </h3>
-                                    <!-- UPDATED to a 2-column grid for Name/Contact, and full-width for GSTIN/Address -->
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"> <!-- UPDATED GAP -->
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                         <div class="sm:col-span-2">
-                                            <label for="client-name" class="block text-xs font-medium text-gray-300 mb-1">Client's Business Name</label> <!-- UPDATED MARGIN -->
+                                            <label for="client-name" class="block text-xs font-medium text-gray-300 mb-1">Client's Business Name</label>
                                             <input type="text" id="client-name" placeholder="e.g., Priya's Cafe" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Client's Business Name">
                                         </div>
                                         <div>
-                                            <label for="client-contact" class="block text-xs font-medium text-gray-300 mb-1">Client's Contact</label> <!-- UPDATED MARGIN -->
+                                            <label for="client-contact" class="block text-xs font-medium text-gray-300 mb-1">Client's Contact</label>
                                             <input type="text" id="client-contact" placeholder="e.g., 98XXXXXX89" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Client's Contact Email or Phone">
                                         </div>
                                         <div>
-                                            <label for="client-gstin" class="block text-xs font-medium text-gray-300 mb-1">Client's GSTIN (Optional)</label> <!-- UPDATED MARGIN -->
+                                            <label for="client-gstin" class="block text-xs font-medium text-gray-300 mb-1">Client's GSTIN (Optional)</label>
                                             <input type="text" id="client-gstin" placeholder="27BBBBB1111B1Z9" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Client's GSTIN">
                                         </div>
                                         <div class="sm:col-span-2">
-                                            <label for="client-address" class="block text-xs font-medium text-gray-300 mb-1">Client's Address (Optional)</label> <!-- UPDATED MARGIN -->
+                                            <label for="client-address" class="block text-xs font-medium text-gray-300 mb-1">Client's Address (Optional)</label>
                                             <textarea id="client-address" rows="2" placeholder="456, B wing, Pune, 411001" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 resize-none placeholder:text-gray-500" aria-label="Client's Business Address"></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- End Step 1 -->
+                        </div>
 
-                        <!-- NEW: Step 2: Items -->
+                        <!-- Step 2: Items -->
                         <div id="step-2" class="form-step hidden" data-step-id="2">
-                            <!-- Item Details -->
-                            <!-- UPDATED: Added gradient background and darker border -->
-                            <div class="pt-2 bg-gradient-to-br from-gray-900 to-red-900/20 p-3 rounded-xl border border-gray-900"> <!-- UPDATED PADDING -->
-                                <h3 class="text-base font-semibold text-white flex items-center gap-2 mb-2"> <!-- UPDATED MARGIN -->
+                            <div class="pt-2 bg-gradient-to-br from-gray-900 to-red-900/20 p-3 rounded-xl border border-gray-900">
+                                <h3 class="text-base font-semibold text-white flex items-center gap-2 mb-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
                                       <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                     </svg>
                                     Invoice Items (Max 5)
                                 </h3>
-                                <!-- Container for dynamic items -->
-                                <div id="invoice-items-container" class="space-y-2"> <!-- UPDATED SPACE -->
-                                    <!-- Item Row 1 (Template) -->
-                                    <!-- UPDATED: Grid changed to col-2 base for mobile, col-4 for desktop -->
-                                    <div class="item-row relative p-2.5 border border-gray-700 rounded-lg bg-black/20"> <!-- UPDATED PADDING -->
-                                        <!-- UPDATED: Grid is now 12 columns for finer control -->
-                                        <div class="grid grid-cols-12 gap-2.5 items-end"> <!-- UPDATED GAP -->
-                                            <!-- UPDATED: Description wider on desktop -->
+                                <div id="invoice-items-container" class="space-y-2">
+                                    <!-- Item Row Template -->
+                                    <div class="item-row relative p-2.5 border border-gray-700 rounded-lg bg-black/20">
+                                        <div class="grid grid-cols-12 gap-2.5 items-end">
                                             <div class="col-span-12 md:col-span-6">
-                                                <label for="item-desc-1" class="block text-xs font-medium text-gray-300 mb-1">Description</label> <!-- UPDATED MARGIN -->
+                                                <label for="item-desc-1" class="block text-xs font-medium text-gray-300 mb-1">Description</label>
                                                 <input type="text" id="item-desc-1" placeholder="Logo Design" class="item-desc w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Item Description">
                                             </div>
-                                            <!-- UPDATED: Qty narrower on desktop -->
                                             <div class="col-span-6 md:col-span-3">
-                                                <label for="item-qty-1" class="block text-xs font-medium text-gray-300 mb-1">Qty</label> <!-- UPDATED MARGIN -->
+                                                <label for="item-qty-1" class="block text-xs font-medium text-gray-300 mb-1">Qty</label>
                                                 <input type="number" id="item-qty-1" value="1" min="1" class="item-qty w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500" aria-label="Item Quantity">
                                             </div>
-                                            <!-- UPDATED: Price narrower on desktop -->
                                             <div class="col-span-6 md:col-span-3">
-                                                <label for="item-price-1" class="block text-xs font-medium text-gray-300 mb-1">Price</label> <!-- UPDATED MARGIN -->
+                                                <label for="item-price-1" class="block text-xs font-medium text-gray-300 mb-1">Price</label>
                                                 <input type="number" id="item-price-1" placeholder="10000" min="0" class="item-price w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Item Price">
                                             </div>
                                         </div>
-                                        <!-- No remove button here. Will be added dynamically for subsequent rows. -->
                                     </div>
                                 </div>
 
-                                <!-- Add more items button -->
-                                <button type="button" id="add-item-btn" class="btn-secondary text-xs text-white py-2 px-3 rounded-lg font-medium mt-2"> <!-- UPDATED MARGIN -->
+                                <button type="button" id="add-item-btn" class="btn-secondary text-xs text-white py-2 px-3 rounded-lg font-medium mt-2">
                                     + Add Another Item
                                 </button>
                                 <p id="item-limit-msg" class="hidden text-xs text-red-500 mt-2">Maximum of 5 items reached.</p>
                             </div>
-                        </div> <!-- End Step 2 -->
+                        </div>
 
-                        <!-- NEW: Step 3: Finalize -->
-                        <div id="step-3" class="form-step hidden space-y-2.5" data-step-id="3"> <!-- UPDATED SPACE -->
+                        <!-- Step 3: Finalize -->
+                        <div id="step-3" class="form-step hidden space-y-2.5" data-step-id="3">
                             <!-- Logo Upload -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center"> <!-- UPDATED GAP -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
                                 <div>
                                     <label for="logo-upload" class="flex items-center gap-2 text-xs font-medium text-gray-300 mb-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
@@ -467,22 +296,18 @@
                                         Your Logo (Optional)
                                     </label>
                                     <input type="file" id="logo-upload" accept="image/*" class="w-full text-xs text-gray-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-[#E50914] file:text-white hover:file:bg-red-700 cursor-pointer" aria-label="Upload your logo">
-                                    <!-- UPDATED: Added helper text for logo size -->
-                                    <p class="text-xs text-gray-500 mt-1">Tip: Use a wide logo (e.g., 200px wide). It will be resized to fit.</p> <!-- UPDATED MARGIN -->
-                                    <button type="button" id="remove-logo" class="hidden text-xs text-red-500 hover:text-red-400 mt-1.5">Remove Logo</button> <!-- UPDATED MARGIN -->
+                                    <p class="text-xs text-gray-500 mt-1">Tip: Use a wide logo (e.g., 200px wide). It will be resized to fit.</p>
+                                    <button type="button" id="remove-logo" class="hidden text-xs text-red-500 hover:text-red-400 mt-1.5">Remove Logo</button>
                                 </div>
-                                <!-- UPDATED: Added fixed size container for logo preview -->
                                 <div class="flex justify-center md:justify-end h-16">
                                     <img id="logo-preview" src="" alt="Your Logo" class="hidden max-h-16 p-1 bg-white rounded-md object-contain">
                                 </div>
                             </div>
                             
-                            <!-- Currency & GST Rate Selection -->
-                            <!-- UPDATED: Added gradient background and darker border -->
-                            <!-- UPDATED: Simplified to grid-cols-2 for all screens -->
-                            <div class="grid grid-cols-2 gap-3 pt-4 bg-gradient-to-br from-gray-900 to-red-900/10 p-3 rounded-xl border border-gray-900"> <!-- UPDATED GAP & PADDING -->
+                            <!-- Currency & Tax -->
+                            <div class="grid grid-cols-2 gap-3 pt-4 bg-gradient-to-br from-gray-900 to-red-900/10 p-3 rounded-xl border border-gray-900">
                                 <div>
-                                    <label for="currency" class="block text-xs font-medium text-gray-400 mb-1">Currency</label> <!-- UPDATED MARGIN -->
+                                    <label for="currency" class="block text-xs font-medium text-gray-400 mb-1">Currency</label>
                                     <select id="currency" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500" aria-label="Currency">
                                         <option value="INR">INR (₹)</option>
                                         <option value="USD">USD ($)</option>
@@ -492,7 +317,7 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="tax-rate" class="block text-xs font-medium text-gray-400 mb-1">Tax Rate</label> <!-- UPDATED MARGIN -->
+                                    <label for="tax-rate" class="block text-xs font-medium text-gray-400 mb-1">Tax Rate</label>
                                     <select id="tax-rate" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500" aria-label="Tax Rate">
                                         <option value="0">No Tax</option>
                                         <option value="0.05">GST @ 5%</option>
@@ -506,8 +331,7 @@
                             </div>
 
                             <!-- Notes Section -->
-                            <!-- UPDATED: Added gradient background and darker border -->
-                            <div class="space-y-2 bg-gradient-to-br from-gray-900 to-red-900/10 p-3 rounded-xl border border-gray-900"> <!-- UPDATED SPACE & PADDING -->
+                            <div class="space-y-2 bg-gradient-to-br from-gray-900 to-red-900/10 p-3 rounded-xl border border-gray-900">
                                 <h3 class="text-base font-semibold text-white flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-500">
                                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -515,19 +339,15 @@
                                     Notes / Terms (Optional)
                                 </h3>
                                 <div>
-                                    <label for="invoice-notes" class="block text-xs font-medium text-gray-300 mb-1">Add any notes, terms, or bank details.</label> <!-- UPDATED MARGIN -->
+                                    <label for="invoice-notes" class="block text-xs font-medium text-gray-300 mb-1">Add any notes, terms, or bank details.</label>
                                     <textarea id="invoice-notes" rows="3" placeholder="e.g., Payment due within 15 days.&#10;Bank: HDFC Bank, A/C: 123456789" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 resize-none placeholder:text-gray-500" aria-label="Invoice Notes"></textarea>
                                 </div>
                             </div>
 
-                            <!-- UPDATED: Signature Section with Tabs -->
-                            <!-- UPDATED: Added gradient background and darker border -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-start bg-gradient-to-br from-gray-900 to-red-900/10 p-3 rounded-xl border border-gray-900"> <!-- UPDATED GAP & PADDING -->
-                                
-                                <!-- Left Column: Controls -->
+                            <!-- Signature Section -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-start bg-gradient-to-br from-gray-900 to-red-900/10 p-3 rounded-xl border border-gray-900">
                                 <div>
-                                    <!-- Tab Buttons -->
-                                    <div class="flex mb-2 border-b border-gray-700"> <!-- UPDATED MARGIN -->
+                                    <div class="flex mb-2 border-b border-gray-700">
                                         <button type="button" id="sig-tab-upload" class="sig-tab-btn flex items-center gap-2 py-2 px-3 text-xs font-medium border-b-2 border-red-500 text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
                                             Upload
@@ -538,53 +358,48 @@
                                         </button>
                                     </div>
 
-                                    <!-- Upload Panel -->
                                     <div id="upload-panel">
                                         <label for="signature-upload" class="flex items-center gap-2 text-xs font-medium text-gray-300 mb-1">
                                             Your Signature (Optional)
                                         </label>
                                         <input type="file" id="signature-upload" accept="image/*" class="w-full text-xs text-gray-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-[#E50914] file:text-white hover:file:bg-red-700 cursor-pointer" aria-label="Upload your signature">
-                                        <!-- UPDATED: Added helper text -->
-                                        <p class="text-xs text-gray-500 mt-1">Tip: For best results, use a wide image (e.g., 300px wide by 80px tall). Max 1MB.</p> <!-- UPDATED MARGIN -->
-                                        <button type="button" id="remove-signature" class="hidden text-xs text-red-500 hover:text-red-400 mt-1.5">Remove Signature</button> <!-- UPDATED MARGIN -->
+                                        <p class="text-xs text-gray-500 mt-1">Tip: For best results, use a wide image (e.g., 300px wide by 80px tall). Max 1MB.</p>
+                                        <button type="button" id="remove-signature" class="hidden text-xs text-red-500 hover:text-red-400 mt-1.5">Remove Signature</button>
                                     </div>
 
-                                    <!-- Draw Panel (hidden by default) -->
                                     <div id="draw-panel" class="hidden">
-                                        <label class="block text-xs font-medium text-gray-300 mb-1">Draw your signature in the box:</label> <!-- UPDATED MARGIN -->
+                                        <label class="block text-xs font-medium text-gray-300 mb-1">Draw your signature in the box:</label>
                                         <canvas id="signature-canvas" class="bg-white rounded-md border border-gray-300 cursor-crosshair w-full" width="400" height="150" aria-label="Draw your signature here"></canvas>
-                                        <button type="button" id="clear-signature" class="btn-secondary text-xs text-white py-1.5 px-3 rounded-lg font-medium mt-1.5"> <!-- UPDATED MARGIN -->
+                                        <button type="button" id="clear-signature" class="btn-secondary text-xs text-white py-1.5 px-3 rounded-lg font-medium mt-1.5">
                                             Clear
                                         </button>
                                     </div>
                                 </div>
 
-                                <!-- Right Column: Preview -->
                                 <div class="flex justify-center md:justify-end">
                                     <img id="signature-preview" src="" alt="Your Signature" class="hidden max-h-16 p-1 bg-white rounded-md object-contain">
                                 </div>
                             </div>
-                        </div> <!-- End Step 3 -->
+                        </div>
                     
-                    </div> <!-- End Steps Container -->
+                    </div>
 
 
-                    <!-- Total & GST - Spaced Out -->
-                    <!-- UPDATED: Compacted margin -->
-                     <div class="border-t border-gray-700 pt-4 mt-3"> <!-- UPDATED PADDING & MARGIN -->
-                        <div class="flex justify-end items-center mb-1"> <!-- UPDATED MARGIN -->
+                    <!-- Total & GST -->
+                     <div class="border-t border-gray-700 pt-4 mt-3">
+                        <div class="flex justify-end items-center mb-1">
                             <span class="text-gray-400 text-sm">Subtotal:</span>
                             <span class="text-white text-base font-bold ml-4">
                                 <span class="currency-symbol">₹</span><span id="subtotal-amount">0.00</span>
                             </span>
                         </div>
-                         <div id="gst-row" class="hidden flex justify-end items-center mb-1.5"> <!-- UPDATED MARGIN -->
+                         <div id="gst-row" class="hidden flex justify-end items-center mb-1.5">
                             <span id="gst-label" class="text-gray-400 text-sm">Tax:</span>
                             <span class="text-white text-base font-bold ml-4">
                                 <span class="currency-symbol">₹</span><span id="gst-amount">0.00</span>
                             </span>
                         </div>
-                        <div class="flex justify-end items-center border-t border-gray-600 pt-2"> <!-- UPDATED PADDING -->
+                        <div class="flex justify-end items-center border-t border-gray-600 pt-2">
                             <span class="text-white text-lg font-bold">Total:</span>
                             <span class="text-red-500 text-xl font-extrabold ml-4">
                                 <span class="currency-symbol">₹</span><span id="total-amount">0.00</span>
@@ -593,8 +408,7 @@
                     </div>
 
                     <!-- Generate Button -->
-                    <!-- UPDATED: Replaced with dynamic nav buttons -->
-                    <div class="flex justify-between items-center pt-4 mt-3 border-t border-gray-700"> <!-- UPDATED PADDING & MARGIN -->
+                    <div class="flex justify-between items-center pt-4 mt-3 border-t border-gray-700">
                         <button type="button" id="prev-step-btn" class="btn-secondary text-white text-base font-bold py-3 px-8 rounded-lg hidden">
                             Back
                         </button>
@@ -603,7 +417,6 @@
                             Next
                         </button>
                         
-                        <!-- This is the original submit button, now with an ID and hidden by default -->
                         <button type="submit" id="generate-pdf-btn" class="btn-primary text-white text-base font-bold py-3 px-10 rounded-lg w-full md:w-auto hidden ml-auto">
                             Generate PDF Invoice
                         </button>
@@ -612,10 +425,10 @@
             </div>
         </section>
 
-        <!-- NEW: Billing Guide Section (Moved) -->
-        <section id="billing-guide" class="py-12 md:py-16 bg-[#0B0B0B] hero-bg"> <!-- UPDATED PADDING -->
+        <!-- Billing Guide Section -->
+        <section id="billing-guide" class="py-12 md:py-16 bg-[#0B0B0B] hero-bg">
             <div class="container mx-auto max-w-6xl px-4">
-                <div class="text-center max-w-3xl mx-auto mb-10"> <!-- UPDATED MARGIN -->
+                <div class="text-center max-w-3xl mx-auto mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
                         Master Your Billing: A Guide for Small Businesses
                     </h2>
@@ -624,9 +437,8 @@
                     </p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"> <!-- UPDATED GAP -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     
-                    <!-- Guide Card 1 -->
                     <div class="soft-shadow-card p-3 rounded-xl h-full">
                         <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
                             <i class="fa-solid fa-file-invoice-dollar w-4 h-4 text-[#E50914]"></i>
@@ -637,7 +449,6 @@
                         </p>
                     </div>
                     
-                    <!-- Guide Card 2 -->
                     <div class="soft-shadow-card p-3 rounded-xl h-full">
                         <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
                             <i class="fa-solid fa-laptop-file w-4 h-4 text-[#E50914]"></i>
@@ -648,7 +459,6 @@
                         </p>
                     </div>
                     
-                    <!-- Guide Card 3 -->
                     <div class="soft-shadow-card p-3 rounded-xl h-full">
                         <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
                             <i class="fa-solid fa-list-check w-4 h-4 text-[#E50914]"></i>
@@ -659,7 +469,6 @@
                         </p>
                     </div>
 
-                    <!-- Guide Card 4 -->
                     <div class="soft-shadow-card p-3 rounded-xl h-full">
                         <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
                             <i class="fa-solid fa-percent w-4 h-4 text-[#E50914]"></i>
@@ -674,12 +483,11 @@
             </div>
         </section>
 
-        <!-- UPDATED: SEO Content Section (Now includes How-To and FAQ) -->
-        <section id="seo-content" class="py-12 md:py-16 bg-[#111] hero-bg"> <!-- UPDATED PADDING -->
-            <div class="container mx-auto max-w-6xl px-4"> <!-- Widened container to match other sections -->
+        <!-- SEO Content Section -->
+        <section id="seo-content" class="py-12 md:py-16 bg-[#111] hero-bg">
+            <div class="container mx-auto max-w-6xl px-4">
                 
-                <!-- "Why Us?" Sub-section -->
-                <div class="text-center max-w-3xl mx-auto mb-10"> <!-- UPDATED MARGIN -->
+                <div class="text-center max-w-3xl mx-auto mb-10">
                     <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
                         The Best Free GST Billing Software for India's Small Businesses
                     </h2>
@@ -688,108 +496,99 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4"> <!-- UPDATED GAP -->
-                    <!-- Card 1: For Every Indian Business -->
-                    <div class="soft-shadow-card p-3 rounded-xl h-full"> <!-- UPDATED: p-4 to p-3 -->
-                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2"> <!-- UPDATED: h-10 w-10 to h-8 w-8, mb-3 to mb-2 -->
-                            <i class="fa-solid fa-store w-4 h-4 text-[#E50914]"></i> <!-- UPDATED: w-5 h-5 to w-4 h-4 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="soft-shadow-card p-3 rounded-xl h-full">
+                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
+                            <i class="fa-solid fa-store w-4 h-4 text-[#E50914]"></i>
                         </div>
-                        <h3 class="text-sm font-semibold text-white mb-1">For Every Indian Business</h3> <!-- UPDATED: text-base to text-sm, mb-1.5 to mb-1 -->
-                        <p class="text-gray-300 text-xs leading-relaxed"> <!-- UPDATED: text-sm to text-xs -->
+                        <h3 class="text-sm font-semibold text-white mb-1">For Every Indian Business</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
                             Whether you're a shopkeeper, electrician, or freelancer, DesiBill is your free partner. Create fast, professional invoices without any sign-ups.
                         </p>
                     </div>
 
-                    <!-- Card 2: Move Beyond Paper Books -->
-                    <div class="soft-shadow-card p-3 rounded-xl h-full"> <!-- UPDATED: p-4 to p-3 -->
-                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2"> <!-- UPDATED: h-10 w-10 to h-8 w-8, mb-3 to mb-2 -->
-                            <i class="fa-solid fa-file-invoice w-4 h-4 text-[#E50914]"></i> <!-- UPDATED: w-5 h-5 to w-4 h-4 -->
+                    <div class="soft-shadow-card p-3 rounded-xl h-full">
+                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
+                            <i class="fa-solid fa-file-invoice w-4 h-4 text-[#E50914]"></i>
                         </div>
-                        <h3 class="text-sm font-semibold text-white mb-1">Move Beyond Paper Books</h3> <!-- UPDATED: text-base to text-sm, mb-1.5 to mb-1 -->
-                        <p class="text-gray-300 text-xs leading-relaxed"> <!-- UPDATED: text-sm to text-xs -->
+                        <h3 class="text-sm font-semibold text-white mb-1">Move Beyond Paper Books</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
                             Stop using old 'khata' books. Add your logo, GST details, and digital signature to look professional, maintain records, and get paid faster.
                         </p>
                     </div>
 
-                    <!-- Card 3: Your Data, Your Privacy -->
-                    <div class="soft-shadow-card p-3 rounded-xl h-full"> <!-- UPDATED: p-4 to p-3 -->
-                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2"> <!-- UPDATED: h-10 w-10 to h-8 w-8, mb-3 to mb-2 -->
-                            <i class="fa-solid fa-lock w-4 h-4 text-[#E50914]"></i> <!-- UPDATED: w-5 h-5 to w-4 h-4 -->
+                    <div class="soft-shadow-card p-3 rounded-xl h-full">
+                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
+                            <i class="fa-solid fa-lock w-4 h-4 text-[#E50914]"></i>
                         </div>
-                        <h3 class="text-sm font-semibold text-white mb-1">Your Data, Your Privacy</h3> <!-- UPDATED: text-base to text-sm, mb-1.5 to mb-1 -->
-                        <p class="text-gray-300 text-xs leading-relaxed"> <!-- UPDATED: text-sm to text-xs -->
+                        <h3 class="text-sm font-semibold text-white mb-1">Your Data, Your Privacy</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
                             DesiBill works 100% in your browser. We never save your client lists or invoice details to our servers. Your business data remains yours, always.
                         </p>
                     </div>
 
-                    <!-- Card 4: Truly Free, No Gimmicks -->
-                    <div class="soft-shadow-card p-3 rounded-xl h-full"> <!-- UPDATED: p-4 to p-3 -->
-                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2"> <!-- UPDATED: h-10 w-10 to h-8 w-8, mb-3 to mb-2 -->
-                            <i class="fa-solid fa-indian-rupee-sign w-4 h-4 text-[#E50914]"></i> <!-- UPDATED: w-5 h-5 to w-4 h-4 -->
+                    <div class="soft-shadow-card p-3 rounded-xl h-full">
+                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
+                            <i class="fa-solid fa-indian-rupee-sign w-4 h-4 text-[#E50914]"></i>
                         </div>
-                        <h3 class="text-sm font-semibold text-white mb-1">Truly Free, No Gimmicks</h3> <!-- UPDATED: text-base to text-sm, mb-1.5 to mb-1 -->
-                        <p class="text-gray-300 text-xs leading-relaxed"> <!-- UPDATED: text-sm to text-xs -->
+                        <h3 class="text-sm font-semibold text-white mb-1">Truly Free, No Gimmicks</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
                             Many "free" tools add limits or trial periods. DesiBill is 100% free, forever. No invoice limits, no feature restrictions, and no hidden charges.
                         </p>
                     </div>
 
-                    <!-- Card 5: Instant & Simple (No Sign-up) -->
-                    <div class="soft-shadow-card p-3 rounded-xl h-full"> <!-- UPDATED: p-4 to p-3 -->
-                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2"> <!-- UPDATED: h-10 w-10 to h-8 w-8, mb-3 to mb-2 -->
-                            <i class="fa-solid fa-bolt w-4 h-4 text-[#E50914]"></i> <!-- UPDATED: w-5 h-5 to w-4 h-4 -->
+                    <div class="soft-shadow-card p-3 rounded-xl h-full">
+                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
+                            <i class="fa-solid fa-bolt w-4 h-4 text-[#E50914]"></i>
                         </div>
-                        <h3 class="text-sm font-semibold text-white mb-1">Instant & Simple (No Sign-up)</h3> <!-- UPDATED: text-base to text-sm, mb-1.5 to mb-1 -->
-                        <p class="text-gray-300 text-xs leading-relaxed"> <!-- UPDATED: text-sm to text-xs -->
+                        <h3 class="text-sm font-semibold text-white mb-1">Instant & Simple (No Sign-up)</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
                             Why create an account just to send a bill? Our tool works instantly. No passwords, no logins. Just fill, generate, and send your invoice in seconds.
                         </p>
                     </div>
 
-                    <!-- Card 6: Works On Any Device -->
-                    <div class="soft-shadow-card p-3 rounded-xl h-full"> <!-- UPDATED: p-4 to p-3 -->
-                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2"> <!-- UPDATED: h-10 w-10 to h-8 w-8, mb-3 to mb-2 -->
-                            <i class="fa-solid fa-mobile-screen-button w-4 h-4 text-[#E50914]"></i> <!-- UPDATED: w-5 h-5 to w-4 h-4 -->
+                    <div class="soft-shadow-card p-3 rounded-xl h-full">
+                        <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
+                            <i class="fa-solid fa-mobile-screen-button w-4 h-4 text-[#E50914]"></i>
                         </div>
-                        <h3 class="text-sm font-semibold text-white mb-1">Works On Any Device</h3> <!-- UPDATED: text-base to text-sm, mb-1.5 to mb-1 -->
-                        <p class="text-gray-300 text-xs leading-relaxed"> <!-- UPDATED: text-sm to text-xs -->
+                        <h3 class="text-sm font-semibold text-white mb-1">Works On Any Device</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">
                             No app to download. No software to install. DesiBill is a lightweight tool that runs fast on your phone, tablet, or desktop computer.
                         </p>
                     </div>
                 </div>
 
-                <!-- NEW: "How-To" Sub-section -->
-                <div class="mt-12 md:mt-16"> <!-- UPDATED MARGIN -->
-                    <div class="text-center max-w-3xl mx-auto mb-10"> <!-- UPDATED MARGIN -->
-                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                <!-- How-To Sub-section -->
+                <div class="mt-12 md:mt-16">
+                    <div class="text-center max-w-3xl mx-auto mb-10">
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
                             Create Your Free Invoice in 30 Seconds
-                        </h3>
+                        </h2>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4"> <!-- UPDATED GAP -->
-                        <!-- Step 1 Card -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="soft-shadow-card p-3 rounded-xl h-full">
                             <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
                                 <i class="fa-solid fa-user-pen w-4 h-4 text-[#E50914]"></i>
                             </div>
-                            <h4 class="text-base font-semibold text-white mb-1"><span class="text-red-500">Step 1:</span> Fill in Details</h4>
+                            <h3 class="text-base font-semibold text-white mb-1"><span class="text-red-500">Step 1:</span> Fill in Details</h3>
                             <p class="text-gray-300 text-xs leading-relaxed">
                                 Enter your and your client's business details. Add GSTIN and address if needed, all fields are optional.
                             </p>
                         </div>
-                        <!-- Step 2 Card -->
                         <div class="soft-shadow-card p-3 rounded-xl h-full">
                             <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
                                 <i class="fa-solid fa-list-ol w-4 h-4 text-[#E50914]"></i>
                             </div>
-                            <h4 class="text-base font-semibold text-white mb-1"><span class="text-red-500">Step 2:</span> Add Items & Tax</h4>
+                            <h3 class="text-base font-semibold text-white mb-1"><span class="text-red-500">Step 2:</span> Add Items & Tax</h3>
                             <p class="text-gray-300 text-xs leading-relaxed">
                                 List your products or services, quantities, and prices. Select the correct GST rate (e.g., 5%, 18%) or simply choose 'No Tax'.
                             </p>
                         </div>
-                        <!-- Step 3 Card -->
                         <div class="soft-shadow-card p-3 rounded-xl h-full">
                             <div class="flex items-center justify-center h-8 w-8 rounded-lg bg-red-900/50 mb-2">
                                 <i class="fa-solid fa-file-arrow-down w-4 h-4 text-[#E50914]"></i>
                             </div>
-                            <h4 class="text-base font-semibold text-white mb-1"><span class="text-red-500">Step 3:</span> Brand & Download</h4>
+                            <h3 class="text-base font-semibold text-white mb-1"><span class="text-red-500">Step 3:</span> Brand & Download</h3>
                             <p class="text-gray-300 text-xs leading-relaxed">
                                 Upload your logo and add your signature to look professional. Click 'Generate PDF' to instantly download or print your bill.
                             </p>
@@ -797,71 +596,52 @@
                     </div>
                 </div>
 
-                <!-- NEW: "FAQ" Sub-section -->
-                <div class="mt-12 md:mt-16"> <!-- UPDATED MARGIN -->
-                    <div class="text-center max-w-3xl mx-auto mb-10"> <!-- UPDATED MARGIN -->
-                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+                <!-- FAQ Sub-section -->
+                <div class="mt-12 md:mt-16">
+                    <div class="text-center max-w-3xl mx-auto mb-10">
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
                             Frequently Asked Questions
-                        </h3>
+                        </h2>
                     </div>
-                    <!-- UPDATED: Reduced gaps and padding -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-3 max-w-4xl mx-auto"> <!-- UPDATED GAP -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-3 max-w-4xl mx-auto">
                         
-                        <!-- FAQ 1 -->
                         <div class="py-1">
-                            <!-- UPDATED: Smaller text and margin -->
-                            <h4 class="text-sm font-semibold text-white mb-0.5">Is this GST billing software really free?</h4>
-                            <!-- UPDATED: Smaller text -->
+                            <h3 class="text-sm font-semibold text-white mb-0.5">Is this GST billing software really free?</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">
                                 Yes, 100% free. There are no trials, no limits on invoices, and no hidden charges. It's a free tool for the Indian small business community.
                             </p>
                         </div>
 
-                        <!-- FAQ 2 -->
                         <div class="py-1">
-                            <!-- UPDATED: Smaller text and margin -->
-                            <h4 class="text-sm font-semibold text-white mb-0.5">Do I need to create an account or sign up?</h4>
-                            <!-- UPDATED: Smaller text -->
+                            <h3 class="text-sm font-semibold text-white mb-0.5">Do I need to create an account or sign up?</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">
                                 No. We believe in speed and simplicity. You can generate an invoice instantly without any sign-up or login. Just open the page and start billing.
                             </p>
                         </div>
 
-                        <!-- FAQ 3 -->
                         <div class="py-1">
-                            <!-- UPDATED: Smaller text and margin -->
-                            <h4 class="text-sm font-semibold text-white mb-0.5">Is my client and billing data saved?</h4>
-                            <!-- UPDATED: Smaller text -->
+                            <h3 class="text-sm font-semibold text-white mb-0.5">Is my client and billing data saved?</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">
                                 No. Your privacy is our top priority. All data (client names, prices) is processed in your browser only. We never save it on our servers.
                             </p>
                         </div>
                         
-                        <!-- FAQ 4 -->
                         <div class="py-1">
-                            <!-- UPDATED: Smaller text and margin -->
-                            <h4 class="text-sm font-semibold text-white mb-0.5">What if I don't have a GSTIN?</h4>
-                            <!-- UPDATED: Smaller text -->
+                            <h3 class="text-sm font-semibold text-white mb-0.5">What if I don't have a GSTIN?</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">
                                 No problem. The GSTIN fields are optional. You can use this tool to create a professional non-GST bill, a Bill of Supply, or a simple proforma invoice.
                             </p>
                         </div>
 
-                        <!-- FAQ 5 -->
                         <div class="py-1">
-                            <!-- UPDATED: Smaller text and margin -->
-                            <h4 class="text-sm font-semibold text-white mb-0.5">Can I add my own logo and signature?</h4>
-                            <!-- UPDATED: Smaller text -->
+                            <h3 class="text-sm font-semibold text-white mb-0.5">Can I add my own logo and signature?</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">
                                 Yes. The tool allows you to upload your business logo and either upload or draw a digital signature to make your invoices look professional.
                             </p>
                         </div>
 
-                        <!-- FAQ 6 -->
                         <div class="py-1">
-                            <!-- UPDATED: Smaller text and margin -->
-                            <h4 class="text-sm font-semibold text-white mb-0.5">Will this work on my mobile phone?</h4>
-                            <!-- UPDATED: Smaller text -->
+                            <h3 class="text-sm font-semibold text-white mb-0.5">Will this work on my mobile phone?</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">
                                 Absolutely. DesiBill is a lightweight web tool, not a heavy app. It's designed to work perfectly on any device, including your phone, tablet, or desktop.
                             </p>
@@ -872,25 +652,15 @@
 
             </div>
         </section>
-        
-        <!-- REMOVED: Testimonials Section -->
-        <!-- 
-        <section id="testimonials" class="py-16 md:py-20 bg-[#0B0B0B]">
-            ... This entire section has been removed ...
-        </section>
-        -->
-
-        <!-- NEW: Billing Guide Section (Replaces Testimonials) -->
-        <!-- This section has been moved above -->
 
     </main>
 
-    <!-- RESTORED: Footer - Compacted -->
-    <footer class="bg-gray-900 border-t border-gray-800 py-10"> <!-- UPDATED PADDING -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-10">
         <div class="container mx-auto max-w-6xl px-4">
             
             <!-- Trust Symbols -->
-            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-5"> <!-- UPDATED MARGIN -->
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-5">
                 <span class="flex items-center gap-2 text-sm font-medium text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-400">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -909,19 +679,12 @@
             </div>
             
             <!-- Footer Links -->
-            <div class="flex justify-center items-center space-x-4 mb-3"> <!-- UPDATED MARGIN -->
-                 <!-- 
-                    Google Ads Optimization: 
-                    This link MUST lead to a real page. 
-                    Using href="#" can cause ad disapproval. 
-                    Create and link to an actual Contact/Legal page.
-                 -->
+            <div class="flex justify-center items-center space-x-4 mb-3">
                  <a href="/contact-legal.html" class="text-gray-400 hover:text-white transition-colors text-xs">Contact & Legal</a>
             </div>
             
             <!-- Copyright -->
             <p class="text-center text-gray-500 text-xs">
-                <!-- UPDATED: 2026 -->
                 © 2026 DesiBill. All rights reserved.
             </p>
             <p class="text-center text-gray-500 text-xs mt-1">
@@ -931,11 +694,9 @@
         </div>
     </footer>
 
-    <!-- NEW: Invoice Preview Modal -->
+    <!-- Invoice Preview Modal -->
     <div id="invoice-preview-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-        <!-- Modal Content -->
         <div class="bg-[#1A1A1A] rounded-xl shadow-lg w-full max-w-3xl max-h-[90vh] flex flex-col border border-gray-700">
-            <!-- Modal Header -->
             <div class="flex justify-between items-center p-4 border-b border-gray-700">
                 <h3 class="text-lg font-semibold text-white">Invoice Preview</h3>
                 <button id="modal-close-btn" class="text-gray-400 hover:text-white transition-colors" aria-label="Close modal">
@@ -945,1247 +706,21 @@
                 </button>
             </div>
             
-            <!-- Modal Body (for iframe) -->
             <div id="modal-preview-content" class="overflow-y-auto bg-gray-900 overflow-hidden rounded-t-lg">
                 <!-- Iframe will be injected here by JavaScript -->
             </div>
             
-            <!-- Modal Footer (Action Buttons) -->
             <div class="flex flex-col sm:flex-row justify-end items-center gap-3 p-4 border-t border-gray-700 bg-[#111] rounded-b-xl">
                 <button id="modal-print-btn" class="btn-primary text-white text-sm font-bold py-2 px-4 rounded-lg w-full sm:w-auto flex items-center justify-center gap-2">
-                    <!-- UPDATED: Replaced complex SVG with Font Awesome icon -->
                     <i class="fa-solid fa-print w-4 h-4"></i>
                     Print / Download PDF
                 </button>
             </div>
         </div>
     </div>
-    <!-- End Modal -->
 
+    <!-- Linked JS File -->
+    <script src="js/script.js"></script>
 
-    <!-- REPAIRED: JavaScript for Interactivity AND PDF Generation -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- Mobile Menu Logic ---
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const openIcon = document.getElementById('menu-open-icon');
-            const closeIcon = document.getElementById('menu-close-icon');
-            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-
-            if (menuBtn) {
-                menuBtn.addEventListener('click', () => {
-                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-                    menuBtn.setAttribute('aria-expanded', !isExpanded);
-                    if (mobileMenu) mobileMenu.classList.toggle('hidden');
-                    if (openIcon) openIcon.classList.toggle('hidden');
-                    if (closeIcon) closeIcon.classList.toggle('hidden');
-                });
-            }
-            
-            // Close menu when a link is clicked
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
-                    if (mobileMenu) mobileMenu.classList.add('hidden');
-                    if (openIcon) openIcon.classList.remove('hidden');
-                    if (closeIcon) closeIcon.classList.add('hidden');
-                });
-            });
-
-            // --- Invoice Generator Logic ---
-            const currencySelect = document.getElementById('currency');
-            const taxRateSelect = document.getElementById('tax-rate');
-            const itemsContainer = document.getElementById('invoice-items-container');
-            const addItemBtn = document.getElementById('add-item-btn');
-            const itemLimitMsg = document.getElementById('item-limit-msg');
-            const invoiceForm = document.getElementById('invoice-generator-form');
-            
-            const subtotalEl = document.getElementById('subtotal-amount');
-            const gstRowEl = document.getElementById('gst-row');
-            const gstLabelEl = document.getElementById('gst-label');
-            const gstAmountEl = document.getElementById('gst-amount');
-            const totalAmountEl = document.getElementById('total-amount');
-            const currencySymbolEls = document.querySelectorAll('.currency-symbol');
-            
-            const logoUpload = document.getElementById('logo-upload');
-            const logoPreview = document.getElementById('logo-preview');
-            const removeLogoBtn = document.getElementById('remove-logo');
-
-            const signatureUpload = document.getElementById('signature-upload');
-            const signaturePreview = document.getElementById('signature-preview');
-            const removeSignatureBtn = document.getElementById('remove-signature');
-
-            // NEW: Signature tabs and panels
-            const sigTabUpload = document.getElementById('sig-tab-upload');
-            const sigTabDraw = document.getElementById('sig-tab-draw');
-            const uploadPanel = document.getElementById('upload-panel');
-            const drawPanel = document.getElementById('draw-panel');
-            const sigCanvas = document.getElementById('signature-canvas');
-            const sigClearBtn = document.getElementById('clear-signature');
-            // Check if canvas exists before getting context
-            const sigContext = sigCanvas ? sigCanvas.getContext('2d') : null;
-
-            // NEW: Modal Elements
-            const modal = document.getElementById('invoice-preview-modal');
-            const modalContent = document.getElementById('modal-preview-content');
-            const modalCloseBtn = document.getElementById('modal-close-btn');
-            const modalPrintBtn = document.getElementById('modal-print-btn');
-            
-            // NEW: Step Wizard Elements
-            let currentStep = 1;
-            const totalSteps = 3;
-            const steps = document.querySelectorAll('.form-step');
-            const stepIndicators = document.querySelectorAll('.step-indicator');
-            const prevStepBtn = document.getElementById('prev-step-btn');
-            const nextStepBtn = document.getElementById('next-step-btn');
-            const generatePdfBtn = document.getElementById('generate-pdf-btn');
-            
-            const logoStorageKey = 'billBharatLogo'; // Kept old key to preserve user's logo
-            const signatureStorageKey = 'billBharatSignature'; // Kept old key
-            let sigMode = 'upload'; // NEW: Track current mode
-            let isDrawing = false; // NEW
-            let itemCount = 1;
-            const maxItems = 5;
-
-            // --- Currency & Calculation Logic ---
-            const currencySymbols = {
-                'INR': '₹',
-                'USD': '$',
-                'GBP': '£',
-                'AUD': '$',
-                'CAD': '$'
-            };
-
-            // NEW: Step Wizard Function
-            function showStep(stepNumber) {
-                if (stepNumber < 1 || stepNumber > totalSteps) return;
-                currentStep = stepNumber;
-
-                // 1. Hide all steps
-                steps.forEach(step => {
-                    step.classList.add('hidden');
-                });
-                // 2. Show current step
-                const currentStepEl = document.querySelector(`.form-step[data-step-id="${currentStep}"]`);
-                if (currentStepEl) {
-                    currentStepEl.classList.remove('hidden');
-                }
-
-                // 3. Update step indicators
-                stepIndicators.forEach(indicator => {
-                    const indicatorStep = parseInt(indicator.dataset.step);
-                    if (indicatorStep === currentStep) {
-                        indicator.classList.add('active-step-indicator');
-                    } else {
-                        indicator.classList.remove('active-step-indicator');
-                    }
-                });
-
-                // 4. Update navigation buttons
-                if (prevStepBtn && nextStepBtn && generatePdfBtn) {
-                    if (currentStep === 1) {
-                        // First step
-                        prevStepBtn.classList.add('hidden');
-                        nextStepBtn.classList.remove('hidden');
-                        generatePdfBtn.classList.add('hidden');
-                    } else if (currentStep === totalSteps) {
-                        // Last step
-                        prevStepBtn.classList.remove('hidden');
-                        nextStepBtn.classList.add('hidden');
-                        generatePdfBtn.classList.remove('hidden');
-                    } else {
-                        // Middle step
-                        prevStepBtn.classList.remove('hidden');
-                        nextStepBtn.classList.remove('hidden');
-                        generatePdfBtn.classList.add('hidden');
-                    }
-                }
-            }
-
-            function updateTotals() {
-                // Check if elements exist before proceeding
-                if (!currencySelect || !taxRateSelect || !itemsContainer || !subtotalEl || !gstAmountEl || !totalAmountEl) {
-                    return;
-                }
-                
-                const currency = currencySelect.value;
-                const symbol = currencySymbols[currency];
-                const taxRate = parseFloat(taxRateSelect.value) || 0;
-                
-                let totalSubtotal = 0;
-                const itemRows = itemsContainer.querySelectorAll('.item-row');
-                
-                itemRows.forEach(row => {
-                    const qtyInput = row.querySelector('.item-qty');
-                    const priceInput = row.querySelector('.item-price');
-                    
-                    const qty = parseFloat(qtyInput.value) || 0;
-                    const price = parseFloat(priceInput.value) || 0;
-                    totalSubtotal += qty * price;
-                });
-
-                const taxAmount = totalSubtotal * taxRate;
-                const total = totalSubtotal + taxAmount;
-
-                // Update UI
-                subtotalEl.innerText = totalSubtotal.toFixed(2);
-                gstAmountEl.innerText = taxAmount.toFixed(2);
-                totalAmountEl.innerText = total.toFixed(2);
-                
-                currencySymbolEls.forEach(el => {
-                    el.innerText = symbol;
-                });
-
-                if (gstLabelEl && gstRowEl) {
-                    if (taxRate > 0) {
-                        const selectedOption = taxRateSelect.options[taxRateSelect.selectedIndex];
-                        const taxLabel = selectedOption.text.replace(' @', ''); // "GST @ 5%" becomes "GST 5%"
-                        // FIXED: This is the correct location for this code
-                        gstLabelEl.innerText = `${taxLabel}:`;
-                        gstRowEl.classList.remove('hidden');
-                    } else {
-                        gstRowEl.classList.add('hidden');
-                    }
-                }
-            }
-            
-            // --- Add / Remove Item Logic (FIXED: ID Duplication and Validation Logic) ---
-            function createItemRow() {
-                if (itemCount >= maxItems || !itemsContainer) return;
-                
-                itemCount++;
-                const firstItemRow = itemsContainer.querySelector('.item-row');
-                // Clone the first item row
-                if (!firstItemRow) return; // Guard clause if first row isn't found
-                const newItemRow = firstItemRow.cloneNode(true);
-                
-                // 1. Reset values and update IDs to prevent duplication (CRITICAL FIX)
-                const inputs = newItemRow.querySelectorAll('input'); 
-                
-                inputs.forEach(input => {
-                    const baseId = input.id.replace(/\d+$/, ''); // e.g., 'item-desc-'
-                    const newId = baseId + itemCount;
-                    
-                    // Update label 'for' attribute
-                    const label = newItemRow.querySelector(`label[for="${input.id}"]`);
-                    if (label) {
-                        label.setAttribute('for', newId);
-                    }
-                    
-                    // Update input ID and clear/reset value
-                    input.id = newId;
-                    // Check if it's the quantity field and reset to 1, otherwise clear
-                    input.value = (input.classList.contains('item-qty') ? '1' : ''); 
-                });
-                
-                // --- NEW: Adjust grid for remove button ---
-                // Find wrappers using a robust query that won't fail
-                const descWrapper = newItemRow.querySelector(`div:has(> #item-desc-${itemCount})`);
-                const qtyWrapper = newItemRow.querySelector(`div:has(> #item-qty-${itemCount})`);
-                const priceWrapper = newItemRow.querySelector(`div:has(> #item-price-${itemCount})`);
-
-                if (descWrapper) {
-                    descWrapper.classList.remove('md:col-span-6');
-                    descWrapper.classList.add('md:col-span-6'); // Stays 6
-                }
-                if (qtyWrapper) {
-                    qtyWrapper.classList.remove('md:col-span-3');
-                    qtyWrapper.classList.add('md:col-span-2'); // Changes to 2
-                    
-                    qtyWrapper.classList.remove('col-span-6');
-                    qtyWrapper.classList.add('col-span-4'); // Mobile span
-                }
-                if (priceWrapper) {
-                    priceWrapper.classList.remove('md:col-span-3');
-                    priceWrapper.classList.add('md:col-span-2'); // Changes to 2
-
-                    priceWrapper.classList.remove('col-span-6');
-                    priceWrapper.classList.add('col-span-4'); // Mobile span
-                }
-                // --- End of grid adjust ---
-
-                // 2. Add remove button (if not already present from cloning a previously added row)
-                let removeBtn = newItemRow.querySelector('.remove-item-btn');
-                let removeBtnWrapper = newItemRow.querySelector('.remove-btn-wrapper');
-
-                if (!removeBtn) {
-                     // Create the button
-                     removeBtn = document.createElement('button');
-                     removeBtn.type = 'button';
-                     removeBtn.innerHTML = `<i class="fa-solid fa-trash-can w-4 h-4"></i>`; // Font Awesome icon
-                     removeBtn.className = 'remove-item-btn text-red-500 hover:text-red-400 p-2.5 rounded-lg bg-[#0B0B0B] border border-gray-700 w-full flex justify-center items-center'; // Match input style
-
-                     // Create the wrapper div
-                     removeBtnWrapper = document.createElement('div');
-                     // UPDATED: Mobile span 4, Desktop span 2
-                     removeBtnWrapper.className = 'remove-btn-wrapper col-span-4 md:col-span-2 flex items-end';
-                     
-                     // Append button to wrapper
-                     removeBtnWrapper.appendChild(removeBtn);
-
-                     // Append wrapper to the grid
-                     const grid = newItemRow.querySelector('.grid');
-                     if (grid) {
-                        grid.appendChild(removeBtnWrapper);
-                     } else {
-                        // Fallback, though it should find the grid
-                        newItemRow.appendChild(removeBtnWrapper);
-                     }
-                }
-                
-                removeBtn.onclick = () => {
-                    newItemRow.remove();
-                    itemCount--;
-                    updateTotals();
-                    checkAddItemButtonState();
-                };
-                
-                itemsContainer.appendChild(newItemRow);
-                checkAddItemButtonState();
-            }
-            
-            function checkAddItemButtonState() {
-                if (!addItemBtn || !itemLimitMsg) return;
-                
-                // Simplified validation: only check if max items limit is reached (FUNCTIONAL FIX)
-                if (itemCount >= maxItems) {
-                    addItemBtn.disabled = true;
-                    addItemBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                    itemLimitMsg.classList.remove('hidden');
-                } else {
-                    addItemBtn.disabled = false;
-                    addItemBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                    itemLimitMsg.classList.add('hidden');
-                }
-            }
-            
-            // --- Logo Logic ---
-            function loadLogo() {
-                if (!logoPreview || !removeLogoBtn) return;
-                try {
-                    const base64Logo = localStorage.getItem(logoStorageKey);
-                    if (base64Logo) {
-                        logoPreview.src = base64Logo;
-                        logoPreview.classList.remove('hidden');
-                        removeLogoBtn.classList.remove('hidden');
-                    }
-                } catch (e) {
-                    console.error("Could not load logo from localStorage:", e);
-                }
-            }
-
-            if (logoUpload) {
-                logoUpload.addEventListener('change', (e) => {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = (event) => {
-                            const base64Logo = event.target.result;
-                            try {
-                                localStorage.setItem(logoStorageKey, base64Logo);
-                                if (logoPreview) logoPreview.src = base64Logo;
-                                if (logoPreview) logoPreview.classList.remove('hidden');
-                                if (removeLogoBtn) removeLogoBtn.classList.remove('hidden');
-                            } catch (e) {
-                                console.error("Could not save logo to localStorage:", e);
-                            }
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-            }
-
-            if (removeLogoBtn) {
-                removeLogoBtn.addEventListener('click', () => {
-                    try {
-                        localStorage.removeItem(logoStorageKey);
-                        if (logoPreview) logoPreview.src = '';
-                        if (logoPreview) logoPreview.classList.add('hidden');
-                        removeLogoBtn.classList.add('hidden');
-                        if (logoUpload) logoUpload.value = ''; // Clear file input
-                    } catch (e) {
-                         console.error("Could not remove logo from localStorage:", e);
-                    }
-                });
-            }
-            
-            // --- Signature Logic ---
-            function loadSignature() {
-                if (!signaturePreview || !removeSignatureBtn) return;
-                // This function now only loads the *uploaded* signature
-                if (sigMode !== 'upload') return; // Only run if in upload mode
-                try {
-                    const base64Signature = localStorage.getItem(signatureStorageKey);
-                    if (base64Signature) {
-                        signaturePreview.src = base64Signature;
-                        signaturePreview.classList.remove('hidden');
-                        removeSignatureBtn.classList.remove('hidden');
-                    } else {
-                        signaturePreview.src = '';
-                        signaturePreview.classList.add('hidden');
-                        removeSignatureBtn.classList.add('hidden');
-                    }
-                } catch (e) {
-                    console.error("Could not load signature from localStorage:", e);
-                }
-            }
-
-            if (signatureUpload) {
-                signatureUpload.addEventListener('change', (e) => {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = (event) => {
-                            const base64Signature = event.target.result;
-                            try {
-                                localStorage.setItem(signatureStorageKey, base64Signature);
-                                if (signaturePreview) signaturePreview.src = base64Signature;
-                                if (signaturePreview) signaturePreview.classList.remove('hidden');
-                                if (removeSignatureBtn) removeSignatureBtn.classList.remove('hidden');
-                            } catch (e) {
-                                console.error("Could not save signature to localStorage:", e);
-                            }
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-            }
-
-            // UPDATED: Remove button logic works for both modes
-            if (removeSignatureBtn) {
-                removeSignatureBtn.addEventListener('click', () => {
-                    if (sigMode === 'upload') {
-                        try {
-                            localStorage.removeItem(signatureStorageKey);
-                            if (signaturePreview) signaturePreview.src = ''; 
-                            if (signaturePreview) signaturePreview.classList.add('hidden');
-                            removeSignatureBtn.classList.add('hidden');
-                            if (signatureUpload) signatureUpload.value = ''; // Clear file input
-                        } catch (e) {
-                            console.error("Could not remove signature from localStorage:", e);
-                        }
-                    } else if (sigMode === 'draw') {
-                        if (sigClearBtn) sigClearBtn.click(); // Trigger the canvas clear logic
-                    }
-                });
-            }
-
-            // --- NEW: Signature Tab and Canvas Logic ---
-            if (sigTabUpload) {
-                sigTabUpload.addEventListener('click', () => {
-                    sigMode = 'upload';
-                    if (uploadPanel) uploadPanel.classList.remove('hidden');
-                    if (drawPanel) drawPanel.classList.add('hidden');
-                    // Style active tab
-                    sigTabUpload.classList.add('border-red-500', 'text-white');
-                    sigTabUpload.classList.remove('border-transparent', 'text-gray-400');
-                    // Style inactive tab
-                    if (sigTabDraw) {
-                        sigTabDraw.classList.add('border-transparent', 'text-gray-400');
-                        sigTabDraw.classList.remove('border-red-500', 'text-white');
-                    }
-                    loadSignature(); // Reload uploaded signature into preview
-                });
-            }
-
-            if (sigTabDraw) {
-                sigTabDraw.addEventListener('click', () => {
-                    sigMode = 'draw';
-                    if (uploadPanel) uploadPanel.classList.add('hidden');
-                    if (drawPanel) drawPanel.classList.remove('hidden');
-                    // Style active tab
-                    sigTabDraw.classList.add('border-red-500', 'text-white');
-                    sigTabDraw.classList.remove('border-transparent', 'text-gray-400');
-                    // Style inactive tab
-                    if (sigTabUpload) {
-                        sigTabUpload.classList.add('border-transparent', 'text-gray-400');
-                        sigTabUpload.classList.remove('border-red-500', 'text-white');
-                    }
-                    
-                    // Check if there's a drawn signature to show
-                    if (sigCanvas && !isCanvasBlank(sigCanvas)) {
-                         if (signaturePreview) signaturePreview.src = sigCanvas.toDataURL();
-                         if (signaturePreview) signaturePreview.classList.remove('hidden');
-                         if (removeSignatureBtn) removeSignatureBtn.classList.remove('hidden');
-                    } else {
-                         if (signaturePreview) signaturePreview.src = '';
-                         if (signaturePreview) signaturePreview.classList.add('hidden');
-                         if (removeSignatureBtn) removeSignatureBtn.classList.add('hidden');
-                    }
-                });
-            }
-
-            // --- NEW: Canvas drawing logic ---
-            if (sigContext) {
-                sigContext.strokeStyle = '#000000';
-                sigContext.lineWidth = 2;
-                sigContext.lineCap = 'round';
-                sigContext.lineJoin = 'round';
-            }
-
-            function getMousePos(canvas, evt) {
-                const rect = canvas.getBoundingClientRect();
-                const scaleX = canvas.width / rect.width;
-                const scaleY = canvas.height / rect.height;
-                
-                let clientX, clientY;
-                if (evt.touches) { // Touch event
-                    clientX = evt.touches[0].clientX;
-                    clientY = evt.touches[0].clientY;
-                } else { // Mouse event
-                    clientX = evt.clientX;
-                    clientY = evt.clientY;
-                }
-                return {
-                    x: (clientX - rect.left) * scaleX,
-                    y: (clientY - rect.top) * scaleY
-                };
-            }
-
-            function startDrawing(e) {
-                if (!sigContext) return;
-                e.preventDefault(); // prevent scrolling
-                isDrawing = true;
-                const pos = getMousePos(sigCanvas, e);
-                sigContext.beginPath();
-                sigContext.moveTo(pos.x, pos.y);
-            }
-
-            function draw(e) {
-                if (!isDrawing || !sigContext) return;
-                e.preventDefault();
-                const pos = getMousePos(sigCanvas, e);
-                sigContext.lineTo(pos.x, pos.y);
-                sigContext.stroke();
-            }
-
-            function stopDrawing(e) {
-                if (!isDrawing || !sigContext) return;
-                isDrawing = false;
-                sigContext.closePath();
-                
-                // Update preview only if it's not a mouseout event
-                if (e.type !== 'mouseout' && sigCanvas) {
-                    const dataUrl = sigCanvas.toDataURL();
-                    if (signaturePreview) signaturePreview.src = dataUrl;
-                    if (signaturePreview) signaturePreview.classList.remove('hidden');
-                    if (removeSignatureBtn) removeSignatureBtn.classList.remove('hidden');
-                }
-            }
-            
-            function isCanvasBlank(canvas) {
-                if (!canvas) return true;
-                // Check if canvas is empty
-                const blank = document.createElement('canvas');
-                blank.width = canvas.width;
-                blank.height = canvas.height;
-                return canvas.toDataURL() === blank.toDataURL();
-            }
-
-            if (sigCanvas) {
-                // Mouse events
-                sigCanvas.addEventListener('mousedown', startDrawing);
-                sigCanvas.addEventListener('mousemove', draw);
-                sigCanvas.addEventListener('mouseup', stopDrawing);
-                sigCanvas.addEventListener('mouseout', stopDrawing); // Stop if mouse leaves canvas
-
-                // Touch events
-                sigCanvas.addEventListener('touchstart', startDrawing);
-                sigCanvas.addEventListener('touchmove', draw);
-                sigCanvas.addEventListener('touchend', stopDrawing);
-            }
-
-            // Clear button
-            if (sigClearBtn) {
-                sigClearBtn.addEventListener('click', () => {
-                    if (sigContext && sigCanvas) sigContext.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
-                    if (signaturePreview) signaturePreview.src = '';
-                    if (signaturePreview) signaturePreview.classList.add('hidden');
-                    if (removeSignatureBtn) removeSignatureBtn.classList.add('hidden');
-                });
-            }
-
-            // --- Initial Setup ---
-            // Listen for changes on currency and tax rate
-            [currencySelect, taxRateSelect].forEach(el => {
-                if (el) el.addEventListener('input', updateTotals);
-            });
-            
-            // Use event delegation for dynamic item rows
-            if (itemsContainer) {
-                itemsContainer.addEventListener('input', (e) => {
-                    if (e.target.matches('.item-qty, .item-price, .item-desc')) {
-                        updateTotals();
-                    }
-                });
-            }
-            
-            // Add item button click
-            if (addItemBtn) {
-                addItemBtn.addEventListener('click', createItemRow);
-            }
-            
-            // --- NEW: Step Wizard Event Listeners ---
-            if (nextStepBtn) {
-                nextStepBtn.addEventListener('click', () => {
-                    showStep(currentStep + 1);
-                });
-            }
-            
-            if (prevStepBtn) {
-                prevStepBtn.addEventListener('click', () => {
-                    showStep(currentStep - 1);
-                });
-            }
-            
-            stepIndicators.forEach(indicator => {
-                indicator.addEventListener('click', (e) => {
-                    // Find the button element in case the user clicks the dot or label
-                    const targetButton = e.target.closest('.step-indicator');
-                    if (targetButton) {
-                        const targetStep = parseInt(targetButton.dataset.step);
-                        showStep(targetStep);
-                    }
-                });
-            });
-
-            loadLogo(); // Load logo from localStorage on page load
-            loadSignature(); // Load signature from localStorage
-            updateTotals(); // Initial calculation
-            checkAddItemButtonState(); // Check button state on load
-            showStep(1); // NEW: Initialize the wizard on step 1
-            
-            
-            // --- NEW: Modal Logic ---
-            function closeModal() {
-                if (modal) {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                }
-                if (modalContent) {
-                    modalContent.innerHTML = ''; // Clear iframe
-                }
-                // Restore main page scroll
-                document.body.style.overflow = '';
-            }
-
-            if (modalCloseBtn) {
-                modalCloseBtn.addEventListener('click', closeModal);
-            }
-            
-            if (modal) {
-                // Close modal on outside click
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        closeModal();
-                    }
-                });
-            }
-
-            // Modal Print Button
-            if (modalPrintBtn) {
-                modalPrintBtn.addEventListener('click', () => {
-                    const iframe = modalContent.querySelector('iframe');
-                    if (iframe) {
-                        iframe.contentWindow.print();
-                    }
-                });
-            }
-
-            // --- HTML Invoice Generation (MODIFIED: Show in Modal) ---
-            if (invoiceForm) {
-                invoiceForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    
-                    // Hide main page scroll
-                    document.body.style.overflow = 'hidden';
-
-                    let logoBase64 = null;
-                    try {
-                        logoBase64 = localStorage.getItem(logoStorageKey);
-                    } catch (e) {
-                        console.error("Could not read logo from localStorage:", e);
-                    }
-                    
-                    // UPDATED: Get signature based on sigMode
-                    let signatureBase64 = null;
-                    if (sigMode === 'upload') {
-                        try {
-                            signatureBase64 = localStorage.getItem(signatureStorageKey);
-                        } catch (e) {
-                            console.error("Could not read signature from localStorage:", e);
-                        }
-                    } else if (sigMode === 'draw' && sigCanvas && !isCanvasBlank(sigCanvas)) {
-                        signatureBase64 = sigCanvas.toDataURL(); // Get drawn signature
-                    }
-
-                    const yourNameEl = document.getElementById('your-name');
-                    const yourAddressEl = document.getElementById('your-address');
-                    const yourGstinEl = document.getElementById('your-gstin');
-                    const clientNameEl = document.getElementById('client-name');
-                    const clientAddressEl = document.getElementById('client-address');
-                    const clientGstinEl = document.getElementById('client-gstin');
-                    const yourContactEl = document.getElementById('your-contact');
-                    const clientContactEl = document.getElementById('client-contact');
-                    const currencyEl = document.getElementById('currency');
-                    const taxRateEl = document.getElementById('tax-rate');
-                    const subtotalAmountEl = document.getElementById('subtotal-amount');
-                    const gstAmountEl = document.getElementById('gst-amount');
-                    const totalAmountEl = document.getElementById('total-amount');
-                    const invoiceNotesEl = document.getElementById('invoice-notes');
-
-                    const yourName = yourNameEl ? yourNameEl.value : "Your Business";
-                    const yourAddress = yourAddressEl ? yourAddressEl.value : "";
-                    const yourGstin = yourGstinEl ? yourGstinEl.value : "";
-
-                    const clientName = clientNameEl ? clientNameEl.value : "Client Name";
-                    const clientAddress = clientAddressEl ? clientAddressEl.value : "";
-                    const clientGstin = clientGstinEl ? clientGstinEl.value : "";
-                    
-                    const yourContact = yourContactEl ? yourContactEl.value : ""; // Added
-                    const clientContact = clientContactEl ? clientContactEl.value : ""; // Added
-                    
-                    const currency = currencyEl ? currencyEl.value : "INR";
-                    const currencySymbol = currencySymbols[currency] || '₹';
-                    const taxRate = taxRateEl ? (parseFloat(taxRateEl.value) || 0) : 0;
-
-                    const subtotal = subtotalAmountEl ? (parseFloat(subtotalAmountEl.innerText) || 0) : 0;
-                    const taxAmount = gstAmountEl ? (parseFloat(gstAmountEl.innerText) || 0) : 0;
-                    const total = totalAmountEl ? (parseFloat(totalAmountEl.innerText) || 0) : 0;
-                    
-                    const invoiceNotes = invoiceNotesEl ? invoiceNotesEl.value : ""; // Added
-
-                    const date = new Date().toLocaleDateString('en-IN');
-                    const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
-                    
-                    // UPDATED: Due Date is same as Invoice Date
-                    const dueDate = date;
-
-                    // UPDATED: Logic for custom vs. default logo
-                    let logoHtml = '';
-                    if (logoBase64) {
-                        logoHtml = `<img src="${logoBase64}" alt="Business Logo" class="logo">`;
-                    } else {
-                        // Use Font Awesome receipt icon
-                        logoHtml = `<div class="default-logo-icon"><i class="fa-solid fa-receipt"></i></div>`;
-                    }
-                    
-                    // UPDATED: Default logo for footer
-                    const defaultLogoFooterHtml = '<div style="font-family: \'Inter\', sans-serif; font-size: 16px; font-weight: 700; color: #333; margin-top: 8px;">Desi<span style="font-family: \'Dancing Script\', cursive; font-size: 20px; color: #E50914;">Bill</span></div>';
-
-                    // 2. Build Item Rows HTML
-                    let itemsHtml = '';
-                    const itemFormRows = document.querySelectorAll('#invoice-items-container .item-row');
-                    itemFormRows.forEach(row => {
-                        const desc = (row.querySelector('.item-desc')?.value || '').trim() || 'Service/Product';
-                        const qty = parseFloat(row.querySelector('.item-qty')?.value) || 0;
-                        const price = parseFloat(row.querySelector('.item-price')?.value) || 0;
-                        const rowTotal = (qty * price);
-
-                        if (desc || qty > 0 || price > 0) {
-                            // UPDATED: New table structure
-                            itemsHtml += `
-                                <tr>
-                                    <td><strong>${desc}</strong></td>
-                                    <td class="right">${qty}</td>
-                                    <td class="right">${currencySymbol} ${price.toFixed(2)}</td>
-                                    <td class="right">${currencySymbol} ${rowTotal.toFixed(2)}</td>
-                                </tr>
-                            `;
-                        }
-                    });
-
-                    if (itemsHtml === '') {
-                        itemsHtml = '<tr><td colspan="4" class="center" style="padding: 20px 0;">No items added.</td></tr>';
-                    }
-
-                    // 3. Build Totals Rows HTML
-                    // UPDATED: New totals structure
-                    let totalsHtml = `
-                        <div class="total-row">
-                            <span>Subtotal</span>
-                            <span class="right">${currencySymbol} ${subtotal.toFixed(2)}</span>
-                        </div>
-                    `;
-                    
-                    if (taxRate > 0) {
-                        const taxLabelEl = document.getElementById('gst-label');
-                        const taxLabel = taxLabelEl ? taxLabelEl.innerText.replace(':', '') : 'Tax';
-                        totalsHtml += `
-                            <div class="total-row">
-                                <span>${taxLabel}</span>
-                                <span class="right">${currencySymbol} ${taxAmount.toFixed(2)}</span>
-                            </div>
-                        `;
-                    }
-                    
-                    totalsHtml += `
-                        <div class="total-row grand-total">
-                            <span>TOTAL</span>
-                            <span class="right">${currencySymbol} ${total.toFixed(2)}</span>
-                        </div>
-                    `;
-
-
-                    // 4. Construct Full Invoice HTML
-                    // UPDATED: Removed the <button onclick="window.print()">
-                    // UPDATED: Complete redesign of styles and HTML structure
-                    const invoiceHtml = `
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <title>Invoice ${invoiceNumber}</title>
-                            <!-- UPDATED: Added Font Awesome for default icon -->
-                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-                            <style>
-                                /* NEW: Import Cursive Font */
-                                @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-                                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-                            
-                                body { 
-                                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-                                    margin: 0; 
-                                    padding: 0; 
-                                    background-color: #f8f8f8; 
-                                    color: #333;
-                                    -webkit-font-smoothing: antialiased;
-                                    -moz-osx-font-smoothing: grayscale;
-                                    /* NEW: Force print background colors */
-                                    -webkit-print-color-adjust: exact !important;
-                                    color-adjust: exact !important;
-                                }
-                                
-                                .invoice-container { 
-                                    max-width: 840px; 
-                                    min-height: 1188px; /* A4 aspect ratio helper */
-                                    margin: 20px auto; 
-                                    background-color: #fff; 
-                                    border: 1px solid #ddd; 
-                                    padding: 0;
-                                    box-shadow: 0 0 15px rgba(0,0,0,0.07);
-                                    position: relative; /* For stacking context */
-                                    z-index: 2; /* Ensure content is above watermark */
-                                }
-                                
-                                /* Watermark */
-                                .watermark {
-                                    position: absolute;
-                                    top: 50%;
-                                    left: 50%;
-                                    transform: translate(-50%, -50%) rotate(-45deg);
-                                    font-size: 100px;
-                                    font-weight: bold;
-                                    color: rgba(0, 0, 0, 0.04); /* Very faint gray */
-                                    white-space: nowrap;
-                                    z-index: 1; /* Behind the content */
-                                    user-select: none;
-                                }
-                                .watermark .cursive {
-                                    font-family: 'Dancing Script', cursive;
-                                    font-size: 120px; /* Make cursive part slightly larger */
-                                }
-
-                                /* Header */
-                                .invoice-header {
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: flex-start;
-                                    padding: 30px 40px 20px; /* Reduced padding */
-                                    border-bottom: 2px solid #f4f4f4;
-                                }
-                                .header-left .logo {
-                                    max-width: 220px;
-                                    max-height: 70px;
-                                    object-fit: contain;
-                                    display: block;
-                                }
-                                /* NEW: Default Icon Style */
-                                .header-left .default-logo-icon {
-                                    font-size: 48px;
-                                    color: #E50914;
-                                    width: 70px; /* Match height */
-                                    height: 70px;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                }
-                                
-                                .header-left h2 {
-                                    margin: 10px 0 0 0;
-                                    font-size: 20px;
-                                    font-weight: 600;
-                                    color: #000;
-                                }
-                                .header-right {
-                                    text-align: right;
-                                }
-                                .header-right h1 {
-                                    margin: 0 0 10px 0;
-                                    color: #E50914;
-                                    font-size: 32px;
-                                    font-weight: 700;
-                                }
-                                .header-right p {
-                                    margin: 0;
-                                    font-size: 13px;
-                                    color: #555;
-                                    line-height: 1.6;
-                                }
-                                .header-right p strong {
-                                    color: #000;
-                                }
-
-                                /* From/To Parties */
-                                .invoice-parties {
-                                    padding: 20px 40px; /* Reduced padding */
-                                    display: flex;
-                                    justify-content: space-between;
-                                    gap: 20px;
-                                }
-                                /* UPDATED: Party Box styling */
-                                .party-box {
-                                    width: 48%;
-                                    background: #fdfdfd;
-                                    border: 1px solid #eee;
-                                    border-radius: 8px;
-                                    padding: 15px;
-                                }
-                                .party-box h3 {
-                                    font-size: 13px;
-                                    color: #E50914; /* Red title */
-                                    font-weight: 600;
-                                    margin-top: 0;
-                                    margin-bottom: 10px;
-                                    text-transform: uppercase;
-                                    /* UPDATED: Align title to left */
-                                    text-align: left; 
-                                }
-                                .party-box-content {
-                                    /* UPDATED: Align content to left */
-                                    text-align: left;
-                                }
-                                .party-box p {
-                                    font-size: 14px;
-                                    line-height: 1.6;
-                                    white-space: pre-line;
-                                    margin: 0 0 5px 0;
-                                    color: #222;
-                                }
-                                .party-box p.party-name {
-                                    font-size: 16px;
-                                    font-weight: 700;
-                                    color: #000;
-                                    margin-bottom: 8px;
-                                }
-                                .party-box p strong {
-                                    font-weight: 600;
-                                    color: #333;
-                                }
-                                
-                                /* Items Table */
-                                .invoice-table {
-                                    padding: 0 40px 20px;
-                                }
-                                table.items {
-                                    width: 100%;
-                                    border-collapse: collapse;
-                                    border-radius: 8px; /* Rounded corners for table */
-                                    overflow: hidden; /* Clip gradient */
-                                    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-                                }
-                                table.items th, table.items td {
-                                    padding: 12px 15px;
-                                    text-align: left;
-                                    border-bottom: 1px solid #eee;
-                                    font-size: 14px;
-                                }
-                                /* UPDATED: Dark Red Gradient Header */
-                                table.items th {
-                                    background-image: linear-gradient(to bottom, #a10f18, #E50914);
-                                    color: #ffffff;
-                                    font-weight: 600;
-                                    font-size: 12px;
-                                    text-transform: uppercase;
-                                    border-bottom: 1px solid #a10f18;
-                                }
-                                /* UPDATED: Zebra striping for items */
-                                table.items tbody tr:nth-of-type(even) {
-                                    background-color: #fff8f8; /* Very light red */
-                                }
-                                table.items td.right, table.items th.right {
-                                    text-align: right;
-                                }
-                                
-                                /* Summary / Totals */
-                                /* UPDATED: Removed old summary styles, replaced with new bottom section */
-                                .invoice-bottom-section {
-                                    padding: 20px 40px 40px;
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: flex-start; /* Align tops */
-                                }
-                                .invoice-bottom-left { /* For notes */
-                                    width: 55%;
-                                }
-                                .invoice-bottom-right { /* For totals & signature */
-                                    width: 40%;
-                                }
-
-                                .totals-box {
-                                    width: 100%;
-                                    margin-bottom: 30px; /* Space before signature */
-                                }
-                                .total-row {
-                                    display: flex;
-                                    justify-content: space-between;
-                                    padding: 8px 0;
-                                    font-size: 14px;
-                                    color: #333;
-                                }
-                                .total-row span:first-child {
-                                    color: #555;
-                                }
-                                .total-row.grand-total {
-                                    font-size: 18px;
-                                    font-weight: 700;
-                                    color: #E50914;
-                                    border-top: 2px solid #333;
-                                    margin-top: 10px;
-                                    padding-top: 10px;
-                                }
-
-                                /* Notes & Signature */
-                                /* UPDATED: Removed old footer-details padding */
-                                .notes h3, .signature h3 {
-                                    font-size: 13px;
-                                    color: #777;
-                                    font-weight: 500;
-                                    margin-bottom: 5px;
-                                    text-transform: uppercase;
-                                }
-                                .notes p {
-                                    font-size: 13px;
-                                    color: #555;
-                                    margin: 0;
-                                    line-height: 1.6;
-                                    white-space: pre-line;
-                                }
-                                .signature {
-                                    margin-top: 30px;
-                                    text-align: right;
-                                }
-                                .signature img {
-                                    max-height: 50px;
-                                    object-fit: contain;
-                                    margin-bottom: 5px;
-                                }
-                                .signature p {
-                                    font-size: 12px;
-                                    color: #555;
-                                    border-top: 1px solid #ccc;
-                                    padding-top: 5px;
-                                    display: inline-block;
-                                    margin: 0;
-                                }
-                                
-                                /* Page Footer */
-                                .invoice-footer {
-                                    position: absolute;
-                                    bottom: 0;
-                                    left: 0;
-                                    right: 0;
-                                    padding: 20px 40px;
-                                    text-align: center;
-                                    font-size: 12px;
-                                    color: #999;
-                                    border-top: 1px solid #eee;
-                                }
-                                .invoice-footer p { margin: 2px 0; }
-                                
-                                /* NEW: Footer Logo Styles */
-                                .footer-logo {
-                                    font-family: 'Inter', sans-serif; 
-                                    font-size: 14px; /* smaller */
-                                    font-weight: 700; 
-                                    color: #555; /* subtle */
-                                    display: inline-block;
-                                    margin-left: 8px;
-                                    vertical-align: middle;
-                                }
-                                .footer-logo .cursive {
-                                    font-family: 'Dancing Script', cursive; 
-                                    font-size: 16px; /* smaller */
-                                    color: #E50914;
-                                }
-                                
-                                /* REMOVED the mobile-specific media query that caused wrapping */
-
-                                @media print {
-                                    body { background-color: #fff; margin: 0; }
-                                    .invoice-container { 
-                                        width: 100%; 
-                                        margin: 0; 
-                                        padding: 0; 
-                                        border: none; 
-                                        box-shadow: none;
-                                        min-height: 0; 
-                                    }
-                                    .invoice-footer {
-                                        position: static; /* Don't stick footer on print */
-                                    }
-                                    .no-print { display: none; }
-                                    .watermark {
-                                        color: rgba(0, 0, 0, 0.06);
-                                    }
-                                    @page {
-                                        size: A4;
-                                        margin: 0;
-                                    }
-                                    body {
-                                        margin: 0;
-                                        padding: 0;
-                                    }
-                                    .invoice-container {
-                                        padding: 20mm; /* Standard A4 margins */
-                                        box-sizing: border-box;
-                                        height: 297mm;
-                                        width: 210mm;
-                                    }
-                                }
-                            </style>
-                        </head>
-                        <body>
-                            <div class="invoice-container">
-                                <!-- Watermark -->
-                                <div class="watermark">
-                                    Desi<span class="cursive">Bill</span>
-                                </div>
-                                
-                                <div class="invoice-header">
-                                    <div class="header-left">
-                                        ${logoHtml}
-                                    </div>
-                                    <div class="header-right">
-                                        <h1>INVOICE</h1>
-                                        <p><strong>Invoice No:</strong> ${invoiceNumber}</p>
-                                        <p><strong>Date:</strong> ${date}</p>
-                                        <p><strong>Due Date:</strong> ${dueDate}</p>
-                                    </div>
-                                </div>
-
-                                <div class="invoice-parties">
-                                    <!-- UPDATED: FROM Box -->
-                                    <div class="party-box">
-                                        <h3>FROM:</h3>
-                                        <div class="party-box-content">
-                                            <p class="party-name">${yourName}</p>
-                                            <p>
-                                                ${yourContact ? `${yourContact}<br>` : ''}
-                                                ${yourAddress.replace(/\n/g, '<br>')}
-                                                ${yourGstin ? `<br><strong>GSTIN:</strong> ${yourGstin}` : ''}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- UPDATED: TO Box -->
-                                    <div class="party-box">
-                                        <h3>BILL TO:</h3>
-                                        <div class="party-box-content">
-                                            <p class="party-name">${clientName}</p>
-                                            <p>
-                                                ${clientContact ? `${clientContact}<br>` : ''}
-                                                ${clientAddress.replace(/\n/g, '<br>')}
-                                                ${clientGstin ? `<br><strong>GSTIN:</strong> ${clientGstin}` : ''}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="invoice-table">
-                                    <table class="items">
-                                        <thead>
-                                            <tr>
-                                                <th>Item Description</th>
-                                                <th class="right">Qty</th>
-                                                <th class="right">Price</th>
-                                                <th class="right">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            ${itemsHtml}
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                                <!-- UPDATED: Replaced summary and footer-details with new bottom section -->
-                                <div class="invoice-bottom-section">
-                                    <div class="invoice-bottom-left">
-                                        ${invoiceNotes ? `
-                                            <div class="notes">
-                                                <h3>Notes / Terms:</h3>
-                                                <p>${invoiceNotes.replace(/\n/g, '<br>')}</p>
-                                            </div>
-                                        ` : ''}
-                                    </div>
-                                    <div class="invoice-bottom-right">
-                                        <div class="totals-box">
-                                            ${totalsHtml}
-                                        </div>
-                                        
-                                        ${signatureBase64 ? `
-                                            <div class="signature">
-                                                <img src="${signatureBase64}" alt="Signature">
-                                                <p>Authorized Signature</p>
-                                            </div>
-                                        ` : ''}
-                                    </div>
-                                </div>
-
-                                <div class="invoice-footer">
-                                    <p>Thank you for your business!</p>
-                                    <p>
-                                        Generated by DesiBill - India's Free Billing Tool
-                                        <!-- NEW: Added footer logo -->
-                                        <span class="footer-logo">Desi<span class="cursive">Bill</span></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </body>
-                        </html>
-                    `;
-
-                    // 5. MODIFIED: Show in Modal
-                    if (modal && modalContent) {
-                        // Store data on the modal for action buttons
-                        modal.dataset.invoiceNumber = invoiceNumber;
-                        modal.dataset.clientContact = clientContact; // This field holds phone or email
-                        modal.dataset.clientName = clientName;
-                        modal.dataset.yourName = yourName;
-                        modal.dataset.total = total.toFixed(2);
-                        modal.dataset.currencySymbol = currencySymbol;
-                        
-                        // Create iframe
-                        const iframe = document.createElement('iframe');
-                        iframe.className = 'w-full h-[75vh] border-0 bg-white';
-                        // Use srcdoc for security and style isolation
-                        iframe.srcdoc = invoiceHtml; 
-                        
-                        // Add iframe to modal and display
-                        modalContent.innerHTML = ''; // Clear previous preview
-                        modalContent.appendChild(iframe);
-                        modal.classList.remove('hidden');
-                        modal.classList.add('flex'); // Use flex for centering
-                    } else {
-                        console.error("Modal elements not found. Could not display preview.");
-                    }
-                });
-            }
-            // --- End of PDF Generation Script ---
-            
-        }); // <-- ADDED THIS WRAPPER
-    </script>
 </body>
 </html>
