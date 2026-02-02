@@ -1,0 +1,140 @@
+/* Import cursive font for logo */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+/* Set the base theme as requested */
+body {
+    background-color: #0B0B0B;
+    color: #E0E0E0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Use Inter font (Tailwind's default sans-serif) */
+.font-sans {
+    font-family: 'Inter', sans-serif;
+}
+
+/* NEW: Cursive font class for logo */
+.font-cursive {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Hero background with subtle red gradients */
+.hero-bg {
+    background-color: #0B0B0B;
+    background-image: radial-gradient(at 80% 10%, hsla(356, 92%, 47%, 0.15) 0px, transparent 50%),
+                      radial-gradient(at 20% 90%, hsla(356, 92%, 47%, 0.1) 0px, transparent 50%);
+}
+
+/* The primary CTA button with gradient and glow shadow */
+.btn-primary {
+    background-image: linear-gradient(to right, #E50914 0%, #F40C1A 100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4); /* Glow effect on hover */
+}
+
+/* Secondary button style */
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Soft shadow cards for features/testimonials */
+.soft-shadow-card {
+    background-color: #1A1A1A; /* Slightly lighter than pure black */
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.soft-shadow-card:hover {
+    border-color: #E50914;
+    transform: translateY(-2px); /* Smaller lift for compact feel */
+}
+
+/* High-contrast focus rings for accessibility */
+:focus-visible {
+    outline: 2px solid #E50914;
+    outline-offset: 2px;
+}
+.btn-primary:focus-visible, .btn-secondary:focus-visible {
+     box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
+}
+
+/* NEW: Styles for Step Indicator */
+.step-indicator {
+    background-color: transparent;
+    border: none;
+    padding: 8px 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    flex: 0 1 auto; /* Don't grow, just take space needed */
+}
+.step-indicator-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #444;
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: #1A1A1A;
+}
+.step-indicator-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    color: #999;
+    transition: all 0.3s ease;
+    margin-top: 6px;
+    text-transform: uppercase;
+}
+.step-indicator-line {
+    height: 2px;
+    background-color: #444;
+    flex: 1 1 0%;
+    margin-top: 14px; /* Align with middle of dots */
+    transform: translateY(-50%);
+}
+
+/* Active state for indicator */
+.step-indicator.active-step-indicator .step-indicator-dot {
+    border-color: #E50914;
+    background-color: #E50914;
+    color: #fff;
+}
+.step-indicator.active-step-indicator .step-indicator-label {
+    color: #fff;
+}
+
+/* Hide inactive steps */
+.form-step.hidden {
+    display: none;
+}
+
+/* NEW: Style for the drawing canvas */
+#signature-canvas {
+    touch-action: none; /* Prevent page scroll while drawing on mobile */
+}
+
+/* NEW: Styles for Invoice Preview Modal */
+/* We use Tailwind classes inline, but 'hidden' is managed by JS */
+/* The modal base class will be: */
+/* fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-sm p-4 */
