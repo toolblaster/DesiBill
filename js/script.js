@@ -703,7 +703,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             color: #333;
                             -webkit-font-smoothing: antialiased;
                             -moz-osx-font-smoothing: grayscale;
-                            /* Standardized Font Size */
                             font-size: 12px; 
                             line-height: 1.3;
                             -webkit-print-color-adjust: exact !important;
@@ -739,17 +738,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             font-size: 120px; 
                         }
 
-                        /* Compact Header */
                         .invoice-header {
                             display: flex;
                             justify-content: space-between;
                             align-items: flex-start;
-                            padding: 20px 30px 15px; /* Reduced padding */
+                            padding: 20px 30px 15px; 
                             border-bottom: 2px solid #f4f4f4;
                         }
                         .header-left .logo {
                             max-width: 200px;
-                            max-height: 60px; /* Constrain height */
+                            max-height: 60px; 
                             object-fit: contain;
                             display: block;
                         }
@@ -769,12 +767,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         .header-right h1 {
                             margin: 0 0 5px 0;
                             color: #E50914;
-                            font-size: 24px; /* Reduced size */
+                            font-size: 24px; 
                             font-weight: 700;
                         }
                         .header-right p {
                             margin: 0;
-                            font-size: 12px; /* Standard size */
+                            font-size: 12px; 
                             color: #555;
                             line-height: 1.4;
                         }
@@ -782,26 +780,25 @@ document.addEventListener('DOMContentLoaded', () => {
                             color: #000;
                         }
 
-                        /* Compact From/To Parties */
                         .invoice-parties {
-                            padding: 15px 30px; /* Reduced vertical padding */
+                            padding: 15px 30px; 
                             display: flex;
                             justify-content: space-between;
-                            gap: 15px; /* Reduced gap */
+                            gap: 15px; 
                         }
                         .party-box {
                             width: 48%;
                             background: #fdfdfd;
                             border: 1px solid #eee;
                             border-radius: 6px;
-                            padding: 10px 12px; /* Compact padding inside box */
+                            padding: 10px 12px; 
                         }
                         .party-box h3 {
-                            font-size: 11px; /* Small, uppercase label */
+                            font-size: 11px; 
                             color: #E50914; 
                             font-weight: 600;
                             margin-top: 0;
-                            margin-bottom: 5px; /* Tighter margin */
+                            margin-bottom: 5px; 
                             text-transform: uppercase;
                             text-align: left; 
                         }
@@ -812,17 +809,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             font-size: 12px;
                             line-height: 1.4;
                             white-space: pre-line;
-                            margin: 0 0 2px 0; /* Tighter lines */
+                            margin: 0 0 2px 0; 
                             color: #333;
                         }
                         .party-box p.party-name {
-                            font-size: 13px; /* Only slightly larger */
+                            font-size: 13px; 
                             font-weight: 700;
                             color: #000;
                             margin-bottom: 4px;
                         }
                         
-                        /* Table */
                         .invoice-table {
                             padding: 5px 30px 15px;
                         }
@@ -834,7 +830,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             box-shadow: 0 2px 5px rgba(0,0,0,0.03);
                         }
                         table.items th, table.items td {
-                            padding: 8px 10px; /* Reduced cell padding */
+                            padding: 8px 10px; 
                             text-align: left;
                             border-bottom: 1px solid #eee;
                             font-size: 12px;
@@ -843,7 +839,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             background-image: linear-gradient(to bottom, #a10f18, #E50914);
                             color: #ffffff;
                             font-weight: 600;
-                            font-size: 11px; /* Smaller header font */
+                            font-size: 11px; 
                             text-transform: uppercase;
                             border-bottom: 1px solid #a10f18;
                         }
@@ -854,7 +850,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             text-align: right;
                         }
                         
-                        /* Bottom Section */
                         .invoice-bottom-section {
                             padding: 10px 30px 30px;
                             display: flex;
@@ -875,7 +870,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         .total-row {
                             display: flex;
                             justify-content: space-between;
-                            padding: 4px 0; /* Tighter totals */
+                            padding: 4px 0; 
                             font-size: 12px;
                             color: #333;
                         }
@@ -883,7 +878,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             color: #555;
                         }
                         .total-row.grand-total {
-                            font-size: 14px; /* Slightly larger */
+                            font-size: 14px; 
                             font-weight: 700;
                             color: #E50914;
                             border-top: 1px solid #333;
@@ -891,7 +886,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             padding-top: 8px;
                         }
 
-                        .notes h3, .signature h3 {
+                        .notes h3 {
                             font-size: 11px;
                             color: #777;
                             font-weight: 500;
@@ -905,21 +900,31 @@ document.addEventListener('DOMContentLoaded', () => {
                             line-height: 1.4;
                             white-space: pre-line;
                         }
+                        /* UPDATED SIGNATURE CSS */
                         .signature {
                             margin-top: 20px;
                             text-align: right;
+                            padding-right: 10px;
                         }
-                        .signature img {
-                            max-height: 45px;
-                            object-fit: contain;
-                            margin-bottom: 4px;
+                        .sign-content {
+                            display: inline-block;
+                            text-align: center;
+                            min-width: 140px;
                         }
-                        .signature p {
+                        .sign-content img {
+                            max-height: 30px; /* Reduced Size */
+                            width: auto;
+                            margin-bottom: 2px; /* Pull closer to line */
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                        .sign-content p {
                             font-size: 11px;
                             color: #555;
-                            border-top: 1px solid #ccc;
+                            border-top: 1px solid #333; /* Darker line */
                             padding-top: 4px;
-                            display: inline-block;
+                            display: block;
                             margin: 0;
                         }
                         
@@ -1060,8 +1065,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                 
                                 ${signatureBase64 ? `
                                     <div class="signature">
-                                        <img src="${signatureBase64}" alt="Signature">
-                                        <p>Authorized Signature</p>
+                                        <div class="sign-content">
+                                            <img src="${signatureBase64}" alt="Signature">
+                                            <p>Authorized Signature</p>
+                                        </div>
                                     </div>
                                 ` : ''}
                             </div>
