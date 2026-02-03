@@ -138,3 +138,10 @@ body {
 /* We use Tailwind classes inline, but 'hidden' is managed by JS */
 /* The modal base class will be: */
 /* fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-sm p-4 */
+
+/* Fix CLS: Reserve space for header */
+/* Header nav is h-16 (64px) + border-b (1px) = 65px */
+#header-placeholder {
+    min-height: 65px; 
+    display: block;
+}
