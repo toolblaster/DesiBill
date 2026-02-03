@@ -15,6 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalAmountEl = document.getElementById('total-amount');
     const currencySymbolEls = document.querySelectorAll('.currency-symbol');
     
+    // NEW: Discount Elements
+    const discountTypeSelect = document.getElementById('discount-type');
+    const discountInput = document.getElementById('discount-value');
+    const discountRowEl = document.getElementById('discount-row');
+    const discountAmountEl = document.getElementById('discount-amount');
+
+    // NEW: Invoice Details Elements
+    const invoiceNumberInput = document.getElementById('invoice-number');
+    const invoiceDateInput = document.getElementById('invoice-date');
+
     const logoUpload = document.getElementById('logo-upload');
     const logoPreview = document.getElementById('logo-preview');
     const removeLogoBtn = document.getElementById('remove-logo');
@@ -63,6 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
         'AUD': '$',
         'CAD': '$'
     };
+
+    // --- Initialize Defaults ---
+    function initDefaults() {
+        // Set default invoice number
+        if (invoiceNumberInput && !invoiceNumberInput.value) {
+            invoiceNumberInput.value = `INV-${Math.floor(100000 + Math.random() * 900000)}`;
+        }
+        // Set default date to today
+        if (invoiceDateInput && !invoiceDateInput.value) {
+            invoiceDateInput.valueAsDate = new Date();
+        }
+    }
 
     // NEW: Step Wizard Function
     function showStep(stepNumber) {
@@ -119,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const symbol = currencySymbols[currency];
         const taxRate = parseFloat(taxRateSelect.value) || 0;
         
+        // 1. Calculate Item Subtotal
         let totalSubtotal = 0;
         const itemRows = itemsContainer.querySelectorAll('.item-row');
         
@@ -131,11 +154,35 @@ document.addEventListener('DOMContentLoaded', () => {
             totalSubtotal += qty * price;
         });
 
-        const taxAmount = totalSubtotal * taxRate;
-        const total = totalSubtotal + taxAmount;
+        // 2. Calculate Discount
+        let discountVal = parseFloat(discountInput.value) || 0;
+        let discountAmt = 0;
+        
+        if (discountTypeSelect.value === 'percentage') {
+            discountAmt = totalSubtotal * (discountVal / 100);
+        } else {
+            discountAmt = discountVal;
+        }
+        
+        // Validation: Discount cannot exceed subtotal
+        if (discountAmt > totalSubtotal) discountAmt = totalSubtotal;
+
+        // 3. Calculate Tax (on discounted amount)
+        const taxableAmount = totalSubtotal - discountAmt;
+        const taxAmount = taxableAmount * taxRate;
+        const total = taxableAmount + taxAmount;
 
         // Update UI
         subtotalEl.innerText = totalSubtotal.toFixed(2);
+        
+        if (discountAmt > 0) {
+            discountRowEl.classList.remove('hidden');
+            discountAmountEl.innerText = discountAmt.toFixed(2);
+        } else {
+            discountRowEl.classList.add('hidden');
+            discountAmountEl.innerText = "0.00";
+        }
+
         gstAmountEl.innerText = taxAmount.toFixed(2);
         totalAmountEl.innerText = total.toFixed(2);
         
@@ -482,7 +529,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Initial Setup ---
-    [currencySelect, taxRateSelect].forEach(el => {
+    // Added listeners for discount inputs
+    [currencySelect, taxRateSelect, discountInput, discountTypeSelect].forEach(el => {
         if (el) el.addEventListener('input', updateTotals);
     });
     
@@ -520,6 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    initDefaults(); // NEW: Initialize defaults
     loadLogo(); 
     loadSignature(); 
     updateTotals(); 
@@ -599,6 +648,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const gstAmountEl = document.getElementById('gst-amount');
             const totalAmountEl = document.getElementById('total-amount');
             const invoiceNotesEl = document.getElementById('invoice-notes');
+            // Discount elements handled in calc, just need display val here
+            const discountAmountEl = document.getElementById('discount-amount');
+
+            // NEW: Get manual invoice details
+            const invoiceNumberVal = invoiceNumberInput ? invoiceNumberInput.value : `INV-${Date.now().toString().slice(-6)}`;
+            const invoiceDateVal = invoiceDateInput && invoiceDateInput.value ? new Date(invoiceDateInput.value).toLocaleDateString('en-IN') : new Date().toLocaleDateString('en-IN');
+
 
             const yourName = yourNameEl ? yourNameEl.value : "Your Business";
             const yourAddress = yourAddressEl ? yourAddressEl.value : "";
@@ -616,13 +672,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const taxRate = taxRateEl ? (parseFloat(taxRateEl.value) || 0) : 0;
 
             const subtotal = subtotalAmountEl ? (parseFloat(subtotalAmountEl.innerText) || 0) : 0;
+            const discountAmount = discountAmountEl ? (parseFloat(discountAmountEl.innerText) || 0) : 0;
             const taxAmount = gstAmountEl ? (parseFloat(gstAmountEl.innerText) || 0) : 0;
             const total = totalAmountEl ? (parseFloat(totalAmountEl.innerText) || 0) : 0;
             
             const invoiceNotes = invoiceNotesEl ? invoiceNotesEl.value : ""; 
 
-            const date = new Date().toLocaleDateString('en-IN');
-            const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
+            const date = invoiceDateVal;
+            const invoiceNumber = invoiceNumberVal;
             
             const dueDate = date;
 
@@ -664,6 +721,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             
+            if (discountAmount > 0) {
+                 totalsHtml += `
+                    <div class="total-row">
+                        <span>Discount</span>
+                        <span class="right" style="color: #E50914;">- ${currencySymbol} ${discountAmount.toFixed(2)}</span>
+                    </div>
+                `;
+            }
+
             if (taxRate > 0) {
                 const taxLabelEl = document.getElementById('gst-label');
                 const taxLabel = taxLabelEl ? taxLabelEl.innerText.replace(':', '') : 'Tax';
