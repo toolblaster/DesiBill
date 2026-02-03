@@ -142,6 +142,19 @@
                 <!-- Invoice Form -->
                 <form id="invoice-generator-form" class="soft-shadow-card p-4 rounded-xl space-y-3">
                     
+                    <!-- Header with History & Saved Buttons -->
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-white font-semibold text-sm hidden md:block">Create New Invoice</span>
+                        <div class="flex gap-2 ml-auto">
+                            <button type="button" id="view-saved-btn" class="text-xs flex items-center gap-2 text-gray-300 hover:text-white bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg border border-gray-700 transition-colors">
+                                <i class="fa-solid fa-address-book"></i> Saved
+                            </button>
+                            <button type="button" id="view-history-btn" class="text-xs flex items-center gap-2 text-gray-300 hover:text-white bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg border border-gray-700 transition-colors">
+                                <i class="fa-solid fa-clock-rotate-left"></i> History
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Step Indicator -->
                     <div class="flex items-start justify-between mb-4">
                         <div class="flex-1 text-center">
@@ -695,6 +708,67 @@
                     <i class="fa-solid fa-print w-4 h-4"></i>
                     Print / Download PDF
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: History Modal -->
+    <div id="history-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+        <div class="bg-[#1A1A1A] rounded-xl shadow-lg w-full max-w-2xl max-h-[80vh] flex flex-col border border-gray-700">
+            <div class="flex justify-between items-center p-4 border-b border-gray-700">
+                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-clock-rotate-left text-red-500"></i> Invoice History
+                </h3>
+                <button id="history-close-btn" class="text-gray-400 hover:text-white transition-colors" aria-label="Close history">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <div class="p-4 bg-gray-900/50 border-b border-gray-800">
+                <p class="text-xs text-gray-400">
+                    <i class="fa-solid fa-circle-info mr-1"></i> Saved locally on your device. Clearing browser cache will remove this history.
+                </p>
+            </div>
+            <div id="history-list" class="overflow-y-auto p-4 space-y-3 bg-[#111] flex-1">
+                <!-- History Items will be injected here -->
+                <p class="text-gray-500 text-center text-sm py-8">No invoice history found.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Saved Profiles Modal -->
+    <div id="saved-modal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+        <div class="bg-[#1A1A1A] rounded-xl shadow-lg w-full max-w-3xl max-h-[85vh] flex flex-col border border-gray-700">
+            <div class="flex justify-between items-center p-4 border-b border-gray-700">
+                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-address-book text-red-500"></i> Saved Details
+                </h3>
+                <button id="saved-close-btn" class="text-gray-400 hover:text-white transition-colors" aria-label="Close saved modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            
+            <div class="p-4 overflow-y-auto bg-[#111] flex-1">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- My Details Column -->
+                    <div>
+                        <h4 class="text-sm font-bold text-gray-300 mb-3 border-b border-gray-800 pb-2">
+                            My Business Profiles (Last 4)
+                        </h4>
+                        <div id="saved-my-list" class="space-y-3">
+                            <p class="text-gray-500 text-xs py-4 text-center">No saved business profiles.</p>
+                        </div>
+                    </div>
+
+                    <!-- Client Details Column -->
+                    <div>
+                        <h4 class="text-sm font-bold text-gray-300 mb-3 border-b border-gray-800 pb-2">
+                            Recent Clients (Last 4)
+                        </h4>
+                        <div id="saved-client-list" class="space-y-3">
+                             <p class="text-gray-500 text-xs py-4 text-center">No saved clients.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
