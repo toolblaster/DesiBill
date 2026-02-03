@@ -10,6 +10,23 @@
     
     <meta name="keywords" content="free billing software india, free gst invoice generator, online billing tool, desibill, gst billing software for small business, free invoice maker, shopkeeper billing app, freelancer invoice tool india">
     
+    <!-- Canonical URL (Important for SEO) -->
+    <link rel="canonical" href="https://desibill.toolblaster.com/">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://desibill.toolblaster.com/">
+    <meta property="og:title" content="DesiBill: Free GST Billing & Invoice Tool for Indian Business">
+    <meta property="og:description" content="India's 100% free billing software for small business owners, shopkeepers, and freelancers. Create GST-compliant invoices and manage bills instantly.">
+    <meta property="og:image" content="https://desibill.toolblaster.com/favicon/android-chrome-512x512.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://desibill.toolblaster.com/">
+    <meta property="twitter:title" content="DesiBill: Free GST Billing & Invoice Tool for Indian Business">
+    <meta property="twitter:description" content="India's 100% free billing software for small business owners, shopkeepers, and freelancers. Create GST-compliant invoices and manage bills instantly.">
+    <meta property="twitter:image" content="https://desibill.toolblaster.com/favicon/android-chrome-512x512.png">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -27,8 +44,8 @@
         {
           "@type": "Organization",
           "name": "DesiBill",
-          "url": "https://desibill.example.com/",
-          "logo": "https://desibill.example.com/logo.png",
+          "url": "https://desibill.toolblaster.com/",
+          "logo": "https://desibill.toolblaster.com/favicon/android-chrome-512x512.png",
           "description": "Free GST billing and invoice tool for Indian businesses."
         },
         {
@@ -44,7 +61,7 @@
           "description": "India's 100% free billing software for small business owners, shopkeepers, and freelancers. Create GST-compliant invoices and manage bills instantly.",
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://desibill.example.com/"
+            "@id": "https://desibill.toolblaster.com/"
           }
         },
         {
@@ -54,13 +71,13 @@
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://desibill.example.com/"
+              "item": "https://desibill.toolblaster.com/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Free Invoice Tool",
-              "item": "https://desibill.example.com/#invoice-tool"
+              "item": "https://desibill.toolblaster.com/#invoice-tool"
             }
           ]
         }
@@ -68,8 +85,15 @@
     }
     </script>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DesiBill" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
 
 </head>
 <body class="font-sans antialiased">
@@ -261,30 +285,43 @@
                                     <img id="logo-preview" src="" alt="Your Logo" class="hidden max-h-16 p-1 bg-white rounded-md object-contain">
                                 </div>
                             </div>
-                            
-                            <!-- Currency & Tax -->
-                            <div class="grid grid-cols-2 gap-3 pt-4 bg-gradient-to-br from-gray-900 to-red-900/10 p-3 rounded-xl border border-gray-900">
-                                <div>
-                                    <label for="currency" class="block text-xs font-medium text-gray-400 mb-1">Currency</label>
-                                    <select id="currency" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500" aria-label="Currency">
-                                        <option value="INR">INR (₹)</option>
-                                        <option value="USD">USD ($)</option>
-                                        <option value="GBP">GBP (£)</option>
-                                        <option value="AUD">AUD ($)</option>
-                                        <option value="CAD">CAD ($)</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="tax-rate" class="block text-xs font-medium text-gray-400 mb-1">Tax Rate</label>
-                                    <select id="tax-rate" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500" aria-label="Tax Rate">
-                                        <option value="0">No Tax</option>
-                                        <option value="0.05">GST @ 5%</option>
-                                        <option value="0.12">GST @ 12%</option>
-                                        <option value="0.18">GST @ 18%</option>
-                                        <option value="0.06">SST @ 6%</option>
-                                        <option value="0.11">PPN @ 11%</option>
-                                        <option value="0.20">VAT @ 20%</option>
-                                    </select>
+
+                            <!-- Invoice Details & Settings (Combined Compact Section) -->
+                            <div class="bg-gradient-to-br from-gray-900 to-red-900/10 p-3 rounded-xl border border-gray-900">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <!-- Row 1 -->
+                                    <div>
+                                        <label for="invoice-number" class="block text-xs font-medium text-gray-400 mb-1">Invoice No.</label>
+                                        <input type="text" id="invoice-number" placeholder="INV-001" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Invoice Number">
+                                    </div>
+                                    <div>
+                                        <label for="invoice-date" class="block text-xs font-medium text-gray-400 mb-1">Date</label>
+                                        <input type="date" id="invoice-date" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500 placeholder:text-gray-500" aria-label="Invoice Date">
+                                    </div>
+
+                                    <!-- Row 2 -->
+                                    <div>
+                                        <label for="currency" class="block text-xs font-medium text-gray-400 mb-1">Currency</label>
+                                        <select id="currency" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500" aria-label="Currency">
+                                            <option value="INR">INR (₹)</option>
+                                            <option value="USD">USD ($)</option>
+                                            <option value="GBP">GBP (£)</option>
+                                            <option value="AUD">AUD ($)</option>
+                                            <option value="CAD">CAD ($)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="tax-rate" class="block text-xs font-medium text-gray-400 mb-1">Tax Rate</label>
+                                        <select id="tax-rate" class="w-full bg-[#0B0B0B] border border-gray-700 text-white rounded-lg p-2.5 text-xs focus:border-red-500 focus:ring-red-500" aria-label="Tax Rate">
+                                            <option value="0">No Tax</option>
+                                            <option value="0.05">GST @ 5%</option>
+                                            <option value="0.12">GST @ 12%</option>
+                                            <option value="0.18">GST @ 18%</option>
+                                            <option value="0.06">SST @ 6%</option>
+                                            <option value="0.11">PPN @ 11%</option>
+                                            <option value="0.20">VAT @ 20%</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -343,14 +380,35 @@
                     </div>
 
 
-                    <!-- Total & GST -->
+                    <!-- Total & GST & Discount -->
                      <div class="border-t border-gray-700 pt-4 mt-3">
+                        <!-- Discount Controls -->
+                        <div class="flex justify-end items-center gap-2 mb-3">
+                             <label for="discount-value" class="text-xs font-medium text-gray-400">Discount:</label>
+                             <div class="flex rounded-md shadow-sm">
+                                <select id="discount-type" class="bg-[#0B0B0B] border border-gray-700 text-white rounded-l-lg p-1.5 text-xs focus:border-red-500 focus:ring-red-500 border-r-0">
+                                    <option value="fixed">Flat</option>
+                                    <option value="percentage">%</option>
+                                </select>
+                                <input type="number" id="discount-value" placeholder="0" min="0" class="w-20 bg-[#0B0B0B] border border-gray-700 text-white rounded-r-lg p-1.5 text-xs focus:border-red-500 focus:ring-red-500 text-right">
+                             </div>
+                        </div>
+
                         <div class="flex justify-end items-center mb-1">
                             <span class="text-gray-400 text-sm">Subtotal:</span>
                             <span class="text-white text-base font-bold ml-4">
                                 <span class="currency-symbol">₹</span><span id="subtotal-amount">0.00</span>
                             </span>
                         </div>
+                        
+                        <!-- Discount Display Row -->
+                        <div id="discount-row" class="hidden flex justify-end items-center mb-1">
+                            <span class="text-gray-400 text-sm">Discount:</span>
+                            <span class="text-white text-base font-bold ml-4 text-red-400">
+                                - <span class="currency-symbol">₹</span><span id="discount-amount">0.00</span>
+                            </span>
+                        </div>
+
                          <div id="gst-row" class="hidden flex justify-end items-center mb-1.5">
                             <span id="gst-label" class="text-gray-400 text-sm">Tax:</span>
                             <span class="text-white text-base font-bold ml-4">
