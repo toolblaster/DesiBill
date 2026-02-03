@@ -1,32 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- Mobile Menu Logic ---
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openIcon = document.getElementById('menu-open-icon');
-    const closeIcon = document.getElementById('menu-close-icon');
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-            menuBtn.setAttribute('aria-expanded', !isExpanded);
-            if (mobileMenu) mobileMenu.classList.toggle('hidden');
-            if (openIcon) openIcon.classList.toggle('hidden');
-            if (closeIcon) closeIcon.classList.toggle('hidden');
-        });
-    }
-    
-    // Close menu when a link is clicked
-    mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
-            if (mobileMenu) mobileMenu.classList.add('hidden');
-            if (openIcon) openIcon.classList.remove('hidden');
-            if (closeIcon) closeIcon.classList.add('hidden');
-        });
-    });
-
     // --- Invoice Generator Logic ---
     const currencySelect = document.getElementById('currency');
     const taxRateSelect = document.getElementById('tax-rate');
@@ -75,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextStepBtn = document.getElementById('next-step-btn');
     const generatePdfBtn = document.getElementById('generate-pdf-btn');
     
-    const logoStorageKey = 'billBharatLogo'; // Kept old key to preserve user's logo
-    const signatureStorageKey = 'billBharatSignature'; // Kept old key
-    let sigMode = 'upload'; // NEW: Track current mode
-    let isDrawing = false; // NEW
+    const logoStorageKey = 'billBharatLogo'; 
+    const signatureStorageKey = 'billBharatSignature'; 
+    let sigMode = 'upload'; 
+    let isDrawing = false; 
     let itemCount = 1;
     const maxItems = 5;
 
@@ -138,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTotals() {
-        // Check if elements exist before proceeding
         if (!currencySelect || !taxRateSelect || !itemsContainer || !subtotalEl || !gstAmountEl || !totalAmountEl) {
             return;
         }
@@ -174,8 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (gstLabelEl && gstRowEl) {
             if (taxRate > 0) {
                 const selectedOption = taxRateSelect.options[taxRateSelect.selectedIndex];
-                const taxLabel = selectedOption.text.replace(' @', ''); // "GST @ 5%" becomes "GST 5%"
-                // FIXED: This is the correct location for this code
+                const taxLabel = selectedOption.text.replace(' @', ''); 
                 gstLabelEl.innerText = `${taxLabel}:`;
                 gstRowEl.classList.remove('hidden');
             } else {
@@ -184,86 +155,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // --- Add / Remove Item Logic (FIXED: ID Duplication and Validation Logic) ---
+    // --- Add / Remove Item Logic ---
     function createItemRow() {
         if (itemCount >= maxItems || !itemsContainer) return;
         
         itemCount++;
         const firstItemRow = itemsContainer.querySelector('.item-row');
-        // Clone the first item row
-        if (!firstItemRow) return; // Guard clause if first row isn't found
+        if (!firstItemRow) return; 
         const newItemRow = firstItemRow.cloneNode(true);
         
-        // 1. Reset values and update IDs to prevent duplication (CRITICAL FIX)
         const inputs = newItemRow.querySelectorAll('input'); 
         
         inputs.forEach(input => {
-            const baseId = input.id.replace(/\d+$/, ''); // e.g., 'item-desc-'
+            const baseId = input.id.replace(/\d+$/, ''); 
             const newId = baseId + itemCount;
             
-            // Update label 'for' attribute
             const label = newItemRow.querySelector(`label[for="${input.id}"]`);
             if (label) {
                 label.setAttribute('for', newId);
             }
             
-            // Update input ID and clear/reset value
             input.id = newId;
-            // Check if it's the quantity field and reset to 1, otherwise clear
             input.value = (input.classList.contains('item-qty') ? '1' : ''); 
         });
         
-        // --- NEW: Adjust grid for remove button ---
-        // Find wrappers using a robust query that won't fail
+        // Adjust grid for remove button
         const descWrapper = newItemRow.querySelector(`div:has(> #item-desc-${itemCount})`);
         const qtyWrapper = newItemRow.querySelector(`div:has(> #item-qty-${itemCount})`);
         const priceWrapper = newItemRow.querySelector(`div:has(> #item-price-${itemCount})`);
 
         if (descWrapper) {
             descWrapper.classList.remove('md:col-span-6');
-            descWrapper.classList.add('md:col-span-6'); // Stays 6
+            descWrapper.classList.add('md:col-span-6');
         }
         if (qtyWrapper) {
             qtyWrapper.classList.remove('md:col-span-3');
-            qtyWrapper.classList.add('md:col-span-2'); // Changes to 2
-            
+            qtyWrapper.classList.add('md:col-span-2');
             qtyWrapper.classList.remove('col-span-6');
-            qtyWrapper.classList.add('col-span-4'); // Mobile span
+            qtyWrapper.classList.add('col-span-4'); 
         }
         if (priceWrapper) {
             priceWrapper.classList.remove('md:col-span-3');
-            priceWrapper.classList.add('md:col-span-2'); // Changes to 2
-
+            priceWrapper.classList.add('md:col-span-2');
             priceWrapper.classList.remove('col-span-6');
-            priceWrapper.classList.add('col-span-4'); // Mobile span
+            priceWrapper.classList.add('col-span-4'); 
         }
-        // --- End of grid adjust ---
 
-        // 2. Add remove button (if not already present from cloning a previously added row)
         let removeBtn = newItemRow.querySelector('.remove-item-btn');
         let removeBtnWrapper = newItemRow.querySelector('.remove-btn-wrapper');
 
         if (!removeBtn) {
-             // Create the button
              removeBtn = document.createElement('button');
              removeBtn.type = 'button';
-             removeBtn.innerHTML = `<i class="fa-solid fa-trash-can w-4 h-4"></i>`; // Font Awesome icon
-             removeBtn.className = 'remove-item-btn text-red-500 hover:text-red-400 p-2.5 rounded-lg bg-[#0B0B0B] border border-gray-700 w-full flex justify-center items-center'; // Match input style
+             removeBtn.innerHTML = `<i class="fa-solid fa-trash-can w-4 h-4"></i>`;
+             removeBtn.className = 'remove-item-btn text-red-500 hover:text-red-400 p-2.5 rounded-lg bg-[#0B0B0B] border border-gray-700 w-full flex justify-center items-center'; 
 
-             // Create the wrapper div
              removeBtnWrapper = document.createElement('div');
-             // UPDATED: Mobile span 4, Desktop span 2
              removeBtnWrapper.className = 'remove-btn-wrapper col-span-4 md:col-span-2 flex items-end';
-             
-             // Append button to wrapper
              removeBtnWrapper.appendChild(removeBtn);
 
-             // Append wrapper to the grid
              const grid = newItemRow.querySelector('.grid');
              if (grid) {
                 grid.appendChild(removeBtnWrapper);
              } else {
-                // Fallback, though it should find the grid
                 newItemRow.appendChild(removeBtnWrapper);
              }
         }
@@ -282,7 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkAddItemButtonState() {
         if (!addItemBtn || !itemLimitMsg) return;
         
-        // Simplified validation: only check if max items limit is reached (FUNCTIONAL FIX)
         if (itemCount >= maxItems) {
             addItemBtn.disabled = true;
             addItemBtn.classList.add('opacity-50', 'cursor-not-allowed');
@@ -337,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (logoPreview) logoPreview.src = '';
                 if (logoPreview) logoPreview.classList.add('hidden');
                 removeLogoBtn.classList.add('hidden');
-                if (logoUpload) logoUpload.value = ''; // Clear file input
+                if (logoUpload) logoUpload.value = ''; 
             } catch (e) {
                  console.error("Could not remove logo from localStorage:", e);
             }
@@ -347,8 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Signature Logic ---
     function loadSignature() {
         if (!signaturePreview || !removeSignatureBtn) return;
-        // This function now only loads the *uploaded* signature
-        if (sigMode !== 'upload') return; // Only run if in upload mode
+        if (sigMode !== 'upload') return; 
         try {
             const base64Signature = localStorage.getItem(signatureStorageKey);
             if (base64Signature) {
@@ -386,7 +338,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // UPDATED: Remove button logic works for both modes
     if (removeSignatureBtn) {
         removeSignatureBtn.addEventListener('click', () => {
             if (sigMode === 'upload') {
@@ -395,31 +346,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (signaturePreview) signaturePreview.src = ''; 
                     if (signaturePreview) signaturePreview.classList.add('hidden');
                     removeSignatureBtn.classList.add('hidden');
-                    if (signatureUpload) signatureUpload.value = ''; // Clear file input
+                    if (signatureUpload) signatureUpload.value = ''; 
                 } catch (e) {
                     console.error("Could not remove signature from localStorage:", e);
                 }
             } else if (sigMode === 'draw') {
-                if (sigClearBtn) sigClearBtn.click(); // Trigger the canvas clear logic
+                if (sigClearBtn) sigClearBtn.click(); 
             }
         });
     }
 
-    // --- NEW: Signature Tab and Canvas Logic ---
+    // --- Signature Tab and Canvas Logic ---
     if (sigTabUpload) {
         sigTabUpload.addEventListener('click', () => {
             sigMode = 'upload';
             if (uploadPanel) uploadPanel.classList.remove('hidden');
             if (drawPanel) drawPanel.classList.add('hidden');
-            // Style active tab
             sigTabUpload.classList.add('border-red-500', 'text-white');
             sigTabUpload.classList.remove('border-transparent', 'text-gray-400');
-            // Style inactive tab
             if (sigTabDraw) {
                 sigTabDraw.classList.add('border-transparent', 'text-gray-400');
                 sigTabDraw.classList.remove('border-red-500', 'text-white');
             }
-            loadSignature(); // Reload uploaded signature into preview
+            loadSignature(); 
         });
     }
 
@@ -428,16 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
             sigMode = 'draw';
             if (uploadPanel) uploadPanel.classList.add('hidden');
             if (drawPanel) drawPanel.classList.remove('hidden');
-            // Style active tab
             sigTabDraw.classList.add('border-red-500', 'text-white');
             sigTabDraw.classList.remove('border-transparent', 'text-gray-400');
-            // Style inactive tab
             if (sigTabUpload) {
                 sigTabUpload.classList.add('border-transparent', 'text-gray-400');
                 sigTabUpload.classList.remove('border-red-500', 'text-white');
             }
             
-            // Check if there's a drawn signature to show
             if (sigCanvas && !isCanvasBlank(sigCanvas)) {
                  if (signaturePreview) signaturePreview.src = sigCanvas.toDataURL();
                  if (signaturePreview) signaturePreview.classList.remove('hidden');
@@ -450,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- NEW: Canvas drawing logic ---
+    // --- Canvas drawing logic ---
     if (sigContext) {
         sigContext.strokeStyle = '#000000';
         sigContext.lineWidth = 2;
@@ -464,10 +410,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const scaleY = canvas.height / rect.height;
         
         let clientX, clientY;
-        if (evt.touches) { // Touch event
+        if (evt.touches) { 
             clientX = evt.touches[0].clientX;
             clientY = evt.touches[0].clientY;
-        } else { // Mouse event
+        } else { 
             clientX = evt.clientX;
             clientY = evt.clientY;
         }
@@ -479,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startDrawing(e) {
         if (!sigContext) return;
-        e.preventDefault(); // prevent scrolling
+        e.preventDefault(); 
         isDrawing = true;
         const pos = getMousePos(sigCanvas, e);
         sigContext.beginPath();
@@ -499,7 +445,6 @@ document.addEventListener('DOMContentLoaded', () => {
         isDrawing = false;
         sigContext.closePath();
         
-        // Update preview only if it's not a mouseout event
         if (e.type !== 'mouseout' && sigCanvas) {
             const dataUrl = sigCanvas.toDataURL();
             if (signaturePreview) signaturePreview.src = dataUrl;
@@ -510,7 +455,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function isCanvasBlank(canvas) {
         if (!canvas) return true;
-        // Check if canvas is empty
         const blank = document.createElement('canvas');
         blank.width = canvas.width;
         blank.height = canvas.height;
@@ -518,19 +462,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (sigCanvas) {
-        // Mouse events
         sigCanvas.addEventListener('mousedown', startDrawing);
         sigCanvas.addEventListener('mousemove', draw);
         sigCanvas.addEventListener('mouseup', stopDrawing);
-        sigCanvas.addEventListener('mouseout', stopDrawing); // Stop if mouse leaves canvas
+        sigCanvas.addEventListener('mouseout', stopDrawing); 
 
-        // Touch events
         sigCanvas.addEventListener('touchstart', startDrawing);
         sigCanvas.addEventListener('touchmove', draw);
         sigCanvas.addEventListener('touchend', stopDrawing);
     }
 
-    // Clear button
     if (sigClearBtn) {
         sigClearBtn.addEventListener('click', () => {
             if (sigContext && sigCanvas) sigContext.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
@@ -541,12 +482,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Initial Setup ---
-    // Listen for changes on currency and tax rate
     [currencySelect, taxRateSelect].forEach(el => {
         if (el) el.addEventListener('input', updateTotals);
     });
     
-    // Use event delegation for dynamic item rows
     if (itemsContainer) {
         itemsContainer.addEventListener('input', (e) => {
             if (e.target.matches('.item-qty, .item-price, .item-desc')) {
@@ -555,12 +494,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Add item button click
     if (addItemBtn) {
         addItemBtn.addEventListener('click', createItemRow);
     }
     
-    // --- NEW: Step Wizard Event Listeners ---
     if (nextStepBtn) {
         nextStepBtn.addEventListener('click', () => {
             showStep(currentStep + 1);
@@ -575,7 +512,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     stepIndicators.forEach(indicator => {
         indicator.addEventListener('click', (e) => {
-            // Find the button element in case the user clicks the dot or label
             const targetButton = e.target.closest('.step-indicator');
             if (targetButton) {
                 const targetStep = parseInt(targetButton.dataset.step);
@@ -584,23 +520,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    loadLogo(); // Load logo from localStorage on page load
-    loadSignature(); // Load signature from localStorage
-    updateTotals(); // Initial calculation
-    checkAddItemButtonState(); // Check button state on load
-    showStep(1); // NEW: Initialize the wizard on step 1
+    loadLogo(); 
+    loadSignature(); 
+    updateTotals(); 
+    checkAddItemButtonState(); 
+    showStep(1); 
     
     
-    // --- NEW: Modal Logic ---
+    // --- Modal Logic ---
     function closeModal() {
         if (modal) {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
         }
         if (modalContent) {
-            modalContent.innerHTML = ''; // Clear iframe
+            modalContent.innerHTML = ''; 
         }
-        // Restore main page scroll
         document.body.style.overflow = '';
     }
 
@@ -609,7 +544,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if (modal) {
-        // Close modal on outside click
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 closeModal();
@@ -617,7 +551,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Modal Print Button
     if (modalPrintBtn) {
         modalPrintBtn.addEventListener('click', () => {
             const iframe = modalContent.querySelector('iframe');
@@ -627,12 +560,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- HTML Invoice Generation (MODIFIED: Show in Modal) ---
+    // --- HTML Invoice Generation (MODIFIED: Compact Vertical Spacing & Standard Fonts) ---
     if (invoiceForm) {
         invoiceForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Hide main page scroll
             document.body.style.overflow = 'hidden';
 
             let logoBase64 = null;
@@ -642,7 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error("Could not read logo from localStorage:", e);
             }
             
-            // UPDATED: Get signature based on sigMode
             let signatureBase64 = null;
             if (sigMode === 'upload') {
                 try {
@@ -651,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error("Could not read signature from localStorage:", e);
                 }
             } else if (sigMode === 'draw' && sigCanvas && !isCanvasBlank(sigCanvas)) {
-                signatureBase64 = sigCanvas.toDataURL(); // Get drawn signature
+                signatureBase64 = sigCanvas.toDataURL(); 
             }
 
             const yourNameEl = document.getElementById('your-name');
@@ -677,8 +608,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const clientAddress = clientAddressEl ? clientAddressEl.value : "";
             const clientGstin = clientGstinEl ? clientGstinEl.value : "";
             
-            const yourContact = yourContactEl ? yourContactEl.value : ""; // Added
-            const clientContact = clientContactEl ? clientContactEl.value : ""; // Added
+            const yourContact = yourContactEl ? yourContactEl.value : ""; 
+            const clientContact = clientContactEl ? clientContactEl.value : ""; 
             
             const currency = currencyEl ? currencyEl.value : "INR";
             const currencySymbol = currencySymbols[currency] || '₹';
@@ -688,27 +619,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const taxAmount = gstAmountEl ? (parseFloat(gstAmountEl.innerText) || 0) : 0;
             const total = totalAmountEl ? (parseFloat(totalAmountEl.innerText) || 0) : 0;
             
-            const invoiceNotes = invoiceNotesEl ? invoiceNotesEl.value : ""; // Added
+            const invoiceNotes = invoiceNotesEl ? invoiceNotesEl.value : ""; 
 
             const date = new Date().toLocaleDateString('en-IN');
             const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
             
-            // UPDATED: Due Date is same as Invoice Date
             const dueDate = date;
 
-            // UPDATED: Logic for custom vs. default logo
             let logoHtml = '';
             if (logoBase64) {
                 logoHtml = `<img src="${logoBase64}" alt="Business Logo" class="logo">`;
             } else {
-                // Use Font Awesome receipt icon
                 logoHtml = `<div class="default-logo-icon"><i class="fa-solid fa-receipt"></i></div>`;
             }
             
-            // UPDATED: Default logo for footer
-            const defaultLogoFooterHtml = '<div style="font-family: \'Inter\', sans-serif; font-size: 16px; font-weight: 700; color: #333; margin-top: 8px;">Desi<span style="font-family: \'Dancing Script\', cursive; font-size: 20px; color: #E50914;">Bill</span></div>';
-
-            // 2. Build Item Rows HTML
             let itemsHtml = '';
             const itemFormRows = document.querySelectorAll('#invoice-items-container .item-row');
             itemFormRows.forEach(row => {
@@ -718,7 +642,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rowTotal = (qty * price);
 
                 if (desc || qty > 0 || price > 0) {
-                    // UPDATED: New table structure
                     itemsHtml += `
                         <tr>
                             <td><strong>${desc}</strong></td>
@@ -734,8 +657,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 itemsHtml = '<tr><td colspan="4" class="center" style="padding: 20px 0;">No items added.</td></tr>';
             }
 
-            // 3. Build Totals Rows HTML
-            // UPDATED: New totals structure
             let totalsHtml = `
                 <div class="total-row">
                     <span>Subtotal</span>
@@ -761,10 +682,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-
-            // 4. Construct Full Invoice HTML
-            // UPDATED: Removed the <button onclick="window.print()">
-            // UPDATED: Complete redesign of styles and HTML structure
+            // --- REFINED INVOICE TEMPLATE ---
             const invoiceHtml = `
                 <!DOCTYPE html>
                 <html lang="en">
@@ -772,10 +690,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Invoice ${invoiceNumber}</title>
-                    <!-- UPDATED: Added Font Awesome for default icon -->
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
                     <style>
-                        /* NEW: Import Cursive Font */
                         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
                         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
                     
@@ -787,24 +703,25 @@ document.addEventListener('DOMContentLoaded', () => {
                             color: #333;
                             -webkit-font-smoothing: antialiased;
                             -moz-osx-font-smoothing: grayscale;
-                            /* NEW: Force print background colors */
+                            /* Standardized Font Size */
+                            font-size: 12px; 
+                            line-height: 1.3;
                             -webkit-print-color-adjust: exact !important;
                             color-adjust: exact !important;
                         }
                         
                         .invoice-container { 
                             max-width: 840px; 
-                            min-height: 1188px; /* A4 aspect ratio helper */
+                            min-height: 1188px; 
                             margin: 20px auto; 
                             background-color: #fff; 
                             border: 1px solid #ddd; 
                             padding: 0;
                             box-shadow: 0 0 15px rgba(0,0,0,0.07);
-                            position: relative; /* For stacking context */
-                            z-index: 2; /* Ensure content is above watermark */
+                            position: relative; 
+                            z-index: 2; 
                         }
                         
-                        /* Watermark */
                         .watermark {
                             position: absolute;
                             top: 50%;
@@ -812,250 +729,227 @@ document.addEventListener('DOMContentLoaded', () => {
                             transform: translate(-50%, -50%) rotate(-45deg);
                             font-size: 100px;
                             font-weight: bold;
-                            color: rgba(0, 0, 0, 0.04); /* Very faint gray */
+                            color: rgba(0, 0, 0, 0.04); 
                             white-space: nowrap;
-                            z-index: 1; /* Behind the content */
+                            z-index: 1; 
                             user-select: none;
                         }
                         .watermark .cursive {
                             font-family: 'Dancing Script', cursive;
-                            font-size: 120px; /* Make cursive part slightly larger */
+                            font-size: 120px; 
                         }
 
-                        /* Header */
+                        /* Compact Header */
                         .invoice-header {
                             display: flex;
                             justify-content: space-between;
                             align-items: flex-start;
-                            padding: 30px 40px 20px; /* Reduced padding */
+                            padding: 20px 30px 15px; /* Reduced padding */
                             border-bottom: 2px solid #f4f4f4;
                         }
                         .header-left .logo {
-                            max-width: 220px;
-                            max-height: 70px;
+                            max-width: 200px;
+                            max-height: 60px; /* Constrain height */
                             object-fit: contain;
                             display: block;
                         }
-                        /* NEW: Default Icon Style */
                         .header-left .default-logo-icon {
-                            font-size: 48px;
+                            font-size: 40px;
                             color: #E50914;
-                            width: 70px; /* Match height */
-                            height: 70px;
+                            width: 60px;
+                            height: 60px;
                             display: flex;
                             align-items: center;
                             justify-content: center;
                         }
                         
-                        .header-left h2 {
-                            margin: 10px 0 0 0;
-                            font-size: 20px;
-                            font-weight: 600;
-                            color: #000;
-                        }
                         .header-right {
                             text-align: right;
                         }
                         .header-right h1 {
-                            margin: 0 0 10px 0;
+                            margin: 0 0 5px 0;
                             color: #E50914;
-                            font-size: 32px;
+                            font-size: 24px; /* Reduced size */
                             font-weight: 700;
                         }
                         .header-right p {
                             margin: 0;
-                            font-size: 13px;
+                            font-size: 12px; /* Standard size */
                             color: #555;
-                            line-height: 1.6;
+                            line-height: 1.4;
                         }
                         .header-right p strong {
                             color: #000;
                         }
 
-                        /* From/To Parties */
+                        /* Compact From/To Parties */
                         .invoice-parties {
-                            padding: 20px 40px; /* Reduced padding */
+                            padding: 15px 30px; /* Reduced vertical padding */
                             display: flex;
                             justify-content: space-between;
-                            gap: 20px;
+                            gap: 15px; /* Reduced gap */
                         }
-                        /* UPDATED: Party Box styling */
                         .party-box {
                             width: 48%;
                             background: #fdfdfd;
                             border: 1px solid #eee;
-                            border-radius: 8px;
-                            padding: 15px;
+                            border-radius: 6px;
+                            padding: 10px 12px; /* Compact padding inside box */
                         }
                         .party-box h3 {
-                            font-size: 13px;
-                            color: #E50914; /* Red title */
+                            font-size: 11px; /* Small, uppercase label */
+                            color: #E50914; 
                             font-weight: 600;
                             margin-top: 0;
-                            margin-bottom: 10px;
+                            margin-bottom: 5px; /* Tighter margin */
                             text-transform: uppercase;
-                            /* UPDATED: Align title to left */
                             text-align: left; 
                         }
                         .party-box-content {
-                            /* UPDATED: Align content to left */
                             text-align: left;
                         }
                         .party-box p {
-                            font-size: 14px;
-                            line-height: 1.6;
+                            font-size: 12px;
+                            line-height: 1.4;
                             white-space: pre-line;
-                            margin: 0 0 5px 0;
-                            color: #222;
-                        }
-                        .party-box p.party-name {
-                            font-size: 16px;
-                            font-weight: 700;
-                            color: #000;
-                            margin-bottom: 8px;
-                        }
-                        .party-box p strong {
-                            font-weight: 600;
+                            margin: 0 0 2px 0; /* Tighter lines */
                             color: #333;
                         }
+                        .party-box p.party-name {
+                            font-size: 13px; /* Only slightly larger */
+                            font-weight: 700;
+                            color: #000;
+                            margin-bottom: 4px;
+                        }
                         
-                        /* Items Table */
+                        /* Table */
                         .invoice-table {
-                            padding: 0 40px 20px;
+                            padding: 5px 30px 15px;
                         }
                         table.items {
                             width: 100%;
                             border-collapse: collapse;
-                            border-radius: 8px; /* Rounded corners for table */
-                            overflow: hidden; /* Clip gradient */
-                            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+                            border-radius: 6px; 
+                            overflow: hidden; 
+                            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
                         }
                         table.items th, table.items td {
-                            padding: 12px 15px;
+                            padding: 8px 10px; /* Reduced cell padding */
                             text-align: left;
                             border-bottom: 1px solid #eee;
-                            font-size: 14px;
+                            font-size: 12px;
                         }
-                        /* UPDATED: Dark Red Gradient Header */
                         table.items th {
                             background-image: linear-gradient(to bottom, #a10f18, #E50914);
                             color: #ffffff;
                             font-weight: 600;
-                            font-size: 12px;
+                            font-size: 11px; /* Smaller header font */
                             text-transform: uppercase;
                             border-bottom: 1px solid #a10f18;
                         }
-                        /* UPDATED: Zebra striping for items */
                         table.items tbody tr:nth-of-type(even) {
-                            background-color: #fff8f8; /* Very light red */
+                            background-color: #fff8f8; 
                         }
                         table.items td.right, table.items th.right {
                             text-align: right;
                         }
                         
-                        /* Summary / Totals */
-                        /* UPDATED: Removed old summary styles, replaced with new bottom section */
+                        /* Bottom Section */
                         .invoice-bottom-section {
-                            padding: 20px 40px 40px;
+                            padding: 10px 30px 30px;
                             display: flex;
                             justify-content: space-between;
-                            align-items: flex-start; /* Align tops */
+                            align-items: flex-start; 
                         }
-                        .invoice-bottom-left { /* For notes */
+                        .invoice-bottom-left { 
                             width: 55%;
                         }
-                        .invoice-bottom-right { /* For totals & signature */
+                        .invoice-bottom-right { 
                             width: 40%;
                         }
 
                         .totals-box {
                             width: 100%;
-                            margin-bottom: 30px; /* Space before signature */
+                            margin-bottom: 25px; 
                         }
                         .total-row {
                             display: flex;
                             justify-content: space-between;
-                            padding: 8px 0;
-                            font-size: 14px;
+                            padding: 4px 0; /* Tighter totals */
+                            font-size: 12px;
                             color: #333;
                         }
                         .total-row span:first-child {
                             color: #555;
                         }
                         .total-row.grand-total {
-                            font-size: 18px;
+                            font-size: 14px; /* Slightly larger */
                             font-weight: 700;
                             color: #E50914;
-                            border-top: 2px solid #333;
-                            margin-top: 10px;
-                            padding-top: 10px;
+                            border-top: 1px solid #333;
+                            margin-top: 8px;
+                            padding-top: 8px;
                         }
 
-                        /* Notes & Signature */
-                        /* UPDATED: Removed old footer-details padding */
                         .notes h3, .signature h3 {
-                            font-size: 13px;
+                            font-size: 11px;
                             color: #777;
                             font-weight: 500;
-                            margin-bottom: 5px;
+                            margin-bottom: 4px;
                             text-transform: uppercase;
                         }
                         .notes p {
-                            font-size: 13px;
+                            font-size: 12px;
                             color: #555;
                             margin: 0;
-                            line-height: 1.6;
+                            line-height: 1.4;
                             white-space: pre-line;
                         }
                         .signature {
-                            margin-top: 30px;
+                            margin-top: 20px;
                             text-align: right;
                         }
                         .signature img {
-                            max-height: 50px;
+                            max-height: 45px;
                             object-fit: contain;
-                            margin-bottom: 5px;
+                            margin-bottom: 4px;
                         }
                         .signature p {
-                            font-size: 12px;
+                            font-size: 11px;
                             color: #555;
                             border-top: 1px solid #ccc;
-                            padding-top: 5px;
+                            padding-top: 4px;
                             display: inline-block;
                             margin: 0;
                         }
                         
-                        /* Page Footer */
                         .invoice-footer {
                             position: absolute;
                             bottom: 0;
                             left: 0;
                             right: 0;
-                            padding: 20px 40px;
+                            padding: 15px 30px;
                             text-align: center;
-                            font-size: 12px;
+                            font-size: 11px;
                             color: #999;
                             border-top: 1px solid #eee;
                         }
                         .invoice-footer p { margin: 2px 0; }
                         
-                        /* NEW: Footer Logo Styles */
                         .footer-logo {
                             font-family: 'Inter', sans-serif; 
-                            font-size: 14px; /* smaller */
+                            font-size: 12px;
                             font-weight: 700; 
-                            color: #555; /* subtle */
+                            color: #555; 
                             display: inline-block;
-                            margin-left: 8px;
+                            margin-left: 6px;
                             vertical-align: middle;
                         }
                         .footer-logo .cursive {
                             font-family: 'Dancing Script', cursive; 
-                            font-size: 16px; /* smaller */
+                            font-size: 14px;
                             color: #E50914;
                         }
-                        
-                        /* REMOVED the mobile-specific media query that caused wrapping */
 
                         @media print {
                             body { background-color: #fff; margin: 0; }
@@ -1068,7 +962,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 min-height: 0; 
                             }
                             .invoice-footer {
-                                position: static; /* Don't stick footer on print */
+                                position: static; 
                             }
                             .no-print { display: none; }
                             .watermark {
@@ -1083,7 +977,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 padding: 0;
                             }
                             .invoice-container {
-                                padding: 20mm; /* Standard A4 margins */
+                                padding: 15mm; 
                                 box-sizing: border-box;
                                 height: 297mm;
                                 width: 210mm;
@@ -1093,7 +987,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </head>
                 <body>
                     <div class="invoice-container">
-                        <!-- Watermark -->
                         <div class="watermark">
                             Desi<span class="cursive">Bill</span>
                         </div>
@@ -1111,7 +1004,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
 
                         <div class="invoice-parties">
-                            <!-- UPDATED: FROM Box -->
                             <div class="party-box">
                                 <h3>FROM:</h3>
                                 <div class="party-box-content">
@@ -1123,7 +1015,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                     </p>
                                 </div>
                             </div>
-                            <!-- UPDATED: TO Box -->
                             <div class="party-box">
                                 <h3>BILL TO:</h3>
                                 <div class="party-box-content">
@@ -1153,7 +1044,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             </table>
                         </div>
                         
-                        <!-- UPDATED: Replaced summary and footer-details with new bottom section -->
                         <div class="invoice-bottom-section">
                             <div class="invoice-bottom-left">
                                 ${invoiceNotes ? `
@@ -1181,7 +1071,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p>Thank you for your business!</p>
                             <p>
                                 Generated by DesiBill - India's Free Billing Tool
-                                <!-- NEW: Added footer logo -->
                                 <span class="footer-logo">Desi<span class="cursive">Bill</span></span>
                             </p>
                         </div>
@@ -1190,32 +1079,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 </html>
             `;
 
-            // 5. MODIFIED: Show in Modal
             if (modal && modalContent) {
-                // Store data on the modal for action buttons
                 modal.dataset.invoiceNumber = invoiceNumber;
-                modal.dataset.clientContact = clientContact; // This field holds phone or email
+                modal.dataset.clientContact = clientContact; 
                 modal.dataset.clientName = clientName;
                 modal.dataset.yourName = yourName;
                 modal.dataset.total = total.toFixed(2);
                 modal.dataset.currencySymbol = currencySymbol;
                 
-                // Create iframe
                 const iframe = document.createElement('iframe');
                 iframe.className = 'w-full h-[75vh] border-0 bg-white';
-                // Use srcdoc for security and style isolation
                 iframe.srcdoc = invoiceHtml; 
                 
-                // Add iframe to modal and display
-                modalContent.innerHTML = ''; // Clear previous preview
+                modalContent.innerHTML = ''; 
                 modalContent.appendChild(iframe);
                 modal.classList.remove('hidden');
-                modal.classList.add('flex'); // Use flex for centering
+                modal.classList.add('flex'); 
             } else {
                 console.error("Modal elements not found. Could not display preview.");
             }
         });
     }
-    // --- End of PDF Generation Script ---
     
-}); // <-- ADDED THIS WRAPPER
+});
