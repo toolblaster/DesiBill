@@ -56,8 +56,6 @@ Fonts: Google Fonts (Inter & Dancing Script).
 
 /
 ├── index.html                      # Landing Page & Invoice Tool
-├── logo-icon.svg                   # Branding Asset
-├── site.webmanifest                # PWA Manifest
 ├── css/
 │   └── style.css                   # Global styles & Print media queries
 ├── js/
