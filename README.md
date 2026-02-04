@@ -1,75 +1,107 @@
-DesiBill - Free GST Billing & Invoice Tool for India 🇮🇳
+DesiBill - Free Business Toolkit for India 🇮🇳
 
-DesiBill is a lightweight, client-side web application designed to help small Indian businesses (shopkeepers, freelancers, vendors) generate professional GST-compliant invoices instantly.
+DesiBill is a comprehensive, privacy-focused web toolkit designed for Indian shopkeepers, freelancers, and small business owners. It provides essential daily utilities—from generating GST invoices to counting daily cash—without requiring any login, database, or server. Everything runs 100% in the client's browser.
 
-It is built with a mobile-first approach, requires no backend, and works entirely in the browser using LocalStorage for data persistence.
+🚀 Tool Suite
 
-🚀 Features
+1. 🧾 Free Invoice Generator
 
-100% Free & Client-Side: No sign-up required, no data sent to servers.
+Core Feature: Create professional GST-compliant PDF invoices in 3 steps.
 
-3-Step Invoice Wizard: Easy flow (Details -> Items -> Finalize).
+Key Capabilities: Auto-tax calculation, signature pad (draw/upload), logo branding, and instant PDF preview/download.
 
-PDF Generation: Instant client-side PDF preview and printing/downloading.
+2. 🧮 GST Calculator
 
-Custom Branding: Upload business logos and digital signatures.
+Core Feature: Calculate GST Inclusive (Reverse) and Exclusive (Forward) amounts.
 
-Drawing Pad: Integrated canvas for drawing signatures on touch devices.
+Key Capabilities: Pre-set Indian tax slabs (5%, 12%, 18%, 28%) and one-click copy.
 
-GST Support: Automatic calculation of CGST/SGST/IGST based on selected rates.
+3. 💵 Daily Cash Tally
 
-Responsive Design: Fully optimized for mobile, tablet, and desktop.
+Core Feature: Digital "Galla" to count physical cash at the end of the day.
 
-Data Persistence: Saves logos and signatures locally so they are available on next visit.
+Key Capabilities: Supports all Indian denominations (₹500, ₹200, coins, etc.) and generates a formatted report to share via WhatsApp.
+
+4. 📝 Number to Words Converter
+
+Core Feature: Convert numerical amounts into text for cheques and drafts.
+
+Key Capabilities: Uses the Indian Numbering System (Lakhs & Crores) instead of Millions, with "Only" appended automatically.
+
+5. 📈 Profit Margin Calculator
+
+Core Feature: Determine the correct Selling Price (MRP) based on Cost.
+
+Key Capabilities: Clearly distinguishes between Markup (profit on cost) and Gross Margin (profit on sale).
+
+6. 🏷️ Smart Discount Calculator
+
+Core Feature: Calculate final sale prices for complex offers.
+
+Key Capabilities: Handles Double Discounts (e.g., 50% + 20%) and Buy X Get Y schemes (e.g., Buy 2 Get 1 Free).
 
 🛠️ Tech Stack
 
-HTML5: Semantic structure.
+HTML5: Semantic, SEO-optimized structure.
 
-CSS3: Tailwind CSS (via CDN) for utility classes + css/style.css for custom theming (gradients, print styles).
+CSS3: Tailwind CSS (via CDN) for responsive, mobile-first design + Custom CSS for print layouts.
 
 JavaScript (ES6): Vanilla JS for all logic, DOM manipulation, and state management.
 
-Font Awesome: For UI icons.
+Icons: Font Awesome 6.
 
-Google Fonts: Inter (Body) & Dancing Script (Logo).
+Fonts: Google Fonts (Inter & Dancing Script).
 
 📂 Project Structure
 
 /
-├── index.html          # Main application entry point
-├── logo-icon.svg       # Project favicon/logo
+├── index.html                      # Landing Page & Invoice Tool
+├── logo-icon.svg                   # Branding Asset
+├── site.webmanifest                # PWA Manifest
 ├── css/
-│   └── style.css       # Custom styles, animations, and print media queries
-└── js/
-    ├── layout.js       # Injects Header and Footer components (SPA feel)
-    └── script.js       # Core logic: Calculations, Wizard nav, Signature pad, PDF generation
+│   └── style.css                   # Global styles & Print media queries
+├── js/
+│   ├── layout.js                   # Dynamic Header/Footer injection & Navigation
+│   └── script.js                   # Universal logic for all tools
+├── calculator/
+│   ├── gst-calculator.html         # GST Calculation Tool
+│   ├── daily-cash-calculator.html  # Cash Tally Tool
+│   ├── number-to-words.html        # Cheque Writing Tool
+│   ├── margin-calculator.html      # Profit/Markup Tool
+│   └── discount-calculator.html    # Discount/Scheme Tool
+└── favicon/                        # Favicon assets
 
 
-⚡ Setup & Usage
+⚡ Setup & Deployment
 
-Since this is a static web application, no build process or server installation is required.
+Since DesiBill is a static web application, it requires no backend setup.
 
-Clone or Download the repository.
+Local Development:
 
-Open the folder in your code editor (e.g., VS Code).
+Clone the repository.
 
-Launch index.html in any modern web browser (Chrome, Edge, Firefox, Safari).
+Open index.html in any browser.
 
-Tip: Use "Live Server" extension in VS Code for the best development experience.
+Recommendation: Use VS Code with "Live Server" to ensure relative paths load correctly.
 
-📝 SEO & Performance
+Deployment:
 
-Meta Tags: Optimized titles, descriptions, and keywords for Indian billing keywords.
+Upload the entire folder to any static host: GitHub Pages, Netlify, or Vercel.
 
-Schema Markup: JSON-LD included for SoftwareApplication and Organization.
+No build commands (npm run build) are needed.
 
-CLS Optimization: Fixed height reserved for injected headers to prevent layout shifts.
+📝 Key Features for Developers
 
-Accessibility: WCAG AA compliance focused (high contrast, semantic tags).
+Centralized Layout: The js/layout.js file injects the Header and Footer across all pages, making menu updates easy.
+
+SEO Optimized: Every page has unique Titles, Meta Descriptions, and JSON-LD Schema (SoftwareApplication, HowTo, FAQPage).
+
+Performance: Minimal external dependencies (Tailwind CDN) ensure fast load times even on 4G networks.
+
+Accessibility: WCAG AA compliant colors and semantic heading hierarchy (H1-H3).
 
 📄 License
 
-This project is open-source and free to use for personal and commercial purposes.
+This project is open-source. Feel free to use it for personal or commercial purposes.
 
-Built with ❤️ for Bharat.
+Built with ❤️ for Indian Small Businesses.
