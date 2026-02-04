@@ -43,15 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Open menu" aria-expanded="false">
+                    <!-- Hamburger Icon -->
                     <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
+                    <!-- Close Icon (Hidden by default) -->
                     <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </button>
 
-                <!-- Mobile Menu -->
+                <!-- Mobile Menu (Vertical Dropdown) -->
                 <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-[#111] border-b border-gray-800 shadow-lg">
                     <div class="flex flex-col space-y-2 p-4">
                         <a href="/" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md flex items-center gap-3">
@@ -95,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isActive) {
                 link.classList.remove('text-gray-300', 'hover:text-white');
-                // Apply Red Accent Line and White Text
                 link.classList.add('text-white', 'border-b-2', 'border-red-500');
             }
         });
@@ -110,13 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isActive) {
                 link.classList.remove('text-gray-300', 'hover:text-white');
-                // Apply Active Style for Mobile (Red Text + Dark bg)
                 link.classList.add('text-red-500', 'bg-gray-900', 'font-bold');
             }
         });
 
-
-        // --- Mobile Menu Toggle Logic ---
+        // --- Mobile Menu Toggle Logic (Standard) ---
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const openIcon = document.getElementById('menu-open-icon');
@@ -126,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuBtn.addEventListener('click', () => {
                 const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
                 menuBtn.setAttribute('aria-expanded', !isExpanded);
+                
                 if (mobileMenu) mobileMenu.classList.toggle('hidden');
                 if (openIcon) openIcon.classList.toggle('hidden');
                 if (closeIcon) closeIcon.classList.toggle('hidden');
@@ -135,10 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close menu when a link is clicked
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
-                if (mobileMenu) mobileMenu.classList.add('hidden');
-                if (openIcon) openIcon.classList.remove('hidden');
-                if (closeIcon) closeIcon.classList.add('hidden');
+                if (menuBtn) {
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                    if (openIcon) openIcon.classList.remove('hidden');
+                    if (closeIcon) closeIcon.classList.add('hidden');
+                }
             });
         });
     }
@@ -171,12 +173,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Calculator Links Row -->
                 <div class="flex justify-center items-center gap-x-4 gap-y-2 mb-2 flex-wrap px-2">
-                     <a href="/" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Home</a>
-                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">GST Calc</a>
-                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Cash Tally</a>
-                     <a href="/calculator/number-to-words.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Num to Words</a>
-                     <a href="/calculator/margin-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Profit Margin</a>
-                     <a href="/calculator/discount-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Discount Calc</a>
+                     <a href="/" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap flex items-center gap-1">
+                        <i class="fa-solid fa-house"></i> Home
+                     </a>
+                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap flex items-center gap-1">
+                        <i class="fa-solid fa-percent"></i> GST Calc
+                     </a>
+                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap flex items-center gap-1">
+                        <i class="fa-solid fa-money-bill-wave"></i> Cash Tally
+                     </a>
+                     <a href="/calculator/number-to-words.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap flex items-center gap-1">
+                        <i class="fa-solid fa-pen-nib"></i> Num to Words
+                     </a>
+                     <a href="/calculator/margin-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap flex items-center gap-1">
+                        <i class="fa-solid fa-chart-line"></i> Profit Margin
+                     </a>
+                     <a href="/calculator/discount-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap flex items-center gap-1">
+                        <i class="fa-solid fa-tags"></i> Discount Calc
+                     </a>
                 </div>
 
                 <!-- Slim Divider -->
