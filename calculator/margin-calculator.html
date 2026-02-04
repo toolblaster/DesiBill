@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimized Title (Max 60 chars) -->
+    <title>Profit Margin Calculator India: Find Selling Price & Markup</title>
+    
+    <!-- SEO Description (Max 160 chars) -->
+    <meta name="description" content="Free Profit Margin Calculator for Indian retailers. Calculate Selling Price (MRP) from Cost. Understand Markup vs Margin instantly. Best tool for shopkeepers.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="profit margin calculator, selling price calculator, markup calculator india, margin vs markup, retail profit tool, calculate mrp from cost, desibill tools">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DesiBill" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Desi Profit Margin Calculator",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          },
+          "description": "A free utility for Indian businesses to calculate selling price, profit margin, and markup percentages."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://desibill.example.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Margin Calculator",
+              "item": "https://desibill.example.com/calculator/margin-calculator.html"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the difference between Margin and Markup?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Markup is the percentage profit based on your COST Price. Margin is the percentage profit based on your SELLING Price. Markup is always higher than Margin."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to calculate Selling Price from Cost and Margin?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Formula: Selling Price = Cost Price / (1 - (Margin% / 100)). For example, if Cost is 100 and you want 20% Margin, Selling Price = 100 / 0.8 = 125."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is Gross Margin important for my business?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Gross Margin tells you the actual percentage of every Rupee earned that you keep as profit. Unlike Markup, it helps you understand if your business is sustainable after paying expenses."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "If I give a discount, does my margin change?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, drastically. Discounts are reduced from the Selling Price, so they lower your Margin significantly. A 10% discount might wipe out 50% of your net profit depending on your initial markup."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to Use Desi Margin Calculator",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "text": "Select 'Find Selling Price' if you want to set an MRP, or 'Find Profit %' if you want to check your earnings."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "Enter your Product Cost (purchase price) and your desired Profit Percentage."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "Instantly view the correct Selling Price and the exact profit amount in Rupees."
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans antialiased bg-[#0B0B0B] text-gray-200">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg pt-10 pb-12">
+            <div class="container mx-auto max-w-4xl px-4 text-center">
+                <span class="inline-block text-red-500 font-semibold tracking-wide uppercase mb-3 text-sm">
+                    Smart Pricing Tool
+                </span>
+                <!-- H1: Main Title -->
+                <h1 class="text-3xl md:text-[42px] font-extrabold text-white mb-4 leading-tight">
+                    Profit Margin & Markup Calculator
+                </h1>
+                <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+                    Set the right <strong>Selling Price</strong> for your products. Stop losing money by confusing Margin with Markup.
+                </p>
+            </div>
+        </section>
+
+        <!-- Calculator UI -->
+        <section class="pb-12">
+            <div class="container mx-auto max-w-2xl px-4">
+                <div class="soft-shadow-card p-6 rounded-2xl border border-gray-700 bg-[#111]">
+                    
+                    <!-- Tabs -->
+                    <div class="flex border-b border-gray-700 mb-6">
+                        <button id="tab-price" class="flex-1 py-3 text-sm font-bold text-white border-b-2 border-red-500 transition-colors">
+                            Find Selling Price
+                        </button>
+                        <button id="tab-profit" class="flex-1 py-3 text-sm font-bold text-gray-400 hover:text-gray-200 transition-colors">
+                            Find Profit %
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Find Selling Price -->
+                    <div id="panel-price" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Cost Price (₹)</label>
+                                <input type="number" id="cost-price-1" placeholder="e.g. 100" class="w-full bg-[#0B0B0B] border border-gray-600 text-white rounded-xl p-3 focus:border-red-500 focus:ring-red-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Desired Profit (%)</label>
+                                <input type="number" id="profit-percent-1" placeholder="e.g. 20" class="w-full bg-[#0B0B0B] border border-gray-600 text-white rounded-xl p-3 focus:border-red-500 focus:ring-red-500">
+                            </div>
+                        </div>
+
+                        <!-- Mode Switch -->
+                        <div>
+                            <label class="block text-gray-300 text-xs font-medium mb-2 uppercase tracking-wide">Profit Based On:</label>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="calc-mode" value="markup" class="text-red-500 focus:ring-red-500 bg-gray-900 border-gray-600" checked>
+                                    <span class="text-sm text-gray-300">Cost (Markup)</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="radio" name="calc-mode" value="margin" class="text-red-500 focus:ring-red-500 bg-gray-900 border-gray-600">
+                                    <span class="text-sm text-gray-300">Sale (Margin)</span>
+                                </label>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2" id="mode-hint">Markup: 100 Cost + 20% = 120 Sale.</p>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="bg-gray-900 rounded-xl p-5 border border-gray-700 grid grid-cols-2 gap-4">
+                            <div>
+                                <span class="text-gray-300 text-xs uppercase block mb-1">Selling Price</span>
+                                <span class="text-white text-2xl font-extrabold">₹ <span id="res-selling-price">0.00</span></span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-gray-300 text-xs uppercase block mb-1">Profit Amount</span>
+                                <span class="text-green-400 text-2xl font-extrabold">₹ <span id="res-profit-amt">0.00</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Find Profit (Hidden by default) -->
+                    <div id="panel-profit" class="space-y-6 hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Cost Price (₹)</label>
+                                <input type="number" id="cost-price-2" placeholder="e.g. 100" class="w-full bg-[#0B0B0B] border border-gray-600 text-white rounded-xl p-3 focus:border-red-500 focus:ring-red-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Selling Price (₹)</label>
+                                <input type="number" id="selling-price-2" placeholder="e.g. 150" class="w-full bg-[#0B0B0B] border border-gray-600 text-white rounded-xl p-3 focus:border-red-500 focus:ring-red-500">
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="bg-gray-900 rounded-xl p-5 border border-gray-700 space-y-4">
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-700">
+                                <span class="text-gray-300 text-sm">Profit Amount</span>
+                                <span class="text-green-400 text-xl font-bold">₹ <span id="res-profit-2">0.00</span></span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-700">
+                                <div>
+                                    <span class="text-white text-sm font-bold block">Gross Margin %</span>
+                                    <span class="text-gray-400 text-xs">(Profit on Sale)</span>
+                                </div>
+                                <span class="text-white text-xl font-bold"><span id="res-margin-2">0</span>%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="text-white text-sm font-bold block">Markup %</span>
+                                    <span class="text-gray-400 text-xs">(Profit on Cost)</span>
+                                </div>
+                                <span class="text-white text-xl font-bold"><span id="res-markup-2">0</span>%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content & Internal Links -->
+        <section class="pb-16 bg-[#0B0B0B]">
+            <div class="container mx-auto max-w-4xl px-4 space-y-12">
+                
+                <!-- NEW: How to Use Section -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white text-center">How to Use This Margin Calculator?</h2>
+                    <p class="text-gray-300 text-sm text-center mb-6 max-w-2xl mx-auto">
+                        Whether you are fixing a new MRP or checking your daily profitability, follow these simple steps:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-800 text-center">
+                            <div class="h-8 w-8 bg-red-900/30 text-red-500 rounded-full flex items-center justify-center mx-auto mb-3 font-bold">1</div>
+                            <h3 class="text-white font-bold mb-2 text-sm">Choose Your Goal</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Select "Find Selling Price" if you have a product cost and need to set an MRP. Select "Find Profit %" if you already sold an item and want to check your margin.
+                            </p>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-800 text-center">
+                            <div class="h-8 w-8 bg-red-900/30 text-red-500 rounded-full flex items-center justify-center mx-auto mb-3 font-bold">2</div>
+                            <h3 class="text-white font-bold mb-2 text-sm">Enter Details</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Input your Cost Price (what you paid) and either your Desired Profit % or the Final Selling Price.
+                            </p>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-800 text-center">
+                            <div class="h-8 w-8 bg-red-900/30 text-red-500 rounded-full flex items-center justify-center mx-auto mb-3 font-bold">3</div>
+                            <h3 class="text-white font-bold mb-2 text-sm">Get Results</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                The tool instantly calculates the exact Rupee profit, Markup %, and Gross Margin %. Use these numbers to generate your invoice.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features List -->
+                <div class="bg-gray-900/30 p-6 rounded-xl border border-gray-800">
+                    <h2 class="text-xl font-bold text-white text-center mb-6">Key Features</h2>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-6 max-w-3xl mx-auto">
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-400"></i> Calculate MRP instantly</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-400"></i> Markup vs Margin logic</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-400"></i> Check profit profitability</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-400"></i> Simple 2-step process</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-400"></i> Mobile-first design</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-400"></i> Free for lifetime</li>
+                    </ul>
+                </div>
+
+                <!-- Explanation Section -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-white text-center">Margin vs Markup: What's the Difference?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-800">
+                            <h3 class="text-white font-bold mb-2 text-base text-blue-400">Markup (Profit on Cost)</h3>
+                            <p class="text-gray-300 text-sm mb-3">
+                                This is what most shopkeepers use. It is the percentage added to the cost price to get the selling price.
+                            </p>
+                            <div class="bg-gray-900 p-3 rounded font-mono text-xs text-gray-300">
+                                Cost: ₹100<br>
+                                Markup: 20%<br>
+                                <strong>Selling Price: ₹120</strong>
+                            </div>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-800">
+                            <h3 class="text-white font-bold mb-2 text-base text-green-400">Gross Margin (Profit on Sale)</h3>
+                            <p class="text-gray-300 text-sm mb-3">
+                                This is what accountants use. It shows how much of your sales revenue is actual profit.
+                            </p>
+                            <div class="bg-gray-900 p-3 rounded font-mono text-xs text-gray-300">
+                                Cost: ₹100<br>
+                                Margin: 20%<br>
+                                <strong>Selling Price: ₹125</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: The Profit Trap & Industry Standards -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-white text-center">Avoid the "Profit Trap"</h2>
+                    <div class="bg-red-900/10 border border-red-900/30 p-5 rounded-xl text-center max-w-3xl mx-auto">
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            <strong>Common Mistake:</strong> If you buy an item for ₹100 and add a 20% Markup, your price is ₹120. <br>
+                            If you then give a 20% Discount to a customer, you sell it for ₹96. <br>
+                            <span class="text-red-400 font-bold block mt-2">Result: You lost ₹4!</span>
+                        </p>
+                        <p class="text-gray-300 text-xs mt-3">
+                            Always calculate discounts based on <strong>Margin</strong> (Selling Price), not Cost. Use our tool to find the correct selling price to afford discounts.
+                        </p>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <h3 class="text-xl font-bold text-white mb-4">Typical Margins by Industry in India</h3>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Grocery (FMCG): <strong>10-20%</strong></span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Apparel/Clothing: <strong>40-50%</strong></span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Electronics: <strong>5-15%</strong></span>
+                            <span class="px-4 py-2 bg-gray-800 rounded-full text-xs text-gray-300 border border-gray-700">Restaurants: <strong>30-60%</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Tools -->
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 text-center">
+                    <h2 class="text-xl font-bold text-white mb-3">More Free Business Tools for You</h2>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="/" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-red-900/30 transition-colors border-red-500/50">
+                            <i class="fa-solid fa-file-invoice mr-2"></i> Free Invoice Generator
+                        </a>
+                        <a href="/calculator/gst-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-blue-900/30 transition-colors border-blue-500/50">
+                            <i class="fa-solid fa-percent mr-2"></i> GST Calculator
+                        </a>
+                        <a href="/calculator/daily-cash-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-green-900/30 transition-colors border-green-500/50">
+                            <i class="fa-solid fa-money-bill-wave mr-2"></i> Cash Tally
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="border-t border-gray-800 pt-8">
+                    <h2 class="text-xl font-bold text-white mb-4 text-center">Frequently Asked Questions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">Should I use Margin or Markup?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Use <strong>Markup</strong> if you want to simply add a percentage to your buying price. Use <strong>Margin</strong> if you want to know exactly what % of your total sales is profit (recommended for financial planning).
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">How is selling price calculated?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                For Markup: Cost × (1 + Markup%).<br>
+                                For Margin: Cost / (1 - Margin%).<br>
+                                Our tool handles both formulas automatically.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">Why is Gross Margin important for my business?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Gross Margin tells you the actual percentage of every Rupee earned that you keep as profit. Unlike Markup, it helps you understand if your business is sustainable after paying expenses.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">If I give a discount, does my margin change?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Yes, drastically. Discounts are reduced from the Selling Price, so they lower your Margin significantly. A 10% discount might wipe out 50% of your net profit depending on your initial markup.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tabs
+            const tabPrice = document.getElementById('tab-price');
+            const tabProfit = document.getElementById('tab-profit');
+            const panelPrice = document.getElementById('panel-price');
+            const panelProfit = document.getElementById('panel-profit');
+
+            tabPrice.addEventListener('click', () => {
+                panelPrice.classList.remove('hidden');
+                panelProfit.classList.add('hidden');
+                tabPrice.classList.add('border-red-500', 'text-white');
+                tabPrice.classList.remove('text-gray-400', 'hover:text-gray-200');
+                tabProfit.classList.remove('border-red-500', 'text-white');
+                tabProfit.classList.add('text-gray-400', 'hover:text-gray-200');
+                // Remove border-b-2 class logic to simpler toggle
+                tabPrice.classList.add('border-b-2');
+                tabProfit.classList.remove('border-b-2');
+            });
+
+            tabProfit.addEventListener('click', () => {
+                panelProfit.classList.remove('hidden');
+                panelPrice.classList.add('hidden');
+                tabProfit.classList.add('border-red-500', 'text-white');
+                tabProfit.classList.remove('text-gray-400', 'hover:text-gray-200');
+                tabPrice.classList.remove('border-red-500', 'text-white');
+                tabPrice.classList.add('text-gray-400', 'hover:text-gray-200');
+                
+                tabProfit.classList.add('border-b-2');
+                tabPrice.classList.remove('border-b-2');
+            });
+
+            // Panel 1 Logic (Find Price)
+            const cost1 = document.getElementById('cost-price-1');
+            const profit1 = document.getElementById('profit-percent-1');
+            const radios = document.getElementsByName('calc-mode');
+            const resPrice = document.getElementById('res-selling-price');
+            const resProfitAmt = document.getElementById('res-profit-amt');
+            const modeHint = document.getElementById('mode-hint');
+
+            function calcPrice() {
+                const c = parseFloat(cost1.value);
+                const p = parseFloat(profit1.value);
+                let mode = 'markup';
+                for(const r of radios) { if(r.checked) mode = r.value; }
+
+                if(!c || !p) {
+                    resPrice.innerText = "0.00";
+                    resProfitAmt.innerText = "0.00";
+                    return;
+                }
+
+                let sell = 0;
+                let amt = 0;
+
+                if(mode === 'markup') {
+                    // Cost + (Cost * %)
+                    amt = c * (p / 100);
+                    sell = c + amt;
+                    modeHint.innerText = `Markup: ${c} Cost + ${p}% = ${sell.toFixed(2)} Sale`;
+                } else {
+                    // Cost / (1 - %)
+                    // Margin = (Sell - Cost) / Sell
+                    // Sell * (1 - Margin) = Cost
+                    // Sell = Cost / (1 - Margin)
+                    if (p >= 100) {
+                        resPrice.innerText = "Error"; // Cannot have 100% margin on cost base
+                        return;
+                    }
+                    sell = c / (1 - (p / 100));
+                    amt = sell - c;
+                    modeHint.innerText = `Margin: To keep ${p}% of sale as profit, sell at ${sell.toFixed(2)}`;
+                }
+
+                resPrice.innerText = sell.toFixed(2);
+                resProfitAmt.innerText = amt.toFixed(2);
+            }
+
+            cost1.addEventListener('input', calcPrice);
+            profit1.addEventListener('input', calcPrice);
+            for(const r of radios) r.addEventListener('change', calcPrice);
+
+
+            // Panel 2 Logic (Find Profit)
+            const cost2 = document.getElementById('cost-price-2');
+            const sell2 = document.getElementById('selling-price-2');
+            const resProfit2 = document.getElementById('res-profit-2');
+            const resMargin2 = document.getElementById('res-margin-2');
+            const resMarkup2 = document.getElementById('res-markup-2');
+
+            function calcProfit() {
+                const c = parseFloat(cost2.value);
+                const s = parseFloat(sell2.value);
+
+                if(!c || !s) {
+                    resProfit2.innerText = "0.00";
+                    resMargin2.innerText = "0";
+                    resMarkup2.innerText = "0";
+                    return;
+                }
+
+                const profit = s - c;
+                const margin = (profit / s) * 100;
+                const markup = (profit / c) * 100;
+
+                resProfit2.innerText = profit.toFixed(2);
+                resMargin2.innerText = margin.toFixed(2);
+                resMarkup2.innerText = markup.toFixed(2);
+                
+                // Color coding
+                if(profit < 0) {
+                    resProfit2.classList.remove('text-green-400');
+                    resProfit2.classList.add('text-red-400');
+                } else {
+                    resProfit2.classList.add('text-green-400');
+                    resProfit2.classList.remove('text-red-400');
+                }
+            }
+
+            cost2.addEventListener('input', calcProfit);
+            sell2.addEventListener('input', calcProfit);
+
+        });
+    </script>
+
+</body>
+</html>
