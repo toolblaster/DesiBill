@@ -13,14 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </a>
                 
                 <!-- Nav Links (Desktop) -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="/" class="text-gray-300 hover:text-white transition-colors text-sm">Home</a>
-                    <a href="/calculator/gst-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">GST Calc</a>
-                    <a href="/calculator/daily-cash-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">Cash Tally</a>
-                    <a href="/calculator/number-to-words.html" class="text-gray-300 hover:text-white transition-colors text-sm">Num to Words</a>
-                    <a href="/calculator/margin-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">Profit Margin</a>
-                    <!-- NEW: Discount Calc -->
-                    <a href="/calculator/discount-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">Discount Calc</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Home</a>
+                    <a href="/calculator/gst-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">GST Calc</a>
+                    <a href="/calculator/daily-cash-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Cash Tally</a>
+                    <a href="/calculator/number-to-words.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Num to Words</a>
+                    <a href="/calculator/margin-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Profit Margin</a>
+                    <a href="/calculator/discount-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Discount Calc</a>
                 </div>
                 
                 <!-- CTA (Desktop) -->
@@ -48,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="/calculator/daily-cash-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Cash Tally</a>
                         <a href="/calculator/number-to-words.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Num to Words</a>
                         <a href="/calculator/margin-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Profit Margin</a>
-                        <!-- NEW: Discount Calc -->
                         <a href="/calculator/discount-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Discount Calc</a>
                         <a href="/#invoice-tool" class="btn-primary text-white text-center py-2.5 px-4 rounded-lg font-bold text-base mt-2">
                             Create Invoice Now
@@ -59,12 +57,46 @@ document.addEventListener('DOMContentLoaded', () => {
         </header>
         `;
 
-        // --- Mobile Menu Logic ---
+        // --- Active Link Logic ---
+        const currentPath = window.location.pathname;
+        
+        // Handle Desktop Links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            // Check if current path matches href (handling root / and index.html cases)
+            const isActive = (currentPath === href) || 
+                             (currentPath.endsWith('/') && href === '/') || 
+                             (currentPath.includes(href) && href !== '/');
+
+            if (isActive) {
+                link.classList.remove('text-gray-300', 'hover:text-white');
+                // Apply Red Accent Line and White Text
+                link.classList.add('text-white', 'border-b-2', 'border-red-500');
+            }
+        });
+
+        // Handle Mobile Links
+        const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+        mobileLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            const isActive = (currentPath === href) || 
+                             (currentPath.endsWith('/') && href === '/') || 
+                             (currentPath.includes(href) && href !== '/');
+
+            if (isActive) {
+                link.classList.remove('text-gray-300', 'hover:text-white');
+                // Apply Active Style for Mobile (Red Text + Dark bg)
+                link.classList.add('text-red-500', 'bg-gray-900', 'font-bold');
+            }
+        });
+
+
+        // --- Mobile Menu Toggle Logic ---
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const openIcon = document.getElementById('menu-open-icon');
         const closeIcon = document.getElementById('menu-close-icon');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
         if (menuBtn) {
             menuBtn.addEventListener('click', () => {
@@ -77,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Close menu when a link is clicked
-        mobileMenuLinks.forEach(link => {
+        mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
                 if (mobileMenu) mobileMenu.classList.add('hidden');
@@ -113,16 +145,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     </span>
                 </div>
                 
-                <!-- Footer Links -->
-                <div class="flex justify-center items-center space-x-4 mb-3 flex-wrap">
+                <!-- Calculator Links Row -->
+                <div class="flex justify-center items-center space-x-4 mb-1 flex-wrap">
                      <a href="/" class="text-gray-400 hover:text-white transition-colors text-xs">Home</a>
                      <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">GST Calc</a>
                      <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Cash Tally</a>
                      <a href="/calculator/number-to-words.html" class="text-gray-400 hover:text-white transition-colors text-xs">Num to Words</a>
                      <a href="/calculator/margin-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Profit Margin</a>
-                     <!-- NEW: Discount Calc -->
                      <a href="/calculator/discount-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Discount Calc</a>
-                     <a href="/contact-legal.html" class="text-gray-400 hover:text-white transition-colors text-xs">Contact</a>
+                </div>
+
+                <!-- Slim Divider -->
+                <div class="w-full max-w-lg mx-auto border-t border-gray-800 my-4 opacity-50"></div>
+
+                <!-- Legal Links Row -->
+                <div class="flex justify-center items-center space-x-6 mb-4 flex-wrap">
+                     <!-- UPDATED: Use root folder URL -->
+                     <a href="/calculator/" class="text-gray-500 hover:text-white transition-colors text-xs">Calculator Hub</a>
+                     <a href="/legal/about.html" class="text-gray-500 hover:text-white transition-colors text-xs">About Us</a>
+                     <a href="/legal/terms.html" class="text-gray-500 hover:text-white transition-colors text-xs">Terms of Use</a>
+                     <a href="/legal/privacy.html" class="text-gray-500 hover:text-white transition-colors text-xs">Privacy Policy</a>
+                     <a href="/legal/contact.html" class="text-gray-500 hover:text-white transition-colors text-xs">Contact</a>
                 </div>
                 
                 <!-- Copyright -->
