@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimized Title (Max 60 chars) -->
+    <title>Discount Calculator India: Percentage Off & Buy X Get Y</title>
+    
+    <!-- SEO Description (Max 160 chars) -->
+    <meta name="description" content="Free Online Discount Calculator. Calculate final price for Flat % Off, Double Discounts (50% + 20%), and Buy 1 Get 1 Free schemes instantly.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="discount calculator, percentage off calculator, double discount calculator, buy 1 get 1 calculator, sale price calculator, discount formula, retail math tool">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DesiBill" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Smart Discount Calculator",
+          "applicationCategory": "ShoppingApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          },
+          "description": "A free tool to calculate final selling price after single or double percentage discounts, and effective discount rate for Buy X Get Y offers."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://desibill.toolblaster.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Discount Calculator",
+              "item": "https://desibill.toolblaster.com/calculator/discount-calculator.html"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How to calculate 'Buy 2 Get 1 Free' discount percentage?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The formula is (Free Items / Total Items) * 100. For Buy 2 Get 1, it is (1 / 3) * 100 = 33.33%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is 'Flat 50% + 50% Off' equal to 100% Free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Double discounts are applied sequentially. First 50% is removed, then 50% of the remaining amount. The total effective discount is 75%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the formula to find the discount percentage if I know the prices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Formula: ((Original Price - Sale Price) / Original Price) * 100. For example, if MRP is 100 and Sale Price is 80, the discount is ((100-80)/100)*100 = 20%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this tool work for GST inclusive prices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. If your MRP includes GST, the discounted price calculated will also include GST. You can then use our GST Calculator to separate the tax component."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to Use the Smart Discount Calculator",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "text": "Select the mode: '% Discount' for percentage deals or 'Buy X Get Y' for quantity schemes."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "Enter the Original Price (MRP) and the Discount Percentage (e.g., 20%)."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "Optionally, check 'Add Extra Discount' to calculate double discounts like '50% + 10%'."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "Instantly view the Final Selling Price and total money saved."
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans antialiased bg-[#0B0B0B] text-gray-200">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg pt-10 pb-12">
+            <div class="container mx-auto max-w-4xl px-4 text-center">
+                <span class="inline-block text-red-500 font-semibold tracking-wide uppercase mb-3 text-sm">
+                    Offers & Schemes Tool
+                </span>
+                <!-- H1: Main Title -->
+                <h1 class="text-3xl md:text-[42px] font-extrabold text-white mb-4 leading-tight">
+                    Smart Discount Calculator
+                </h1>
+                <p class="text-gray-200 text-lg max-w-2xl mx-auto">
+                    Calculate <strong>Final Sale Price</strong> for percentage discounts and find the real value of "Buy 1 Get 1 Free" offers.
+                </p>
+            </div>
+        </section>
+
+        <!-- Calculator UI -->
+        <section class="pb-12">
+            <div class="container mx-auto max-w-2xl px-4">
+                <div class="soft-shadow-card p-6 rounded-2xl border border-gray-700 bg-[#111]">
+                    
+                    <!-- Tabs -->
+                    <div class="flex border-b border-gray-700 mb-6">
+                        <button id="tab-percent" class="flex-1 py-3 text-sm font-bold text-white border-b-2 border-red-500 transition-colors">
+                            % Discount
+                        </button>
+                        <button id="tab-scheme" class="flex-1 py-3 text-sm font-bold text-gray-400 hover:text-gray-200 transition-colors">
+                            Buy X Get Y
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Percentage Discount -->
+                    <div id="panel-percent" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Original Price (MRP)</label>
+                                <div class="relative">
+                                    <span class="absolute left-4 top-1.5 transform text-gray-400 text-sm font-bold">₹</span>
+                                    <input type="number" id="mrp-input" placeholder="1000" class="w-full bg-[#0B0B0B] border border-gray-500 text-white rounded-xl py-3 pl-8 pr-3 focus:border-red-500 focus:ring-red-500 transition-colors">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Discount 1 (%)</label>
+                                <input type="number" id="disc-1-input" placeholder="e.g. 20" class="w-full bg-[#0B0B0B] border border-gray-500 text-white rounded-xl p-3 focus:border-red-500 focus:ring-red-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Optional Double Discount -->
+                        <div>
+                            <label class="flex items-center gap-2 cursor-pointer mb-2">
+                                <input type="checkbox" id="enable-disc-2" class="rounded border-gray-500 text-red-500 focus:ring-red-500 bg-gray-800">
+                                <span class="text-sm text-gray-200">Add Extra Discount (e.g. 50% + <strong>10%</strong>)</span>
+                            </label>
+                            <div id="disc-2-container" class="hidden">
+                                <input type="number" id="disc-2-input" placeholder="Extra Discount %" class="w-full bg-[#0B0B0B] border border-gray-500 text-white rounded-xl p-3 focus:border-red-500 focus:ring-red-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="bg-gray-900 rounded-xl p-5 border border-gray-700 grid grid-cols-2 gap-4">
+                            <div>
+                                <span class="text-gray-300 text-xs uppercase block mb-1">Final Price</span>
+                                <span class="text-white text-3xl font-extrabold">₹ <span id="res-final-price">0.00</span></span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-gray-300 text-xs uppercase block mb-1">You Save</span>
+                                <span class="text-green-400 text-2xl font-bold">₹ <span id="res-saved-amount">0.00</span></span>
+                                <div class="text-xs text-gray-400 mt-1">
+                                    Effective: <span id="res-effective-percent">0</span>% Off
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Buy X Get Y (Hidden by default) -->
+                    <div id="panel-scheme" class="space-y-6 hidden">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Buy (Qty)</label>
+                                <input type="number" id="buy-qty" placeholder="e.g. 2" class="w-full bg-[#0B0B0B] border border-gray-500 text-white rounded-xl p-3 focus:border-red-500 focus:ring-red-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 text-sm font-medium mb-2">Get Free (Qty)</label>
+                                <input type="number" id="free-qty" placeholder="e.g. 1" class="w-full bg-[#0B0B0B] border border-gray-500 text-white rounded-xl p-3 focus:border-red-500 focus:ring-red-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center">
+                            <span class="text-gray-300 text-sm uppercase block mb-2">Effective Discount Value</span>
+                            <span class="text-white text-4xl font-extrabold text-green-400"><span id="res-scheme-percent">0</span>% OFF</span>
+                            <p class="text-gray-400 text-xs mt-3">
+                                Formula: (Free Qty / Total Qty) × 100
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content & Internal Links -->
+        <section class="pb-16 bg-[#0B0B0B]">
+            <div class="container mx-auto max-w-4xl px-4 space-y-16">
+                
+                <!-- 1. What is Smart Discount Calculator -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white text-center">What is Smart Discount Calculator?</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed text-center max-w-3xl mx-auto">
+                        The <strong>Smart Discount Calculator</strong> is an advanced digital tool designed for Indian shoppers and retailers to calculate complex pricing instantly. Unlike standard calculators, it handles <strong>Double Discounts</strong> (e.g., 50% + 20% off), <strong>Buy X Get Y Free</strong> schemes, and standard percentage drops in one place, ensuring you know the exact final price and total savings without manual math errors.
+                    </p>
+                </div>
+
+                <!-- 2. Key Features -->
+                <div class="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
+                    <h2 class="text-xl font-bold text-white text-center mb-6">Key Features</h2>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-6 max-w-3xl mx-auto">
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Percentage Off Calc</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Double Discount Logic</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Buy X Get Y Scheme</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Total Savings Amount</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Effective % Display</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Mobile Friendly</span></li>
+                    </ul>
+                </div>
+
+                <!-- 3. Formulas Explained -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-white text-center">Discount Formulas Explained</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700">
+                            <h3 class="text-white font-bold mb-2 text-base text-blue-400">Double Discount (50% + 20%)</h3>
+                            <p class="text-gray-300 text-sm mb-3">
+                                Many people think 50% + 20% = 70%. <strong>This is wrong.</strong>
+                            </p>
+                            <div class="bg-gray-900 p-3 rounded font-mono text-xs text-gray-300">
+                                1. Start: ₹100<br>
+                                2. Apply 50%: ₹100 - ₹50 = ₹50<br>
+                                3. Apply 20% on ₹50: ₹50 - ₹10 = ₹40<br>
+                                <strong>Effective Discount: 60%</strong>
+                            </div>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700">
+                            <h3 class="text-white font-bold mb-2 text-base text-green-400">Buy X Get Y Free</h3>
+                            <p class="text-gray-300 text-sm mb-3">
+                                A classic "Buy 2 Get 1 Free" offer sounds great, but what is the actual %?
+                            </p>
+                            <div class="bg-gray-900 p-3 rounded font-mono text-xs text-gray-300">
+                                Formula: Free / (Buy + Free)<br>
+                                Calc: 1 / (2 + 1) = 1 / 3<br>
+                                <strong>Effective Discount: 33.33%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. How to Use Section -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white text-center">How to Use the Smart Discount Calculator?</h2>
+                    <div class="bg-gray-900/30 p-6 rounded-xl border border-gray-700">
+                        <ul class="space-y-4 text-sm text-gray-300">
+                            <li class="flex items-start gap-3">
+                                <span class="bg-red-900/30 text-red-500 rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                                <span><strong>Select Mode:</strong> Choose "% Discount" for standard sales or "Buy X Get Y" for quantity-based offers.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="bg-red-900/30 text-red-500 rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                                <span><strong>Enter Details:</strong> Input the Original Price (MRP) and the Discount Percentage (e.g., 20%). For schemes, enter "Buy" and "Free" quantities.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="bg-red-900/30 text-red-500 rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                                <span><strong>Double Discount:</strong> If applicable, check "Add Extra Discount" to calculate offers like "50% + 10% Off".</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="bg-red-900/30 text-red-500 rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                                <span><strong>Get Results:</strong> Instantly view the Final Selling Price and total money saved.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. Example Calculations -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-white text-center">Example Discount Calculations</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-900/30 p-4 rounded-xl border border-gray-700 flex justify-between items-center">
+                            <div>
+                                <span class="text-white font-bold text-sm block">Flat Sale</span>
+                                <span class="text-gray-400 text-xs">MRP ₹1000 with 20% Off</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-green-400 font-bold block">Pay ₹800</span>
+                                <span class="text-gray-500 text-xs">Save ₹200</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900/30 p-4 rounded-xl border border-gray-700 flex justify-between items-center">
+                            <div>
+                                <span class="text-white font-bold text-sm block">Double Discount</span>
+                                <span class="text-gray-400 text-xs">MRP ₹2000 with 50% + 50% Off</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-green-400 font-bold block">Pay ₹500</span>
+                                <span class="text-gray-500 text-xs">Total 75% Off (Not 100%)</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900/30 p-4 rounded-xl border border-gray-700 flex justify-between items-center">
+                            <div>
+                                <span class="text-white font-bold text-sm block">Scheme</span>
+                                <span class="text-gray-400 text-xs">Buy 2 Get 1 Free</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-green-400 font-bold block">33.33% Off</span>
+                                <span class="text-gray-500 text-xs">Effective Discount</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Why Use Section -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-white text-center">Why Use Our Discount Calculator?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700 text-center">
+                            <i class="fa-solid fa-bolt text-red-500 text-2xl mb-3"></i>
+                            <h3 class="text-white font-bold mb-2 text-sm">Instant Results</h3>
+                            <p class="text-gray-400 text-xs">Get accurate final prices in milliseconds without mental math.</p>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700 text-center">
+                            <i class="fa-solid fa-layer-group text-blue-500 text-2xl mb-3"></i>
+                            <h3 class="text-white font-bold mb-2 text-sm">Double Discounts</h3>
+                            <p class="text-gray-400 text-xs">Correctly calculate complex "50% + 20%" offers, which are not 70%.</p>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700 text-center">
+                            <i class="fa-solid fa-tags text-green-500 text-2xl mb-3"></i>
+                            <h3 class="text-white font-bold mb-2 text-sm">True Scheme Value</h3>
+                            <p class="text-gray-400 text-xs">Find out the exact % off you get in "Buy 1 Get 1" or "Buy 2 Get 1" deals.</p>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700 text-center">
+                            <i class="fa-solid fa-mobile-screen text-yellow-500 text-2xl mb-3"></i>
+                            <h3 class="text-white font-bold mb-2 text-sm">Shop Ready</h3>
+                            <p class="text-gray-400 text-xs">Designed for mobile usage, perfect for shopkeepers and shoppers on the go.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Who Can Use Section -->
+                <div class="space-y-6">
+                    <h2 class="text-2xl font-bold text-white text-center">Who Can Use This Tool?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700">
+                            <h3 class="text-white font-bold mb-2 text-sm text-blue-400">Smart Shoppers</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Verify sale prices during festivals like Diwali or End of Season Sales. Don't get tricked by confusing discount tags.
+                            </p>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700">
+                            <h3 class="text-white font-bold mb-2 text-sm text-green-400">Retailers</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Plan your sales strategy. Calculate exactly how much margin you are sacrificing when you offer a "10% + 5%" discount.
+                            </p>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-700">
+                            <h3 class="text-white font-bold mb-2 text-sm text-yellow-400">Wholesalers</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Quickly calculate bulk discounts for B2B clients. Ensure your trade discounts are accurate on large order volumes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. More Tools -->
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 text-center">
+                    <h2 class="text-xl font-bold text-white mb-3">More Free Business Tools</h2>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
+                        <a href="/" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-red-900/30 transition-colors border-red-500/50">
+                            <i class="fa-solid fa-file-invoice mr-2"></i> Free Invoice Generator
+                        </a>
+                        <a href="/calculator/gst-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-blue-900/30 transition-colors border-blue-500/50">
+                            <i class="fa-solid fa-percent mr-2"></i> GST Calculator
+                        </a>
+                        <a href="/calculator/margin-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-yellow-900/30 transition-colors border-yellow-500/50">
+                            <i class="fa-solid fa-chart-line mr-2"></i> Margin Calc
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 9. FAQ Section -->
+                <div class="border-t border-gray-800 pt-8">
+                    <h2 class="text-xl font-bold text-white mb-4 text-center">Frequently Asked Questions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">What is a double discount?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                A double discount occurs when an extra percentage (e.g., "Extra 10% Off") is applied after the initial discount. It is calculated sequentially, not by simply adding the percentages together.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">How is 'Buy 1 Get 1' calculated?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                "Buy 1 Get 1 Free" implies you get 2 items but pay for 1. The math is 1/2 = 0.50, which means you are getting a <strong>50% discount</strong> on the total value.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">What is the formula to find discount percentage?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Use this formula: <code>((Original Price - Sale Price) / Original Price) * 100</code>. For example, if an item drops from ₹100 to ₹80, the discount is 20%.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">Does this tool work for GST inclusive prices?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Yes. If your MRP includes GST, the discounted price calculated will also include GST. You can then use our GST Calculator to separate the tax component from the discounted price.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tabs Logic
+            const tabPercent = document.getElementById('tab-percent');
+            const tabScheme = document.getElementById('tab-scheme');
+            const panelPercent = document.getElementById('panel-percent');
+            const panelScheme = document.getElementById('panel-scheme');
+
+            function switchTab(activeTab, activePanel, inactiveTab, inactivePanel) {
+                activePanel.classList.remove('hidden');
+                inactivePanel.classList.add('hidden');
+                activeTab.classList.add('border-red-500', 'text-white');
+                activeTab.classList.remove('text-gray-400', 'hover:text-gray-200', 'border-transparent');
+                inactiveTab.classList.remove('border-red-500', 'text-white');
+                inactiveTab.classList.add('text-gray-400', 'hover:text-gray-200', 'border-transparent');
+            }
+
+            tabPercent.addEventListener('click', () => switchTab(tabPercent, panelPercent, tabScheme, panelScheme));
+            tabScheme.addEventListener('click', () => switchTab(tabScheme, panelScheme, tabPercent, panelPercent));
+
+            // Logic 1: Percentage Discount
+            const mrpInput = document.getElementById('mrp-input');
+            const disc1Input = document.getElementById('disc-1-input');
+            const disc2Input = document.getElementById('disc-2-input');
+            const enableDisc2 = document.getElementById('enable-disc-2');
+            const disc2Container = document.getElementById('disc-2-container');
+            const resFinalPrice = document.getElementById('res-final-price');
+            const resSavedAmount = document.getElementById('res-saved-amount');
+            const resEffectivePercent = document.getElementById('res-effective-percent');
+
+            enableDisc2.addEventListener('change', () => {
+                if(enableDisc2.checked) {
+                    disc2Container.classList.remove('hidden');
+                } else {
+                    disc2Container.classList.add('hidden');
+                    disc2Input.value = '';
+                    calcPercent();
+                }
+            });
+
+            function calcPercent() {
+                const mrp = parseFloat(mrpInput.value) || 0;
+                const d1 = parseFloat(disc1Input.value) || 0;
+                let final = 0;
+                
+                if (mrp === 0) {
+                    resFinalPrice.innerText = "0.00";
+                    resSavedAmount.innerText = "0.00";
+                    resEffectivePercent.innerText = "0";
+                    return;
+                }
+
+                // First Discount
+                let priceAfterD1 = mrp - (mrp * (d1 / 100));
+
+                // Second Discount (if enabled)
+                let d2 = 0;
+                if (enableDisc2.checked) {
+                    d2 = parseFloat(disc2Input.value) || 0;
+                    final = priceAfterD1 - (priceAfterD1 * (d2 / 100));
+                } else {
+                    final = priceAfterD1;
+                }
+
+                const saved = mrp - final;
+                const effectivePercent = (saved / mrp) * 100;
+
+                resFinalPrice.innerText = final.toFixed(2);
+                resSavedAmount.innerText = saved.toFixed(2);
+                resEffectivePercent.innerText = effectivePercent.toFixed(2);
+            }
+
+            mrpInput.addEventListener('input', calcPercent);
+            disc1Input.addEventListener('input', calcPercent);
+            disc2Input.addEventListener('input', calcPercent);
+
+
+            // Logic 2: Buy X Get Y Scheme
+            const buyQty = document.getElementById('buy-qty');
+            const freeQty = document.getElementById('free-qty');
+            const resSchemePercent = document.getElementById('res-scheme-percent');
+
+            function calcScheme() {
+                const buy = parseFloat(buyQty.value) || 0;
+                const free = parseFloat(freeQty.value) || 0;
+
+                if (buy === 0 && free === 0) {
+                    resSchemePercent.innerText = "0";
+                    return;
+                }
+
+                const totalQty = buy + free;
+                if (totalQty === 0) return;
+
+                // Formula: (Free / Total) * 100
+                const percent = (free / totalQty) * 100;
+                resSchemePercent.innerText = percent.toFixed(2);
+            }
+
+            buyQty.addEventListener('input', calcScheme);
+            freeQty.addEventListener('input', calcScheme);
+
+        });
+    </script>
+
+</body>
+</html>
