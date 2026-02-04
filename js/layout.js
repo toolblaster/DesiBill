@@ -14,12 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Nav Links (Desktop) -->
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="/" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Home</a>
-                    <a href="/calculator/gst-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">GST Calc</a>
-                    <a href="/calculator/daily-cash-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Cash Tally</a>
-                    <a href="/calculator/number-to-words.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Num to Words</a>
-                    <a href="/calculator/margin-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Profit Margin</a>
-                    <a href="/calculator/discount-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1">Discount Calc</a>
+                    <a href="/" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-house text-xs"></i> Home
+                    </a>
+                    <a href="/calculator/gst-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-percent text-xs"></i> GST Calc
+                    </a>
+                    <a href="/calculator/daily-cash-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-money-bill-wave text-xs"></i> Cash Tally
+                    </a>
+                    <a href="/calculator/number-to-words.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-pen-nib text-xs"></i> Num to Words
+                    </a>
+                    <a href="/calculator/margin-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-chart-line text-xs"></i> Profit Margin
+                    </a>
+                    <a href="/calculator/discount-calculator.html" class="nav-link text-gray-300 hover:text-white transition-all text-sm font-medium py-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-tags text-xs"></i> Discount Calc
+                    </a>
                 </div>
                 
                 <!-- CTA (Desktop) -->
@@ -30,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Open menu" aria-expanded="false">
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Open menu" aria-expanded="false">
                     <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
@@ -42,12 +54,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Mobile Menu -->
                 <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-[#111] border-b border-gray-800 shadow-lg">
                     <div class="flex flex-col space-y-2 p-4">
-                        <a href="/" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Home</a>
-                        <a href="/calculator/gst-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">GST Calc</a>
-                        <a href="/calculator/daily-cash-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Cash Tally</a>
-                        <a href="/calculator/number-to-words.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Num to Words</a>
-                        <a href="/calculator/margin-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Profit Margin</a>
-                        <a href="/calculator/discount-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Discount Calc</a>
+                        <a href="/" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md flex items-center gap-3">
+                            <i class="fa-solid fa-house w-5 text-center"></i> Home
+                        </a>
+                        <a href="/calculator/gst-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md flex items-center gap-3">
+                            <i class="fa-solid fa-percent w-5 text-center"></i> GST Calc
+                        </a>
+                        <a href="/calculator/daily-cash-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md flex items-center gap-3">
+                            <i class="fa-solid fa-money-bill-wave w-5 text-center"></i> Cash Tally
+                        </a>
+                        <a href="/calculator/number-to-words.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md flex items-center gap-3">
+                            <i class="fa-solid fa-pen-nib w-5 text-center"></i> Num to Words
+                        </a>
+                        <a href="/calculator/margin-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md flex items-center gap-3">
+                            <i class="fa-solid fa-chart-line w-5 text-center"></i> Profit Margin
+                        </a>
+                        <a href="/calculator/discount-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md flex items-center gap-3">
+                            <i class="fa-solid fa-tags w-5 text-center"></i> Discount Calc
+                        </a>
                         <a href="/#invoice-tool" class="btn-primary text-white text-center py-2.5 px-4 rounded-lg font-bold text-base mt-2">
                             Create Invoice Now
                         </a>
@@ -64,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            // Check if current path matches href (handling root / and index.html cases)
+            // Check if current path matches href
             const isActive = (currentPath === href) || 
                              (currentPath.endsWith('/') && href === '/') || 
                              (currentPath.includes(href) && href !== '/');
@@ -146,26 +170,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <!-- Calculator Links Row -->
-                <div class="flex justify-center items-center space-x-4 mb-1 flex-wrap">
-                     <a href="/" class="text-gray-400 hover:text-white transition-colors text-xs">Home</a>
-                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">GST Calc</a>
-                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Cash Tally</a>
-                     <a href="/calculator/number-to-words.html" class="text-gray-400 hover:text-white transition-colors text-xs">Num to Words</a>
-                     <a href="/calculator/margin-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Profit Margin</a>
-                     <a href="/calculator/discount-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Discount Calc</a>
+                <div class="flex justify-center items-center gap-x-4 gap-y-2 mb-2 flex-wrap px-2">
+                     <a href="/" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Home</a>
+                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">GST Calc</a>
+                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Cash Tally</a>
+                     <a href="/calculator/number-to-words.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Num to Words</a>
+                     <a href="/calculator/margin-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Profit Margin</a>
+                     <a href="/calculator/discount-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Discount Calc</a>
                 </div>
 
                 <!-- Slim Divider -->
                 <div class="w-full max-w-lg mx-auto border-t border-gray-800 my-4 opacity-50"></div>
 
                 <!-- Legal Links Row -->
-                <div class="flex justify-center items-center space-x-6 mb-4 flex-wrap">
-                     <!-- UPDATED: Use root folder URL -->
-                     <a href="/calculator/" class="text-gray-500 hover:text-white transition-colors text-xs">Calculator Hub</a>
-                     <a href="/legal/about.html" class="text-gray-500 hover:text-white transition-colors text-xs">About Us</a>
-                     <a href="/legal/terms.html" class="text-gray-500 hover:text-white transition-colors text-xs">Terms of Use</a>
-                     <a href="/legal/privacy.html" class="text-gray-500 hover:text-white transition-colors text-xs">Privacy Policy</a>
-                     <a href="/legal/contact.html" class="text-gray-500 hover:text-white transition-colors text-xs">Contact</a>
+                <div class="flex justify-center items-center gap-x-6 gap-y-2 mb-4 flex-wrap px-2">
+                     <a href="/calculator/index.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">Calculator Hub</a>
+                     <a href="/legal/about.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">About Us</a>
+                     <a href="/legal/terms.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">Terms of Use</a>
+                     <a href="/legal/privacy.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">Privacy Policy</a>
+                     <a href="/legal/contact.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">Contact</a>
                 </div>
                 
                 <!-- Copyright -->
