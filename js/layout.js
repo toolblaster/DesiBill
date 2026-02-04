@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Nav Links (Desktop) -->
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="/" class="text-gray-300 hover:text-white transition-colors text-sm">Home</a>
-                    <a href="/calculator/gst-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">GST</a>
+                    <a href="/calculator/gst-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">GST Calc</a>
                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">Cash Tally</a>
-                    <!-- NEW: Margin Calc -->
+                    <!-- NEW: Number to Words Link -->
+                    <a href="/calculator/number-to-words.html" class="text-gray-300 hover:text-white transition-colors text-sm">Num to Words</a>
                     <a href="/calculator/margin-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">Profit Margin</a>
-                    <a href="/#invoice-tool" class="text-gray-300 hover:text-white transition-colors text-sm">Billing Tool</a>
                 </div>
                 
                 <!-- CTA (Desktop) -->
@@ -43,9 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-[#111] border-b border-gray-800 shadow-lg">
                     <div class="flex flex-col space-y-2 p-4">
                         <a href="/" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Home</a>
-                        <a href="/calculator/gst-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">GST Calculator</a>
+                        <a href="/calculator/gst-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">GST Calc</a>
                         <a href="/calculator/daily-cash-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Cash Tally</a>
-                        <!-- NEW: Margin Calc -->
+                        <!-- NEW: Number to Words Link -->
+                        <a href="/calculator/number-to-words.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Num to Words</a>
                         <a href="/calculator/margin-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Profit Margin</a>
                         <a href="/#invoice-tool" class="btn-primary text-white text-center py-2.5 px-4 rounded-lg font-bold text-base mt-2">
                             Create Invoice Now
@@ -111,11 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <!-- Footer Links -->
-                <div class="flex justify-center items-center space-x-4 mb-3">
+                <div class="flex justify-center items-center space-x-4 mb-3 flex-wrap">
                      <a href="/" class="text-gray-400 hover:text-white transition-colors text-xs">Home</a>
-                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">GST</a>
-                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Cash</a>
-                     <a href="/calculator/margin-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Margin</a>
+                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">GST Calc</a>
+                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Cash Tally</a>
+                     <!-- NEW: Number to Words Link -->
+                     <a href="/calculator/number-to-words.html" class="text-gray-400 hover:text-white transition-colors text-xs">Num to Words</a>
+                     <a href="/calculator/margin-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Profit Margin</a>
                      <a href="/contact-legal.html" class="text-gray-400 hover:text-white transition-colors text-xs">Contact</a>
                 </div>
                 
