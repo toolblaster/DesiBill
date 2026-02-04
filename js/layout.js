@@ -14,15 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Nav Links (Desktop) -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <!-- NEW: Home Link for SEO Structure -->
                     <a href="/" class="text-gray-300 hover:text-white transition-colors text-sm">Home</a>
-                    <a href="#seo-content" class="text-gray-300 hover:text-white transition-colors text-sm">Features</a>
-                    <a href="#invoice-tool" class="text-gray-300 hover:text-white transition-colors text-sm">Billing Tool</a>
+                    <!-- UPDATED: Point to new folder structure -->
+                    <a href="/calculator/gst-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">GST Calculator</a>
+                    <a href="/#invoice-tool" class="text-gray-300 hover:text-white transition-colors text-sm">Billing Tool</a>
                 </div>
                 
                 <!-- CTA (Desktop) -->
                 <div class="hidden md:flex items-center">
-                    <a href="#invoice-tool" class="btn-primary text-white py-1.5 px-4 rounded-lg font-bold text-sm">
+                    <a href="/#invoice-tool" class="btn-primary text-white py-1.5 px-4 rounded-lg font-bold text-sm">
                         Create Invoice Now
                     </a>
                 </div>
@@ -40,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Mobile Menu -->
                 <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-[#111] border-b border-gray-800 shadow-lg">
                     <div class="flex flex-col space-y-2 p-4">
-                        <!-- NEW: Home Link for SEO Structure -->
                         <a href="/" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Home</a>
-                        <a href="#seo-content" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Features</a>
-                        <a href="#invoice-tool" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Billing Tool</a>
-                        <a href="#invoice-tool" class="btn-primary text-white text-center py-2.5 px-4 rounded-lg font-bold text-base mt-2">
+                        <!-- UPDATED: Point to new folder structure -->
+                        <a href="/calculator/gst-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">GST Calculator</a>
+                        <a href="/#invoice-tool" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Billing Tool</a>
+                        <a href="/#invoice-tool" class="btn-primary text-white text-center py-2.5 px-4 rounded-lg font-bold text-base mt-2">
                             Create Invoice Now
                         </a>
                     </div>
@@ -109,8 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Footer Links -->
                 <div class="flex justify-center items-center space-x-4 mb-3">
-                     <!-- NEW: Home Link for SEO Structure -->
                      <a href="/" class="text-gray-400 hover:text-white transition-colors text-xs">Home</a>
+                     <!-- UPDATED: Point to new folder structure -->
+                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">GST Calculator</a>
                      <a href="/contact-legal.html" class="text-gray-400 hover:text-white transition-colors text-xs">Contact & Legal</a>
                 </div>
                 
