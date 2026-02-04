@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimized Title (Max 60 chars) -->
+    <title>Daily Cash Tally Calculator India | Free Galla Counting Tool</title>
+    
+    <!-- SEO Description (Max 160 chars) -->
+    <meta name="description" content="Free Daily Cash Tally Calculator for Indian shopkeepers. Count cash denominations (2000, 500, 200) instantly. Generate daily galla closing report for WhatsApp.">
+    
+    <!-- Keywords (Expanded) -->
+    <meta name="keywords" content="daily cash tally calculator, galla calculator india, cash denomination counter, daily cash closing format in excel, jama udhar app alternative, indian currency counter online, cash counting machine online">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DesiBill" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Desi Cash Tally Calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          },
+          "description": "A free utility for Indian businesses to calculate daily cash closing totals by denomination and share reports via WhatsApp."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://desibill.example.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Daily Cash Calculator",
+              "item": "https://desibill.example.com/calculator/daily-cash-calculator.html"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How to maintain daily cash tally?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simply enter the count of each note denomination (500, 200, 100, etc.) in our tool at the end of the day. It auto-calculates the total, which you can match with your sales records."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I share the cash report on WhatsApp?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, once you enter the counts, click the 'Copy for WhatsApp' button to get a formatted text summary of your daily cash closing to send to owners or managers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I do if my physical cash does not match the sales report?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If there is a mismatch (cash shortage or excess), re-count the denominations using this tool to ensure accuracy. Check for unrecorded small expenses (petty cash) or billing errors before closing the day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this tool suitable for high-volume businesses like Petrol Pumps?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. This tool is optimized for high-speed entry and supports all active Indian currency denominations, making it perfect for cash-heavy businesses like petrol pumps, retail stores, and restaurants."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans antialiased bg-[#0B0B0B] text-gray-200">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg pt-10 pb-12">
+            <div class="container mx-auto max-w-4xl px-4 text-center">
+                <span class="inline-block text-red-500 font-semibold tracking-wide uppercase mb-3 text-sm">
+                    Daily Galla Manager
+                </span>
+                <!-- H1: Main Title -->
+                <h1 class="text-3xl md:text-[42px] font-extrabold text-white mb-4 leading-tight">
+                    Online Daily Cash Tally Calculator
+                </h1>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    The fastest way to count your <strong>Daily Cash Closing</strong>. Enter note counts, get the total, and share the report on WhatsApp instantly.
+                </p>
+            </div>
+        </section>
+
+        <!-- Calculator UI -->
+        <section class="pb-12">
+            <div class="container mx-auto max-w-2xl px-4">
+                <div class="soft-shadow-card p-4 md:p-6 rounded-2xl border border-gray-800 bg-[#111]">
+                    
+                    <!-- Header Row -->
+                    <div class="grid grid-cols-12 gap-3 mb-4 text-xs uppercase tracking-wider text-gray-500 font-semibold border-b border-gray-800 pb-2">
+                        <div class="col-span-3 text-center md:text-left md:pl-4">Note</div>
+                        <div class="col-span-5 text-center">Count</div>
+                        <div class="col-span-4 text-right pr-2">Amount (₹)</div>
+                    </div>
+
+                    <!-- Denomination Rows -->
+                    <form id="cash-tally-form" class="space-y-3">
+                        <!-- Note 500 -->
+                        <div class="grid grid-cols-12 gap-3 items-center">
+                            <div class="col-span-3 flex items-center justify-center md:justify-start gap-2 bg-gray-900/50 p-2 rounded-lg border border-gray-700">
+                                <span class="text-white font-bold">500</span>
+                            </div>
+                            <div class="col-span-5">
+                                <input type="number" data-value="500" class="note-input w-full bg-[#0B0B0B] border border-gray-700 text-white text-center rounded-lg p-2 focus:border-red-500 focus:ring-red-500" placeholder="0">
+                            </div>
+                            <div class="col-span-4 text-right pr-2 font-mono text-gray-300 row-total">0</div>
+                        </div>
+
+                        <!-- Note 200 -->
+                        <div class="grid grid-cols-12 gap-3 items-center">
+                            <div class="col-span-3 flex items-center justify-center md:justify-start gap-2 bg-gray-900/50 p-2 rounded-lg border border-gray-700">
+                                <span class="text-white font-bold">200</span>
+                            </div>
+                            <div class="col-span-5">
+                                <input type="number" data-value="200" class="note-input w-full bg-[#0B0B0B] border border-gray-700 text-white text-center rounded-lg p-2 focus:border-red-500 focus:ring-red-500" placeholder="0">
+                            </div>
+                            <div class="col-span-4 text-right pr-2 font-mono text-gray-300 row-total">0</div>
+                        </div>
+
+                        <!-- Note 100 -->
+                        <div class="grid grid-cols-12 gap-3 items-center">
+                            <div class="col-span-3 flex items-center justify-center md:justify-start gap-2 bg-gray-900/50 p-2 rounded-lg border border-gray-700">
+                                <span class="text-white font-bold">100</span>
+                            </div>
+                            <div class="col-span-5">
+                                <input type="number" data-value="100" class="note-input w-full bg-[#0B0B0B] border border-gray-700 text-white text-center rounded-lg p-2 focus:border-red-500 focus:ring-red-500" placeholder="0">
+                            </div>
+                            <div class="col-span-4 text-right pr-2 font-mono text-gray-300 row-total">0</div>
+                        </div>
+
+                        <!-- Note 50 -->
+                        <div class="grid grid-cols-12 gap-3 items-center">
+                            <div class="col-span-3 flex items-center justify-center md:justify-start gap-2 bg-gray-900/50 p-2 rounded-lg border border-gray-700">
+                                <span class="text-white font-bold">50</span>
+                            </div>
+                            <div class="col-span-5">
+                                <input type="number" data-value="50" class="note-input w-full bg-[#0B0B0B] border border-gray-700 text-white text-center rounded-lg p-2 focus:border-red-500 focus:ring-red-500" placeholder="0">
+                            </div>
+                            <div class="col-span-4 text-right pr-2 font-mono text-gray-300 row-total">0</div>
+                        </div>
+
+                        <!-- Note 20 -->
+                        <div class="grid grid-cols-12 gap-3 items-center">
+                            <div class="col-span-3 flex items-center justify-center md:justify-start gap-2 bg-gray-900/50 p-2 rounded-lg border border-gray-700">
+                                <span class="text-white font-bold">20</span>
+                            </div>
+                            <div class="col-span-5">
+                                <input type="number" data-value="20" class="note-input w-full bg-[#0B0B0B] border border-gray-700 text-white text-center rounded-lg p-2 focus:border-red-500 focus:ring-red-500" placeholder="0">
+                            </div>
+                            <div class="col-span-4 text-right pr-2 font-mono text-gray-300 row-total">0</div>
+                        </div>
+
+                        <!-- Note 10 -->
+                        <div class="grid grid-cols-12 gap-3 items-center">
+                            <div class="col-span-3 flex items-center justify-center md:justify-start gap-2 bg-gray-900/50 p-2 rounded-lg border border-gray-700">
+                                <span class="text-white font-bold">10</span>
+                            </div>
+                            <div class="col-span-5">
+                                <input type="number" data-value="10" class="note-input w-full bg-[#0B0B0B] border border-gray-700 text-white text-center rounded-lg p-2 focus:border-red-500 focus:ring-red-500" placeholder="0">
+                            </div>
+                            <div class="col-span-4 text-right pr-2 font-mono text-gray-300 row-total">0</div>
+                        </div>
+
+                        <!-- Coins / Other -->
+                        <div class="grid grid-cols-12 gap-3 items-center">
+                            <div class="col-span-3 flex items-center justify-center md:justify-start gap-2 bg-gray-800 p-2 rounded-lg border border-gray-700">
+                                <span class="text-gray-300 font-bold text-xs md:text-sm">Coins</span>
+                            </div>
+                            <div class="col-span-5">
+                                <input type="number" data-value="1" class="note-input w-full bg-[#0B0B0B] border border-gray-700 text-white text-center rounded-lg p-2 focus:border-red-500 focus:ring-red-500" placeholder="Total Value">
+                            </div>
+                            <div class="col-span-4 text-right pr-2 font-mono text-gray-300 row-total">0</div>
+                        </div>
+                    </form>
+
+                    <!-- Grand Total & Actions -->
+                    <div class="mt-8 pt-4 border-t border-gray-800">
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-gray-400 text-sm font-semibold uppercase tracking-widest">Total Cash</span>
+                            <span class="text-3xl font-extrabold text-white">₹ <span id="grand-total">0</span></span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <button id="reset-btn" class="btn-secondary text-white py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 hover:bg-gray-800">
+                                <i class="fa-solid fa-rotate-left"></i> Reset
+                            </button>
+                            <button id="copy-whatsapp-btn" class="bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-bold transition-all shadow-lg shadow-green-900/20 flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> Copy for WhatsApp
+                            </button>
+                        </div>
+                        <p id="copy-feedback" class="text-green-500 text-xs text-center mt-2 opacity-0 transition-opacity">Copied to clipboard!</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content & Internal Links -->
+        <section class="pb-16 bg-[#0B0B0B]">
+            <div class="container mx-auto max-w-4xl px-4 space-y-12">
+                
+                <!-- What is Section -->
+                <div class="space-y-4">
+                    <!-- H2: Section Title -->
+                    <h2 class="text-2xl font-bold text-white text-center">What Is a Daily Cash Calculator?</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed text-center max-w-3xl mx-auto">
+                        A <strong>daily cash calculator</strong> is an essential digital utility for businesses to reconcile their physical cash with sales records. It acts as an <strong>online cash book</strong>, allowing shopkeepers and cashiers to input the count of currency notes (₹500, ₹200, ₹100, etc.) and instantly get the total value. This <strong>daily cash balance calculator</strong> eliminates manual errors and speeds up the closing process (Jama Udhar) at the end of the day.
+                    </p>
+                </div>
+
+                <!-- NEW: Key Features Section -->
+                <div class="bg-gray-900/30 p-6 rounded-xl border border-gray-800">
+                    <h2 class="text-xl font-bold text-white text-center mb-6">Key Features</h2>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-6 max-w-3xl mx-auto">
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-500"></i> Instant daily cash balance</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-500"></i> Simple & mobile-friendly</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-500"></i> No login required</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-500"></i> Error-free calculations</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-500"></i> Ideal for GST & accounting use</li>
+                        <li class="flex items-center gap-3 text-gray-300 text-sm"><i class="fa-solid fa-check-circle text-green-500"></i> Easy WhatsApp sharing</li>
+                    </ul>
+                </div>
+
+                <!-- Long Tail Keyword Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-[#111] p-5 rounded-xl border border-gray-800">
+                        <!-- H3: Feature Title -->
+                        <h3 class="text-white font-bold mb-2 text-base">Daily Cash Calculator for Shopkeepers</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Manage daily sales, expenses, and closing cash easily. This <strong>shop cash calculation tool</strong> is designed specifically for retail businesses, kirana stores, and petrol pumps to tally their <strong>daily cash register</strong> quickly.
+                        </p>
+                    </div>
+                    <div class="bg-[#111] p-5 rounded-xl border border-gray-800">
+                        <!-- H3: Feature Title -->
+                        <h3 class="text-white font-bold mb-2 text-base">Daily Cash Book Calculator Online</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Maintain a digital record without complex Excel sheets. Our <strong>cash book calculator</strong> automatically computes totals as you type, saving time and ensuring your <strong>daily cash balance</strong> is accurate before you leave the counter.
+                        </p>
+                    </div>
+                    <div class="bg-[#111] p-5 rounded-xl border border-gray-800">
+                        <!-- H3: Feature Title -->
+                        <h3 class="text-white font-bold mb-2 text-base">Free Cash Inflow Outflow Calculator</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Track where your money comes from and where it goes daily. Essential for financial discipline, this <strong>business cash calculator</strong> helps in verifying the day's total cash collection against your billing software reports.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Use Cases -->
+                <div class="space-y-4">
+                    <!-- H2: Section Title -->
+                    <h2 class="text-2xl font-bold text-white text-center">Why use a Daily Cash Tally Tool?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-[#111] p-4 rounded-xl border border-gray-800 text-center">
+                            <div class="h-10 w-10 bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-store text-red-500"></i>
+                            </div>
+                            <!-- H3: Feature Title -->
+                            <h3 class="text-white font-bold mb-1">Shopkeepers</h3>
+                            <p class="text-gray-400 text-xs">Match your physical cash with your billing software's daily sales report accurately.</p>
+                        </div>
+                        <div class="bg-[#111] p-4 rounded-xl border border-gray-800 text-center">
+                            <div class="h-10 w-10 bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-users-gear text-blue-500"></i>
+                            </div>
+                            <!-- H3: Feature Title -->
+                            <h3 class="text-white font-bold mb-1">Shift Handover</h3>
+                            <p class="text-gray-400 text-xs">Send a clear WhatsApp summary of cash denominations to the owner or next shift manager.</p>
+                        </div>
+                        <div class="bg-[#111] p-4 rounded-xl border border-gray-800 text-center">
+                            <div class="h-10 w-10 bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-calculator text-green-500"></i>
+                            </div>
+                            <!-- H3: Feature Title -->
+                            <h3 class="text-white font-bold mb-1">Error Free</h3>
+                            <p class="text-gray-400 text-xs">Avoid mental calculation errors. The tool auto-sums the total as you type.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Best Practices Section -->
+                <div class="space-y-4">
+                    <!-- H2: Section Title -->
+                    <h2 class="text-2xl font-bold text-white text-center">Best Practices for Daily Cash Management</h2>
+                    <div class="bg-gray-900/30 rounded-xl p-6 border border-gray-800">
+                        <ul class="space-y-3 text-sm text-gray-400 list-disc list-inside">
+                            <li><strong>Count Twice:</strong> Always double-count high-value notes (₹500) before entering the final number to avoid discrepancies.</li>
+                            <li><strong>Separate Coins:</strong> Keep coins bagged in fixed amounts (e.g., ₹100 bags) to speed up closing time.</li>
+                            <li><strong>Petty Cash Log:</strong> Always deduct petty cash expenses (tea, repairs) from the drawer <em>before</em> counting the final closing balance.</li>
+                            <li><strong>Digital vs Cash:</strong> Ensure your UPI/Card settlement reports match your digital register, and use this tool specifically for the physical cash drawer.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- More Tools (Internal Links) -->
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 text-center">
+                    <!-- H2: Section Title -->
+                    <h2 class="text-xl font-bold text-white mb-3">More Free Business Tools for You</h2>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="/" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-red-900/30 transition-colors border-red-500/50">
+                            <i class="fa-solid fa-file-invoice mr-2"></i> Free Invoice Generator
+                        </a>
+                        <a href="/calculator/gst-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-blue-900/30 transition-colors border-blue-500/50">
+                            <i class="fa-solid fa-percent mr-2"></i> GST Calculator
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="border-t border-gray-800 pt-8">
+                    <!-- H2: Section Title -->
+                    <h2 class="text-xl font-bold text-white mb-4 text-center">Frequently Asked Questions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <!-- H3: FAQ Question -->
+                            <h3 class="text-white font-semibold text-sm mb-1">Does this save my data online?</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                No. This is a 100% client-side tool. Your cash details never leave your browser, ensuring complete privacy of your financial data.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- H3: FAQ Question -->
+                            <h3 class="text-white font-semibold text-sm mb-1">How to use the WhatsApp feature?</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                After entering your counts, click "Copy for WhatsApp". The tool formats the list (e.g., "500 x 5 = 2500") so you can paste it directly into a chat.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- H3: FAQ Question -->
+                            <h3 class="text-white font-semibold text-sm mb-1">What should I do if my physical cash does not match the sales report?</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                If there is a mismatch (cash shortage or excess), re-count the denominations using this tool. Check for unrecorded expenses (petty cash) or billing errors before closing the day.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- H3: FAQ Question -->
+                            <h3 class="text-white font-semibold text-sm mb-1">Is this tool suitable for high-volume businesses like Petrol Pumps?</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Absolutely. This tool is optimized for high-speed entry and supports all Indian denominations, making it perfect for cash-heavy businesses like petrol pumps, retail stores, and restaurants.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('cash-tally-form');
+            const inputs = document.querySelectorAll('.note-input');
+            const grandTotalEl = document.getElementById('grand-total');
+            const resetBtn = document.getElementById('reset-btn');
+            const copyBtn = document.getElementById('copy-whatsapp-btn');
+            const copyFeedback = document.getElementById('copy-feedback');
+
+            // Format numbers with Indian commas
+            const formatCurrency = (num) => {
+                return num.toLocaleString('en-IN');
+            };
+
+            // Calculation Logic
+            const calculate = () => {
+                let grandTotal = 0;
+                
+                inputs.forEach(input => {
+                    const val = parseInt(input.value) || 0;
+                    const denomination = parseInt(input.dataset.value);
+                    const rowTotal = val * denomination;
+                    
+                    // Update Row Total
+                    const rowTotalDisplay = input.closest('.grid').querySelector('.row-total');
+                    if (rowTotal > 0) {
+                        rowTotalDisplay.innerText = formatCurrency(rowTotal);
+                        rowTotalDisplay.classList.add('text-white', 'font-bold');
+                        rowTotalDisplay.classList.remove('text-gray-300');
+                    } else {
+                        rowTotalDisplay.innerText = "0";
+                        rowTotalDisplay.classList.remove('text-white', 'font-bold');
+                        rowTotalDisplay.classList.add('text-gray-300');
+                    }
+
+                    grandTotal += rowTotal;
+                });
+
+                grandTotalEl.innerText = formatCurrency(grandTotal);
+            };
+
+            // Event Listeners
+            inputs.forEach(input => {
+                input.addEventListener('input', calculate);
+            });
+
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                calculate(); // Reset totals to 0
+            });
+
+            // Copy to WhatsApp Logic
+            copyBtn.addEventListener('click', () => {
+                const date = new Date().toLocaleDateString('en-IN', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+                const time = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+                
+                let text = `*Desi Cash Tally - Closing Report*\n`;
+                text += `📅 ${date} at ${time}\n`;
+                text += `-------------------------\n`;
+
+                let hasData = false;
+                inputs.forEach(input => {
+                    const val = parseInt(input.value) || 0;
+                    if (val > 0) {
+                        hasData = true;
+                        const denomination = input.dataset.value;
+                        const label = denomination === "1" ? "Coins/Mix" : `₹${denomination}`;
+                        const total = val * parseInt(denomination);
+                        // Format: ₹500 x 5 = ₹2,500
+                        text += `${label} x ${val} = ₹${formatCurrency(total)}\n`;
+                    }
+                });
+
+                if (!hasData) {
+                    alert("Please enter some counts first.");
+                    return;
+                }
+
+                text += `-------------------------\n`;
+                text += `*GRAND TOTAL: ₹${grandTotalEl.innerText}*\n`;
+                text += `-------------------------\n`;
+                text += `Generated by DesiBill Tools`;
+
+                navigator.clipboard.writeText(text).then(() => {
+                    copyFeedback.classList.remove('opacity-0');
+                    setTimeout(() => {
+                        copyFeedback.classList.add('opacity-0');
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

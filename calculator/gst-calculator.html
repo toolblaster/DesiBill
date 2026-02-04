@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimized Title (Max 60 chars) -->
+    <title>Free GST Calculator India: Inclusive & Exclusive Tax Tool</title>
+    
+    <!-- SEO Description (Max 160 chars) -->
+    <meta name="description" content="India's best online GST calculation tool. Calculate Inclusive (Reverse) & Exclusive GST. Learn formulas, CGST, SGST & IGST rules for billing.">
+    
+    <!-- Keywords (Localized & Expanded) -->
+    <meta name="keywords" content="gst calculator online, gst calculation tool india, how to calculate gst, gst calculation formula, gst inclusive vs exclusive, gst inclusive meaning, difference between cgst sgst igst, what is igst, reverse gst calculator">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DesiBill" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "DesiBill GST Calculator India",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          },
+          "description": "Free online GST Calculator for Indian businesses. Calculate inclusive and exclusive GST amounts instantly for 5%, 12%, 18%, and 28% tax slabs."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://desibill.example.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "GST Calculator",
+              "item": "https://desibill.example.com/calculator/gst-calculator.html"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How to calculate GST inclusive amount?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To calculate the GST inclusive amount (Reverse GST), use the formula: Base Price = Total Price × [100 / (100 + GST Rate)]."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is IGST vs CGST/SGST?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "CGST and SGST are applied equally for sales within the same state. IGST is a single tax applied for sales between two different states."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is an HSN Code?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "HSN (Harmonized System of Nomenclature) is a 6-digit code used to classify goods for taxation. It is mandatory for invoices if annual turnover exceeds ₹5 Crores."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans antialiased bg-[#0B0B0B] text-gray-200">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg pt-10 pb-12">
+            <div class="container mx-auto max-w-4xl px-4 text-center">
+                <span class="inline-block text-red-500 font-semibold tracking-wide uppercase mb-3 text-sm">
+                    Bharat's Free Business Tools 🇮🇳
+                </span>
+                <!-- H1 -->
+                <h1 class="text-3xl md:text-[42px] font-extrabold text-white mb-4 leading-tight">
+                    Free Online GST Calculator for India
+                </h1>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Use our <strong>GST calculation tool India</strong> to instantly find the Taxable Value (Reverse GST) or Total Amount. Perfect for invoices.
+                </p>
+            </div>
+        </section>
+
+        <!-- Calculator Tool -->
+        <section class="pb-12">
+            <div class="container mx-auto max-w-2xl px-4">
+                <div class="soft-shadow-card p-6 rounded-2xl border border-gray-800 bg-[#111]">
+                    
+                    <!-- Input Section -->
+                    <div class="mb-6">
+                        <label class="block text-gray-400 text-sm font-medium mb-2">Total Amount (₹)</label>
+                        <input type="number" id="gst-amount-input" placeholder="Enter Amount (e.g. 1000)" class="w-full bg-[#0B0B0B] border border-gray-700 text-white text-xl font-bold rounded-xl p-4 focus:border-red-500 focus:ring-red-500 transition-colors">
+                    </div>
+
+                    <!-- Mode Selector -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="gst-mode" value="exclusive" class="peer sr-only">
+                            <div class="p-3 rounded-xl border border-gray-700 bg-[#0B0B0B] text-center peer-checked:border-red-500 peer-checked:bg-red-900/20 hover:border-gray-600 transition-all">
+                                <div class="text-sm font-bold text-white">Exclusive (Add GST)</div>
+                                <div class="text-[10px] text-gray-500">Base + Tax = Total</div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="gst-mode" value="inclusive" class="peer sr-only" checked>
+                            <div class="p-3 rounded-xl border border-gray-700 bg-[#0B0B0B] text-center peer-checked:border-red-500 peer-checked:bg-red-900/20 hover:border-gray-600 transition-all">
+                                <div class="text-sm font-bold text-white">Inclusive (Remove GST)</div>
+                                <div class="text-[10px] text-gray-500">Total includes Tax</div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Tax Rate Buttons -->
+                    <div class="mb-8">
+                        <label class="block text-gray-400 text-sm font-medium mb-2">Select GST Slab</label>
+                        <div class="flex flex-wrap gap-2" id="tax-buttons">
+                            <button type="button" data-rate="5" class="gst-btn flex-1 min-w-[60px] py-2 rounded-lg border border-gray-700 hover:bg-gray-800 text-sm font-medium transition-colors">5%</button>
+                            <button type="button" data-rate="12" class="gst-btn flex-1 min-w-[60px] py-2 rounded-lg border border-gray-700 hover:bg-gray-800 text-sm font-medium transition-colors">12%</button>
+                            <button type="button" data-rate="18" class="gst-btn active-gst-btn flex-1 min-w-[60px] py-2 rounded-lg bg-red-600 border-red-600 text-white text-sm font-medium transition-colors">18%</button>
+                            <button type="button" data-rate="28" class="gst-btn flex-1 min-w-[60px] py-2 rounded-lg border border-gray-700 hover:bg-gray-800 text-sm font-medium transition-colors">28%</button>
+                        </div>
+                    </div>
+
+                    <!-- Results Display -->
+                    <div class="bg-gray-900 rounded-xl p-5 border border-gray-800 space-y-4">
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-800">
+                            <span class="text-gray-400 text-sm">Taxable Value (Base)</span>
+                            <div class="flex items-center gap-3">
+                                <span class="text-white text-lg font-bold">₹ <span id="res-net">0.00</span></span>
+                                <button class="copy-btn text-gray-500 hover:text-white transition-colors" data-target="res-net" title="Copy Base Amount">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pb-3 border-b border-gray-800">
+                            <span class="text-gray-400 text-sm">Total GST Amount</span>
+                            <div class="flex items-center gap-3">
+                                <span class="text-red-500 text-lg font-bold">₹ <span id="res-gst">0.00</span></span>
+                                <button class="copy-btn text-gray-500 hover:text-white transition-colors" data-target="res-gst" title="Copy GST Amount">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-1">
+                            <span class="text-white font-semibold">Total Invoice Value</span>
+                            <div class="flex items-center gap-3">
+                                <span class="text-white text-2xl font-extrabold">₹ <span id="res-total">0.00</span></span>
+                                <button class="copy-btn text-gray-500 hover:text-white transition-colors" data-target="res-total" title="Copy Total">
+                                    <i class="fa-regular fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed SEO Content Section -->
+        <section class="pb-16 bg-[#0B0B0B]">
+            <div class="container mx-auto max-w-4xl px-4 space-y-12">
+                
+                <!-- 1. GST Calculation Formula & Examples -->
+                <div class="space-y-4">
+                    <!-- H2 Centered -->
+                    <h2 class="text-2xl font-bold text-white text-center">How to Calculate GST: Formula & Examples</h2>
+                    <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800 text-gray-400 text-sm leading-relaxed">
+                        <p class="mb-4 text-center">
+                            Understanding <strong>how to calculate GST</strong> manually is useful, even if you use our <strong>GST calculator</strong>. The <strong>GST calculation formula</strong> changes based on whether the tax is included or excluded.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <!-- H3 -->
+                                <h3 class="text-white font-semibold mb-2">1. GST Exclusive (Adding Tax)</h3>
+                                <p class="mb-2">Used when tax is added *on top* of the base price.</p>
+                                <div class="bg-[#0B0B0B] p-3 rounded border border-gray-700 font-mono text-xs text-gray-300">
+                                    GST Amount = (Base Price × GST%) / 100<br>
+                                    Net Price = Base Price + GST Amount
+                                </div>
+                                <p class="mt-2 text-xs italic">
+                                    <strong>GST calculation example:</strong> For a ₹1,000 item at 18% GST:<br>
+                                    ₹1,000 × 18% = ₹180 Tax. Total = ₹1,180.
+                                </p>
+                            </div>
+                            <div>
+                                <!-- H3 -->
+                                <h3 class="text-white font-semibold mb-2">2. GST Inclusive (Reverse Calculation)</h3>
+                                <p class="mb-2">Used to find the base price from the MRP.</p>
+                                <div class="bg-[#0B0B0B] p-3 rounded border border-gray-700 font-mono text-xs text-gray-300">
+                                    GST Amount = Total - [Total × {100 / (100 + GST%)}]<br>
+                                    Base Price = Total Price - GST Amount
+                                </div>
+                                <p class="mt-2 text-xs italic">
+                                    <strong>GST calculation example:</strong> For a ₹1,180 MRP at 18% GST:<br>
+                                    Base Price = ₹1,000. Tax = ₹180.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Inclusive vs Exclusive Meaning -->
+                <div class="space-y-4">
+                    <!-- H2 Centered -->
+                    <h2 class="text-2xl font-bold text-white text-center">GST Inclusive vs Exclusive Price Meaning</h2>
+                    <p class="text-gray-400 text-sm text-center">
+                        When creating bills, understanding the difference between <strong>GST inclusive vs exclusive</strong> pricing is critical to avoid losses.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 border-l-4 border-red-500 bg-gray-900/30 rounded-r-lg">
+                            <!-- H3 -->
+                            <h3 class="text-white font-bold mb-1">GST Exclusive Meaning</h3>
+                            <p class="text-gray-400 text-sm">
+                                The price of the goods does <strong>not</strong> include tax. Tax is calculated on top of this value. This is standard for B2B invoices.
+                            </p>
+                        </div>
+                        <div class="p-4 border-l-4 border-green-500 bg-gray-900/30 rounded-r-lg">
+                            <!-- H3 -->
+                            <h3 class="text-white font-bold mb-1">GST Inclusive Meaning</h3>
+                            <p class="text-gray-400 text-sm">
+                                The final price paid by the customer includes the tax component. Shopkeepers selling at MRP use this to back-calculate their net revenue.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. GST Rate Slabs (NEW) -->
+                <div class="space-y-4">
+                    <!-- H2 Centered -->
+                    <h2 class="text-2xl font-bold text-white text-center">Current GST Rate Slabs in India</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-400 border border-gray-700 rounded-lg overflow-hidden">
+                            <thead class="text-xs text-white uppercase bg-gray-800">
+                                <tr>
+                                    <th class="px-6 py-3">Rate Slab</th>
+                                    <th class="px-6 py-3">General Category</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-700">
+                                <tr class="bg-gray-900/50">
+                                    <td class="px-6 py-4 text-green-400 font-bold">0% (Nil)</td>
+                                    <td class="px-6 py-4">Exempt goods like fresh milk, vegetables, unbranded flour/rice.</td>
+                                </tr>
+                                <tr class="bg-[#0B0B0B]">
+                                    <td class="px-6 py-4 text-white font-bold">5%</td>
+                                    <td class="px-6 py-4">Household essentials, sugar, spices, tea, coffee, medicine.</td>
+                                </tr>
+                                <tr class="bg-gray-900/50">
+                                    <td class="px-6 py-4 text-white font-bold">12%</td>
+                                    <td class="px-6 py-4">Processed foods, computers, mobiles, school bags.</td>
+                                </tr>
+                                <tr class="bg-[#0B0B0B]">
+                                    <td class="px-6 py-4 text-yellow-400 font-bold">18% (Standard)</td>
+                                    <td class="px-6 py-4">Most services, electronics, capital goods, hair oil, soap.</td>
+                                </tr>
+                                <tr class="bg-gray-900/50">
+                                    <td class="px-6 py-4 text-red-400 font-bold">28% (Luxury)</td>
+                                    <td class="px-6 py-4">Automobiles, cement, air conditioners, luxury items.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 4. CGST, SGST & IGST Explained -->
+                <div class="space-y-4">
+                    <!-- H2 Centered -->
+                    <h2 class="text-2xl font-bold text-white text-center">CGST, SGST & IGST Explained</h2>
+                    <p class="text-gray-400 text-sm text-center">
+                        A common confusion for new business owners is the <strong>difference between CGST SGST IGST</strong> and <strong>what is IGST</strong> exactly. Here is a simple breakdown:
+                    </p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-400 border border-gray-700 rounded-lg overflow-hidden">
+                            <thead class="text-xs text-white uppercase bg-gray-800">
+                                <tr>
+                                    <th class="px-6 py-3">Transaction Type</th>
+                                    <th class="px-6 py-3">Taxes to Apply</th>
+                                    <th class="px-6 py-3">Example (18% Rate)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-700">
+                                <tr class="bg-gray-900/50">
+                                    <td class="px-6 py-4 font-medium text-white">Intra-State (Same State)<br><span class="text-xs text-gray-500">e.g., Mumbai to Pune</span></td>
+                                    <td class="px-6 py-4">
+                                        <span class="text-blue-400 font-bold">CGST + SGST</span><br>
+                                        (Split equally)
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        9% Central Tax<br>
+                                        9% State Tax
+                                    </td>
+                                </tr>
+                                <tr class="bg-[#0B0B0B]">
+                                    <td class="px-6 py-4 font-medium text-white">Inter-State (Different States)<br><span class="text-xs text-gray-500">e.g., Mumbai to Delhi</span></td>
+                                    <td class="px-6 py-4">
+                                        <span class="text-red-400 font-bold">IGST</span><br>
+                                        (Integrated Tax)
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        18% Integrated Tax
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-900/50">
+                                    <td class="px-6 py-4 font-medium text-white">Union Territory (No Legislature)<br><span class="text-xs text-gray-500">e.g., Ladakh</span></td>
+                                    <td class="px-6 py-4">
+                                        <span class="text-yellow-400 font-bold">CGST + UTGST</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        9% Central Tax<br>
+                                        9% UT Tax
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 5. Business & Service Use Cases (NEW) -->
+                <div class="space-y-4">
+                    <!-- H2 Centered -->
+                    <h2 class="text-2xl font-bold text-white text-center">Business & Service Use Cases</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-[#111] p-4 rounded-xl border border-gray-800">
+                            <!-- H3 -->
+                            <h3 class="text-white font-bold mb-2 flex items-center gap-2"><i class="fa-solid fa-laptop text-blue-500"></i> Freelancers</h3>
+                            <p class="text-gray-400 text-xs">
+                                Typically charge <strong>18% GST (Exclusive)</strong> on services like design, coding, or consulting. Use the "Exclusive" mode to add tax to your service fee.
+                            </p>
+                        </div>
+                        <div class="bg-[#111] p-4 rounded-xl border border-gray-800">
+                            <!-- H3 -->
+                            <h3 class="text-white font-bold mb-2 flex items-center gap-2"><i class="fa-solid fa-shop text-green-500"></i> Retailers</h3>
+                            <p class="text-gray-400 text-xs">
+                                Sell items at MRP which includes tax. Use the <strong>"Inclusive" mode</strong> to reverse-calculate the taxable value for your accounting books.
+                            </p>
+                        </div>
+                        <div class="bg-[#111] p-4 rounded-xl border border-gray-800">
+                            <!-- H3 -->
+                            <h3 class="text-white font-bold mb-2 flex items-center gap-2"><i class="fa-solid fa-boxes-stacked text-yellow-500"></i> Wholesalers</h3>
+                            <p class="text-gray-400 text-xs">
+                                Deal in B2B transactions where tax is always added on top. Use the <strong>"Exclusive" mode</strong> to generate invoices for bulk orders.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Product-wise GST (NEW) -->
+                <div class="space-y-4">
+                    <!-- H2 Centered -->
+                    <h2 class="text-2xl font-bold text-white text-center">Common Product-wise GST Rates</h2>
+                    <div class="bg-gray-900/30 rounded-xl p-4 border border-gray-800">
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex justify-between border-b border-gray-800 pb-2">
+                                <span>Mobile Phones</span>
+                                <span class="text-white font-bold">18%</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-800 pb-2">
+                                <span>Household Electronics (TV, Fridge)</span>
+                                <span class="text-white font-bold">18%</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-800 pb-2">
+                                <span>Restaurants (Non-AC & AC)</span>
+                                <span class="text-white font-bold">5%</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-800 pb-2">
+                                <span>Construction Materials (Cement)</span>
+                                <span class="text-white font-bold">28%</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Gold & Jewellery</span>
+                                <span class="text-white font-bold">3%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NEW: More Tools (Internal Links) -->
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 text-center">
+                    <h2 class="text-xl font-bold text-white mb-3">More Free Business Tools for You</h2>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="/" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-red-900/30 transition-colors border-red-500/50">
+                            <i class="fa-solid fa-file-invoice mr-2"></i> Free Invoice Generator
+                        </a>
+                        <a href="/calculator/daily-cash-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-green-900/30 transition-colors border-green-500/50">
+                            <i class="fa-solid fa-money-bill-wave mr-2"></i> Daily Cash Tally
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 7. FAQ Section -->
+                <div class="border-t border-gray-800 pt-8">
+                    <!-- H2 Centered -->
+                    <h2 class="text-xl font-bold text-white mb-4 text-center">Frequently Asked Questions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <!-- H3 -->
+                            <h3 class="text-white font-semibold text-sm mb-1">When to charge IGST?</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Charge IGST (Integrated Tax) when the supply of goods or services happens between two different states (Inter-state supply). The rate is equal to the sum of CGST and SGST.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- H3 -->
+                            <h3 class="text-white font-semibold text-sm mb-1">Which GST rate applies to my business?</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                <strong>5%:</strong> Essential food items, clothing under ₹1000.<br>
+                                <strong>12%:</strong> Processed foods, mobiles.<br>
+                                <strong>18%:</strong> Most services, electronics, capital goods.<br>
+                                <strong>28%:</strong> Luxury cars, cement, ACs.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- H3 -->
+                            <h3 class="text-white font-semibold text-sm mb-1">Do I need to split the tax in the calculator?</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                This <strong>GST calculator online</strong> gives the <strong>Total Tax</strong>. If your sale is intra-state (same state), simply divide this tax amount by 2 to get your CGST and SGST values for filing.
+                            </p>
+                        </div>
+                        <div>
+                            <!-- H3 -->
+                            <h3 class="text-white font-semibold text-sm mb-1">What is an HSN Code?</h3>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                HSN (Harmonized System of Nomenclature) is a 6-digit code used to classify goods for taxation. It is mandatory for invoices if annual turnover exceeds ₹5 Crores.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Elements
+            const amountInput = document.getElementById('gst-amount-input');
+            const gstButtons = document.querySelectorAll('.gst-btn');
+            const radioButtons = document.querySelectorAll('input[name="gst-mode"]');
+            
+            const resNet = document.getElementById('res-net');
+            const resGst = document.getElementById('res-gst');
+            const resTotal = document.getElementById('res-total');
+            const copyButtons = document.querySelectorAll('.copy-btn');
+
+            let currentRate = 18; // Default to standard service rate
+            let currentMode = 'inclusive'; // Default based on HTML checked attribute
+
+            // 1. Calculation Logic
+            function calculate() {
+                const amount = parseFloat(amountInput.value);
+                
+                if (isNaN(amount) || amount === 0) {
+                    resNet.innerText = "0.00";
+                    resGst.innerText = "0.00";
+                    resTotal.innerText = "0.00";
+                    return;
+                }
+
+                let net = 0;
+                let gst = 0;
+                let total = 0;
+
+                if (currentMode === 'exclusive') {
+                    // Forward Calculation: Amount is Base
+                    net = amount;
+                    gst = (amount * currentRate) / 100;
+                    total = net + gst;
+                } else {
+                    // Reverse Calculation: Amount is Total
+                    // Formula: Total * (100 / (100 + Rate)) = Net
+                    total = amount;
+                    net = amount * (100 / (100 + currentRate));
+                    gst = total - net;
+                }
+
+                resNet.innerText = net.toFixed(2);
+                resGst.innerText = gst.toFixed(2);
+                resTotal.innerText = total.toFixed(2);
+            }
+
+            // 2. Event Listeners
+            
+            // Input Change
+            if (amountInput) {
+                amountInput.addEventListener('input', calculate);
+            }
+
+            // Rate Buttons
+            gstButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all
+                    gstButtons.forEach(b => {
+                        b.classList.remove('bg-red-600', 'border-red-600', 'text-white', 'active-gst-btn');
+                        b.classList.add('border-gray-700', 'hover:bg-gray-800'); // Reset styles
+                    });
+                    
+                    // Add active class to clicked
+                    btn.classList.remove('border-gray-700', 'hover:bg-gray-800');
+                    btn.classList.add('bg-red-600', 'border-red-600', 'text-white', 'active-gst-btn');
+                    
+                    currentRate = parseFloat(btn.dataset.rate);
+                    calculate();
+                });
+            });
+
+            // Mode Switching
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    currentMode = e.target.value;
+                    calculate();
+                });
+            });
+
+            // 3. Copy to Clipboard
+            copyButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.dataset.target;
+                    const textToCopy = document.getElementById(targetId).innerText;
+                    
+                    // Modern Clipboard API
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        // Feedback
+                        const originalIcon = btn.innerHTML;
+                        btn.innerHTML = '<i class="fa-solid fa-check text-green-500"></i>';
+                        setTimeout(() => {
+                            btn.innerHTML = originalIcon;
+                        }, 1500);
+                    }).catch(err => {
+                        console.error('Failed to copy', err);
+                    });
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>
