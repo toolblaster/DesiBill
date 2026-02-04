@@ -15,9 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Nav Links (Desktop) -->
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="/" class="text-gray-300 hover:text-white transition-colors text-sm">Home</a>
-                    <a href="/calculator/gst-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">GST Calculator</a>
-                    <!-- UPDATED: New Filename -->
+                    <a href="/calculator/gst-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">GST</a>
                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">Cash Tally</a>
+                    <!-- NEW: Margin Calc -->
+                    <a href="/calculator/margin-calculator.html" class="text-gray-300 hover:text-white transition-colors text-sm">Profit Margin</a>
                     <a href="/#invoice-tool" class="text-gray-300 hover:text-white transition-colors text-sm">Billing Tool</a>
                 </div>
                 
@@ -43,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="flex flex-col space-y-2 p-4">
                         <a href="/" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Home</a>
                         <a href="/calculator/gst-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">GST Calculator</a>
-                        <!-- UPDATED: New Filename -->
                         <a href="/calculator/daily-cash-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Cash Tally</a>
-                        <a href="/#invoice-tool" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Billing Tool</a>
+                        <!-- NEW: Margin Calc -->
+                        <a href="/calculator/margin-calculator.html" class="mobile-menu-link text-gray-300 hover:text-white transition-colors text-base py-2 px-2 rounded-md">Profit Margin</a>
                         <a href="/#invoice-tool" class="btn-primary text-white text-center py-2.5 px-4 rounded-lg font-bold text-base mt-2">
                             Create Invoice Now
                         </a>
@@ -99,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         100% Free Forever
                     </span>
                     <span class="flex items-center gap-2 text-sm font-medium text-white">
-                        ðŸ‡®ðŸ‡³ Made in India
+                        🇮🇳 Made in India
                     </span>
                     <span class="flex items-center gap-2 text-sm font-medium text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-400">
@@ -112,15 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Footer Links -->
                 <div class="flex justify-center items-center space-x-4 mb-3">
                      <a href="/" class="text-gray-400 hover:text-white transition-colors text-xs">Home</a>
-                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">GST Calculator</a>
-                     <!-- UPDATED: New Filename -->
-                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Cash Tally</a>
-                     <a href="/contact-legal.html" class="text-gray-400 hover:text-white transition-colors text-xs">Contact & Legal</a>
+                     <a href="/calculator/gst-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">GST</a>
+                     <a href="/calculator/daily-cash-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Cash</a>
+                     <a href="/calculator/margin-calculator.html" class="text-gray-400 hover:text-white transition-colors text-xs">Margin</a>
+                     <a href="/contact-legal.html" class="text-gray-400 hover:text-white transition-colors text-xs">Contact</a>
                 </div>
                 
                 <!-- Copyright -->
                 <p class="text-center text-gray-500 text-xs">
-                    Â© 2026 DesiBill. All rights reserved.
+                    © 2026 DesiBill. All rights reserved.
                 </p>
                 <p class="text-center text-gray-500 text-xs mt-1">
                     Fast. Simple. Free Forever.
