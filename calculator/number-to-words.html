@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimized Title (Max 60 chars) -->
+    <title>Number to Words Converter India: Rupees to Text (Lakhs)</title>
+    
+    <!-- SEO Description (Max 160 chars) -->
+    <meta name="description" content="Convert numbers to words in Indian Rupees format (Lakhs & Crores). Instant & accurate tool for writing cheques, demand drafts, and invoices.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="number to words converter indian rupees, amount in words, rupees in words, write number in words for cheque, 1 lakh in words, crores to words converter">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DesiBill" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Indian Number to Words Converter",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          },
+          "description": "A free utility to convert numerical amounts into Indian English text format (Lakhs and Crores) for banking and invoicing."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://desibill.toolblaster.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Number to Words",
+              "item": "https://desibill.toolblaster.com/calculator/number-to-words.html"
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to Use Indian Number to Words Converter",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "text": "Enter the number in figures in the input box (e.g., 15450)."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "The tool instantly converts the number to words in the Indian format (Lakhs/Crores)."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "Click 'Copy Text' to use in documents or 'Copy for WhatsApp' to share."
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why does this tool use Lakhs instead of Millions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "India follows the Vedic numbering system (Units, Tens, Hundreds, Thousands, Lakhs, Crores). International tools use Millions/Billions, which creates confusion for Indian banking. This tool is built specifically for India."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the limit of this converter?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This tool can handle amounts up to 99 Crores accurately. For amounts typically used in daily business transactions and cheque writing, this is more than sufficient."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this tool free for commercial use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, DesiBill's Number to Words converter is 100% free for shopkeepers, accountants, and businesses to use daily."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I convert decimal amounts (Paise)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This tool focuses on the main Rupee amount for standard cheque writing (e.g., 10,500). For strict banking compliance, amounts are typically rounded or 'and XX paise' is added manually if critical."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans antialiased bg-[#0B0B0B] text-gray-200">
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg pt-10 pb-12">
+            <div class="container mx-auto max-w-4xl px-4 text-center">
+                <span class="inline-block text-red-500 font-semibold tracking-wide uppercase mb-3 text-sm">
+                    Banking & Invoice Helper
+                </span>
+                <h1 class="text-3xl md:text-[42px] font-extrabold text-white mb-4 leading-tight">
+                    Indian Number to Words Converter
+                </h1>
+                <p class="text-gray-200 text-lg max-w-2xl mx-auto">
+                    Instantly convert amounts into words for <strong>Cheques, Demand Drafts, and GST Invoices</strong>. Supports Lakhs and Crores.
+                </p>
+            </div>
+        </section>
+
+        <!-- Calculator UI -->
+        <section class="pb-12">
+            <div class="container mx-auto max-w-2xl px-4">
+                <div class="soft-shadow-card p-6 rounded-2xl border border-gray-700 bg-[#111]">
+                    
+                    <!-- Input Section -->
+                    <div class="mb-6">
+                        <label class="block text-gray-200 text-sm font-medium mb-2">Enter Amount (₹)</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1.5 transform text-gray-400 text-xl font-bold">₹</span>
+                            <input type="number" id="amount-input" placeholder="e.g. 15450" class="w-full bg-[#0B0B0B] border border-gray-500 text-white text-xl font-bold rounded-xl py-4 pl-10 pr-4 focus:border-red-500 focus:ring-red-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 mb-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-gray-300 text-xs uppercase tracking-wider font-bold">Amount in Words</span>
+                            <button id="copy-btn" class="text-xs flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors">
+                                <i class="fa-regular fa-copy"></i> Copy Text
+                            </button>
+                        </div>
+                        <p id="result-text" class="text-white text-lg md:text-xl font-medium leading-relaxed capitalize min-h-[3rem]">
+                            Zero Rupees Only
+                        </p>
+                        <div id="copy-feedback" class="text-green-400 text-xs mt-2 opacity-0 transition-opacity text-right font-bold">Copied!</div>
+                    </div>
+                    
+                    <!-- Action Buttons & Options -->
+                    <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                            <label class="flex items-center gap-2 cursor-pointer bg-gray-900 border border-gray-700 px-3 py-2 rounded-lg hover:border-gray-500 transition-colors">
+                                <input type="checkbox" id="add-only" class="rounded border-gray-500 text-red-500 focus:ring-red-500 bg-gray-800" checked>
+                                <span class="text-sm text-gray-200">Add "Only"</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer bg-gray-900 border border-gray-700 px-3 py-2 rounded-lg hover:border-gray-500 transition-colors">
+                                <input type="checkbox" id="capitalize-all" class="rounded border-gray-500 text-red-500 focus:ring-red-500 bg-gray-800">
+                                <span class="text-sm text-gray-200">UPPERCASE</span>
+                            </label>
+                        </div>
+                        <!-- WhatsApp Button -->
+                        <button id="whatsapp-btn" class="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white py-2.5 px-6 rounded-xl font-bold transition-all shadow-lg shadow-green-900/20 flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Copy for WhatsApp
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content & Internal Links -->
+        <section class="pb-16 bg-[#0B0B0B]">
+            <div class="container mx-auto max-w-4xl px-4 space-y-12">
+                
+                <!-- What is Indian Number to Words Converter -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white text-center">What is Indian Number to Words Converter?</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed text-center max-w-3xl mx-auto">
+                        This is a specialized digital utility designed to convert numerical digits (like 1,50,000) into their textual representation in the <strong>Indian English format</strong> (One Lakh Fifty Thousand). Unlike standard international converters that use "Millions" and "Billions", this tool adheres to the <strong>Vedic numbering system</strong> (Lakhs and Crores), making it essential for writing cheques, bank demand drafts (DD), and legal invoices in India.
+                    </p>
+                </div>
+
+                <!-- Key Features -->
+                <div class="bg-gray-900/30 p-6 rounded-xl border border-gray-800">
+                    <h2 class="text-xl font-bold text-white text-center mb-6">Key Features</h2>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-6 max-w-3xl mx-auto">
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Indian Number System</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Handles Lakhs & Crores</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Cheque-ready format</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Instant conversion</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Mobile-friendly UI</span></li>
+                        <li class="flex items-start gap-3 text-gray-200 text-sm"><i class="fa-solid fa-check-circle text-green-400 mt-1 shrink-0"></i> <span>Zero ads or login</span></li>
+                    </ul>
+                </div>
+
+                <!-- Indian vs International Number System -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white text-center">Indian vs International Number System</h2>
+                    <p class="text-gray-300 text-sm text-center">Understanding the difference is crucial for accurate financial reporting in India.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-300 border border-gray-700 rounded-lg overflow-hidden">
+                            <thead class="text-xs text-white uppercase bg-gray-800">
+                                <tr>
+                                    <th class="px-6 py-3">Number Value</th>
+                                    <th class="px-6 py-3 text-green-400">Indian System (Used Here)</th>
+                                    <th class="px-6 py-3 text-blue-400">International System</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-700">
+                                <tr class="bg-gray-900/50">
+                                    <td class="px-6 py-4 font-mono">1,00,000</td>
+                                    <td class="px-6 py-4 text-white font-bold">1 Lakh</td>
+                                    <td class="px-6 py-4">100 Thousand</td>
+                                </tr>
+                                <tr class="bg-[#0B0B0B]">
+                                    <td class="px-6 py-4 font-mono">10,00,000</td>
+                                    <td class="px-6 py-4 text-white font-bold">10 Lakhs</td>
+                                    <td class="px-6 py-4">1 Million</td>
+                                </tr>
+                                <tr class="bg-gray-900/50">
+                                    <td class="px-6 py-4 font-mono">1,00,00,000</td>
+                                    <td class="px-6 py-4 text-white font-bold">1 Crore</td>
+                                    <td class="px-6 py-4">10 Million</td>
+                                </tr>
+                                <tr class="bg-[#0B0B0B]">
+                                    <td class="px-6 py-4 font-mono">1,00,00,00,000</td>
+                                    <td class="px-6 py-4 text-white font-bold">100 Crores (1 Arab)</td>
+                                    <td class="px-6 py-4">1 Billion</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Benefits -->
+                <div class="bg-gray-900/30 p-6 rounded-xl border border-gray-800">
+                    <h2 class="text-xl font-bold text-white text-center mb-6">Benefits of Using This Calculator</h2>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                        <li class="flex items-start gap-3 text-gray-300 text-sm">
+                            <i class="fa-solid fa-check text-green-400 mt-1 shrink-0"></i> 
+                            <span><strong>Avoid Errors:</strong> Prevents spelling mistakes in formal banking documents like cheques.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300 text-sm">
+                            <i class="fa-solid fa-check text-green-400 mt-1 shrink-0"></i> 
+                            <span><strong>Save Time:</strong> Instantly converts large figures (Crores) that are mentally taxing to format.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300 text-sm">
+                            <i class="fa-solid fa-check text-green-400 mt-1 shrink-0"></i> 
+                            <span><strong>Professionalism:</strong> Ensures your GST invoices and quotes look 100% professional with accurate text.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300 text-sm">
+                            <i class="fa-solid fa-check text-green-400 mt-1 shrink-0"></i> 
+                            <span><strong>Cheque Ready:</strong> Automatically adds "Only" at the end, a mandatory requirement for Indian cheques.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- How To Section -->
+                <div class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white text-center">How to Write a Cheque Correctly?</h2>
+                    <p class="text-gray-300 text-sm text-center mb-6 max-w-2xl mx-auto">
+                        Writing a cheque requires precision to avoid rejection. Follow these standard RBI guidelines:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-800">
+                            <h3 class="text-white font-bold mb-2 text-base text-blue-400">1. Amount in Words</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Write the exact amount in words. Do not leave large spaces between words. Always end the sentence with <strong>"Only"</strong> (e.g., "Five Thousand Only") to prevent anyone from adding more words.
+                            </p>
+                        </div>
+                        <div class="bg-[#111] p-5 rounded-xl border border-gray-800">
+                            <h3 class="text-white font-bold mb-2 text-base text-green-400">2. Amount in Figures</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Write the number in the box provided. End it with <strong>"/-"</strong> (e.g., "5000/-"). Ensure the written words match this number exactly. Discrepancies lead to dishonored cheques.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Tools (Interlinking) -->
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 text-center">
+                    <h2 class="text-xl font-bold text-white mb-3">More Free Business Tools</h2>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="/" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-red-900/30 transition-colors border-red-500/50">
+                            <i class="fa-solid fa-file-invoice mr-2"></i> Free Invoice Generator
+                        </a>
+                        <a href="/calculator/gst-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-blue-900/30 transition-colors border-blue-500/50">
+                            <i class="fa-solid fa-percent mr-2"></i> GST Calculator
+                        </a>
+                        <a href="/calculator/daily-cash-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-green-900/30 transition-colors border-green-500/50">
+                            <i class="fa-solid fa-money-bill-wave mr-2"></i> Cash Tally
+                        </a>
+                         <a href="/calculator/margin-calculator.html" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-yellow-900/30 transition-colors border-yellow-500/50">
+                            <i class="fa-solid fa-chart-line mr-2"></i> Margin Calc
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="border-t border-gray-800 pt-8">
+                    <h2 class="text-xl font-bold text-white mb-4 text-center">Frequently Asked Questions</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">Why does this tool use Lakhs instead of Millions?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                India follows the Vedic numbering system (Units, Tens, Hundreds, Thousands, Lakhs, Crores). International tools use Millions/Billions, which creates confusion for Indian banking. This tool is built specifically for India.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">What is the limit of this converter?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                This tool can handle amounts up to 99 Crores accurately. For amounts typically used in daily business transactions and cheque writing, this is more than sufficient.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">Is this tool free for commercial use?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Yes, DesiBill's Number to Words converter is 100% free for shopkeepers, accountants, and businesses to use daily.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-sm mb-1">Can I convert decimal amounts (Paise)?</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                This tool focuses on the main Rupee amount for standard cheque writing (e.g., 10,500). For strict banking compliance, amounts are typically rounded or 'and XX paise' is added manually if critical.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('amount-input');
+            const resultText = document.getElementById('result-text');
+            const copyBtn = document.getElementById('copy-btn');
+            const whatsappBtn = document.getElementById('whatsapp-btn');
+            const copyFeedback = document.getElementById('copy-feedback');
+            const checkOnly = document.getElementById('add-only');
+            const checkCaps = document.getElementById('capitalize-all');
+
+            // Indian Number to Words Logic
+            function convertToWords(num) {
+                const a = ['','one ','two ','three ','four ','five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
+                const b = ['', '', 'twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+
+                if ((num = num.toString()).length > 9) return 'overflow';
+                
+                // Parse number into parts
+                const n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+                if (!n) return; 
+                
+                let str = '';
+                // Crores
+                str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+                // Lakhs
+                str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+                // Thousands
+                str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+                // Hundreds
+                str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+                // Units
+                str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) : '';
+                
+                return str.trim();
+            }
+
+            function update() {
+                let val = Math.floor(input.value); // Ignore decimals for main text
+                if (!val || val < 0) {
+                    resultText.innerText = "Zero Rupees Only";
+                    return;
+                }
+
+                let text = convertToWords(val);
+                if (text === 'overflow') {
+                    resultText.innerText = "Amount too large (Max 99 Crores)";
+                    return;
+                }
+
+                // Add Currency
+                text += " rupees";
+
+                // Add Only
+                if (checkOnly.checked) {
+                    text += " only";
+                }
+
+                // Capitalization
+                if (checkCaps.checked) {
+                    resultText.style.textTransform = "uppercase";
+                } else {
+                    resultText.style.textTransform = "capitalize";
+                }
+
+                resultText.innerText = text;
+            }
+
+            input.addEventListener('input', update);
+            checkOnly.addEventListener('change', update);
+            checkCaps.addEventListener('change', update);
+
+            // Copy Function
+            function copyToClipboard(text, isWhatsApp = false) {
+                navigator.clipboard.writeText(text).then(() => {
+                    if (isWhatsApp) {
+                        const originalHtml = whatsappBtn.innerHTML;
+                        whatsappBtn.innerHTML = '<i class="fa-solid fa-check text-lg"></i> Copied!';
+                        setTimeout(() => {
+                            whatsappBtn.innerHTML = originalHtml;
+                        }, 2000);
+                    } else {
+                        copyFeedback.classList.remove('opacity-0');
+                        setTimeout(() => {
+                            copyFeedback.classList.add('opacity-0');
+                        }, 2000);
+                    }
+                });
+            }
+
+            copyBtn.addEventListener('click', () => {
+                let text = resultText.innerText;
+                if(checkCaps.checked) text = text.toUpperCase();
+                else text = text.replace(/\b\w/g, l => l.toUpperCase());
+                copyToClipboard(text);
+            });
+
+            // WhatsApp Copy Feature
+            whatsappBtn.addEventListener('click', () => {
+                const amount = input.value;
+                if(!amount) return;
+
+                let words = resultText.innerText;
+                if(checkCaps.checked) words = words.toUpperCase();
+                else words = words.replace(/\b\w/g, l => l.toUpperCase());
+
+                // Format for WhatsApp with bolding
+                const text = `*Amount:* ₹${amount}\n*In Words:* ${words}`;
+                copyToClipboard(text, true);
+            });
+        });
+    </script>
+
+</body>
+</html>
