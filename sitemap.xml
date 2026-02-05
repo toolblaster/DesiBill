@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <!-- Home Page (Highest Priority) -->
+   <url>
+      <loc>https://desibill.toolblaster.com/</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+   </url>
+
+   <!-- Calculator Hub -->
+   <url>
+      <loc>https://desibill.toolblaster.com/calculator/</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+   </url>
+
+   <!-- Tools (High Priority) -->
+   <url>
+      <loc>https://desibill.toolblaster.com/calculator/gst-calculator.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://desibill.toolblaster.com/calculator/daily-cash-calculator.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://desibill.toolblaster.com/calculator/number-to-words.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://desibill.toolblaster.com/calculator/margin-calculator.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://desibill.toolblaster.com/calculator/discount-calculator.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <!-- Legal & Contact Pages (Lower Priority) -->
+   <url>
+      <loc>https://desibill.toolblaster.com/legal/about.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://desibill.toolblaster.com/legal/contact.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://desibill.toolblaster.com/legal/terms.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.4</priority>
+   </url>
+   <url>
+      <loc>https://desibill.toolblaster.com/legal/privacy.html</loc>
+      <lastmod>2026-02-05</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.4</priority>
+   </url>
+</urlset>

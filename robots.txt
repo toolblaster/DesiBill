@@ -1,0 +1,5 @@
+User-agent: *
+# Allow bots to crawl
+
+# Sitemap location
+Sitemap: https://kids.toolblaster.com/sitemap.xml
