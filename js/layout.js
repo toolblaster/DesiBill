@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         100% Free Forever
                     </span>
                     <span class="flex items-center gap-2 text-sm font-medium text-white">
-                        🇮🇳 Made in India
+                        ðŸ‡®ðŸ‡³ Made in India
                     </span>
                     <span class="flex items-center gap-2 text-sm font-medium text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-400">
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <!-- Legal Links Row -->
                 <div class="flex justify-center items-center gap-x-6 gap-y-2 mb-4 flex-wrap px-2">
-                     <a href="/calculator/index.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">Calculator Hub</a>
+                     <a href="/calculator" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">Calculator Hub</a>
                      <a href="/legal/about.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">About Us</a>
                      <a href="/legal/terms.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">Terms of Use</a>
                      <a href="/legal/privacy.html" class="text-gray-500 hover:text-white transition-colors text-xs whitespace-nowrap">Privacy Policy</a>
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Copyright -->
                 <p class="text-center text-gray-500 text-xs">
-                    © 2026 DesiBill. All rights reserved.
+                    Â© 2026 DesiBill. All rights reserved.
                 </p>
                 <p class="text-center text-gray-500 text-xs mt-1">
                     Fast. Simple. Free Forever.
