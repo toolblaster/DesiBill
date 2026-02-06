@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Copyright -->
                 <p class="text-center text-gray-400 text-xs">
-                    © 2026 DesiBill. All rights reserved.
+                    © 2026 DesiBill by toolblaster.com. All rights reserved.
                 </p>
                 <p class="text-center text-gray-400 text-xs mt-1">
                     Fast. Simple. Free Forever.
