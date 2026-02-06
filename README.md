@@ -14,7 +14,7 @@ Key Capabilities: Auto-tax calculation, signature pad (draw/upload), logo brandi
 
 Core Feature: Calculate GST Inclusive (Reverse) and Exclusive (Forward) amounts.
 
-Key Capabilities: Pre-set Indian tax slabs (5%, 12%, 18%, 28%) and one-click copy.
+Key Capabilities: Pre-set Indian tax slabs (5%, 12%, 18%) and one-click copy.
 
 3. 💵 Daily Cash Tally
 
