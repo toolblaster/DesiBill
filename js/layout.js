@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <!-- Legal Links Row -->
                 <div class="flex justify-center items-center gap-x-6 gap-y-2 mb-4 flex-wrap px-2">
-                     <a href="/calculator/index.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Calculator Hub</a>
+                     <a href="/calculator" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Calculator Hub</a>
                      <a href="/legal/about.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">About Us</a>
                      <a href="/legal/terms.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Terms of Use</a>
                      <a href="/legal/privacy.html" class="text-gray-400 hover:text-white transition-colors text-xs whitespace-nowrap">Privacy Policy</a>
