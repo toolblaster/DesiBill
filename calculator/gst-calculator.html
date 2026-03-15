@@ -11,7 +11,7 @@
     <meta name="description" content="India's best online GST calculation tool. Calculate Inclusive (Reverse) & Exclusive GST. Learn formulas, CGST, SGST & IGST rules for billing.">
     
     <!-- Keywords (Localized & Expanded) -->
-    <meta name="keywords" content="gst calculator online, gst calculation tool india, how to calculate gst, gst calculation formula, gst inclusive vs exclusive, gst inclusive meaning, difference between cgst sgst igst, what is igst, reverse gst calculator">
+    <meta name="keywords" content="gst calculator online, gst calculation tool india, how to calculate gst, gst calculation formula, gst inclusive vs exclusive, gst inclusive meaning, difference between cgst sgst igst, what is igst, reverse gst calculator, gst invoicing rules, input tax credit meaning">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -47,7 +47,7 @@
             "price": "0",
             "priceCurrency": "INR"
           },
-          "description": "Free online GST Calculator for Indian businesses. Calculate inclusive and exclusive GST amounts instantly for 5%, 12% and 18% tax slabs."
+          "description": "Free online GST Calculator for Indian businesses. Calculate inclusive and exclusive GST amounts instantly for 3%, 5%, 12%, and 18% tax slabs."
         },
         {
           "@type": "BreadcrumbList",
@@ -83,6 +83,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "CGST and SGST are applied equally for sales within the same state. IGST is a single tax applied for sales between two different states."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the mandatory elements of a GST invoice?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A valid GST invoice must include the supplier and buyer GSTIN, a unique consecutive invoice number, invoice date, HSN/SAC codes, and a clear breakdown of CGST, SGST, and IGST amounts."
               }
             },
             {
@@ -154,9 +162,11 @@
                     <div class="mb-8">
                         <label class="block text-gray-400 text-sm font-medium mb-2">Select GST Slab</label>
                         <div class="flex flex-wrap gap-2" id="tax-buttons">
+                            <!-- Tax Buttons Container -->
+                            <button type="button" data-rate="3" class="gst-btn flex-1 min-w-[60px] py-2 rounded-lg border border-gray-700 hover:bg-gray-800 text-sm font-medium transition-colors">3%</button>
                             <button type="button" data-rate="5" class="gst-btn flex-1 min-w-[60px] py-2 rounded-lg border border-gray-700 hover:bg-gray-800 text-sm font-medium transition-colors">5%</button>
                             <button type="button" data-rate="12" class="gst-btn flex-1 min-w-[60px] py-2 rounded-lg border border-gray-700 hover:bg-gray-800 text-sm font-medium transition-colors">12%</button>
-                            <button type="button" data-rate="18" class="gst-btn active-gst-btn flex-1 min-w-[60px] py-2 rounded-lg bg-red-600 border-red-600 text-white text-sm font-medium transition-colors">18%</button>
+                            <button type="button" data-rate="18" class="gst-btn active-gst-btn flex-1 min-w-[60px] py-2 rounded-lg border bg-red-600 border-red-600 text-white text-sm font-medium transition-colors">18%</button>
                         </div>
                     </div>
 
@@ -282,14 +292,18 @@
                                     <td class="px-6 py-4">Exempt goods like fresh milk, vegetables, unbranded flour/rice.</td>
                                 </tr>
                                 <tr class="bg-[#0B0B0B]">
+                                    <td class="px-6 py-4 text-white font-bold">3%</td>
+                                    <td class="px-6 py-4">Special rate for precious metals like gold, silver, and imitation jewellery.</td>
+                                </tr>
+                                <tr class="bg-gray-900/50">
                                     <td class="px-6 py-4 text-white font-bold">5%</td>
                                     <td class="px-6 py-4">Household essentials, sugar, spices, tea, coffee, medicine.</td>
                                 </tr>
-                                <tr class="bg-gray-900/50">
+                                <tr class="bg-[#0B0B0B]">
                                     <td class="px-6 py-4 text-white font-bold">12%</td>
                                     <td class="px-6 py-4">Processed foods, computers, mobiles, school bags.</td>
                                 </tr>
-                                <tr class="bg-[#0B0B0B]">
+                                <tr class="bg-gray-900/50">
                                     <td class="px-6 py-4 text-yellow-400 font-bold">18% (Standard)</td>
                                     <td class="px-6 py-4">Most services, electronics, capital goods, hair oil, soap.</td>
                                 </tr>
@@ -407,8 +421,77 @@
                     </div>
                 </div>
 
-                <!-- NEW: More Tools (Internal Links) -->
-                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 text-center">
+                <!-- 7. NEW: Essential GST Invoicing Rules & Compliance -->
+                <div class="space-y-6 pt-6 border-t border-gray-800 mt-8">
+                    <!-- H2 Centered -->
+                    <h2 class="text-2xl font-bold text-white text-center">Essential GST Invoicing Rules & Compliance Guide</h2>
+                    <p class="text-gray-400 text-sm text-center max-w-3xl mx-auto">
+                        Staying compliant is just as important as calculating the right tax amount. Here is an evergreen guide to ensuring your GST billing is 100% accurate and legal.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <!-- Box 1: Mandatory Elements -->
+                        <div class="bg-gray-900/40 p-5 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-colors">
+                            <!-- H3 -->
+                            <h3 class="text-white font-bold mb-3 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                Mandatory Invoice Elements
+                            </h3>
+                            <ul class="space-y-2 text-sm text-gray-400">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> <span><strong>GSTIN:</strong> Both supplier and buyer (if registered).</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> <span><strong>Invoice Number & Date:</strong> Must be consecutive and unique for the financial year.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> <span><strong>HSN/SAC Code:</strong> Mandatory based on business turnover.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-500 mt-1"></i> <span><strong>Tax Breakdown:</strong> Clear separation of CGST, SGST, and IGST amounts.</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Box 2: Input Tax Credit (ITC) -->
+                        <div class="bg-gray-900/40 p-5 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-colors">
+                            <!-- H3 -->
+                            <h3 class="text-white font-bold mb-3 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Input Tax Credit (ITC) Basics
+                            </h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                <strong>ITC</strong> is the backbone of the GST system. It allows a registered business to deduct the tax they have already paid on purchases from the tax they need to pay on their sales. 
+                            </p>
+                            <p class="text-gray-400 text-sm leading-relaxed mt-2">
+                                <em>Crucial Rule:</em> To claim ITC, you must have a valid tax invoice from your supplier, and the supplier must have uploaded the invoice in their GSTR-1 return.
+                            </p>
+                        </div>
+                        
+                        <!-- Box 3: Common Mistakes -->
+                        <div class="bg-gray-900/40 p-5 rounded-xl border border-gray-700 hover:border-red-500/50 transition-colors md:col-span-2">
+                            <!-- H3 -->
+                            <h3 class="text-white font-bold mb-3 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                Top GST Billing Mistakes to Avoid
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-400">
+                                <div class="flex gap-3">
+                                    <div class="mt-0.5 text-red-400"><i class="fa-solid fa-xmark"></i></div>
+                                    <div><strong>Wrong Tax Type:</strong> Charging IGST instead of CGST/SGST for intra-state sales (within the same state).</div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div class="mt-0.5 text-red-400"><i class="fa-solid fa-xmark"></i></div>
+                                    <div><strong>Incorrect HSN:</strong> Using the wrong HSN code can lead to incorrect tax rates being applied, resulting in penalties.</div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div class="mt-0.5 text-red-400"><i class="fa-solid fa-xmark"></i></div>
+                                    <div><strong>Not Reconciling Data:</strong> Failing to match your purchase register with GSTR-2B before claiming ITC.</div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div class="mt-0.5 text-red-400"><i class="fa-solid fa-xmark"></i></div>
+                                    <div><strong>Exclusive vs Inclusive Mix-up:</strong> Calculating GST on an MRP that already includes tax (use our <em>"Inclusive"</em> mode to fix this!).</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. More Tools (Internal Links) -->
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 text-center mt-8">
+                    <!-- H2 Centered -->
                     <h2 class="text-xl font-bold text-white mb-3">More Free Business Tools for You</h2>
                     <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
                         <a href="/" class="btn-secondary text-white py-2 px-6 rounded-lg text-sm font-semibold hover:bg-red-900/30 transition-colors border-red-500/50">
@@ -423,8 +506,8 @@
                     </div>
                 </div>
 
-                <!-- 7. FAQ Section -->
-                <div class="border-t border-gray-800 pt-8">
+                <!-- 9. FAQ Section -->
+                <div class="border-t border-gray-800 pt-8 mt-8">
                     <!-- H2 Centered -->
                     <h2 class="text-xl font-bold text-white mb-4 text-center">Frequently Asked Questions</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -439,9 +522,10 @@
                             <!-- H3 -->
                             <h3 class="text-white font-semibold text-sm mb-1">2. Which GST rate applies to my business?</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">
+                                <strong>3%:</strong> Gold, Silver, Precious metals.<br>
                                 <strong>5%:</strong> Essential food items, clothing under ₹1000.<br>
                                 <strong>12%:</strong> Processed foods, mobiles.<br>
-                                <strong>18%:</strong> Most services, electronics, capital goods.
+                                <strong>18%:</strong> Most services, electronics, capital goods.<br>
                             </p>
                         </div>
                         <div>
